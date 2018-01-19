@@ -2,43 +2,61 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import db
 import pandas as pd
+import numpy as np
 from pygeocoder import Geocoder, GeocoderError
 import time
+import os
 
-GOOGLE_APPLICATION_CREDENTIALS = "coffeechooser-firebase-adminsdk-6gocx-9116ac6209.json"
-cred = credentials.Certificate("coffeechooser-firebase-adminsdk-6gocx-9116ac6209.json")
+from os.path import join, dirname
+from dotenv import load_dotenv
+
+dotenv_path = join(dirname(__file__), '.env')
+load_dotenv(dotenv_path)
+
+#TODO: remove creds
+GOOGLE_APPLICATION_CREDENTIALS = os.environ.get("PATH_TO_GOOGLE_APPLICATION_CREDENTIALS")
+cred = credentials.Certificate(GOOGLE_APPLICATION_CREDENTIALS)
+csv_file = os.environ.get('csv_file')
 
 firebase_admin.initialize_app(cred, {
-    'databaseURL': 'https://coffeechooser.firebaseio.com'
+    'databaseURL': os.environ.get('databaseURL')
 })
 
-def getData():
-	df = saveFile()
+def loadFirebaseDB():
+	ref = db.reference('')
+	data = ref.get()
+	df = pd.DataFrame.from_dict(data, orient='index')
+	df.fillna(np.nan, inplace=True)
+	return df
+
+def updateZipCodes(df):
 	for index,rows in df.iterrows():
 		lat = df.loc[index, 'lat']
 		lon = df.loc[index, 'lon']
-		zipcode = df.loc[index, 'zipcode']
-		if zipcode.isnull():
+		print(df.loc[index, 'zipcode'])
+		# if np.isnan(df.loc[index, 'zipcode']):
+		if pd.isnull(df.loc[index, 'zipcode']):
 			try:
 				zipcode = geocode(lat, lon)
-				df.loc[index, 'zipcode'] = zipcode
+				df.loc[index, 'zipcode'] = str(zipcode)
 				print("geocoding {} {}".format(index, zipcode))
-				time.sleep(1)
+				time.sleep(20)
 			except Exception as e:
-				df.to_csv('data_new.csv')
+				print(e)
 
 	return df
 
-def saveFile():
-	try:
-		df =  pd.read_csv('data_new.csv')
-		df = df.where((pd.notnull(df)), None)
-		return df
-	except Exception as e:
-		ref = db.reference('')
-		data = ref.get()
-		return pd.DataFrame.from_dict(data, orient='index')
-		
+def loadData():
+	"""load data from firebase
+		append saved data
+		remove dups """
+	firebase_df = loadFirebaseDB()
+	if os.path.exists(csv_file):
+		saved_df = pd.read_csv(csv_file, index_col=0)
+		combined_df  = pd.concat([saved_df,firebase_df]).drop_duplicates(subset=['date'])
+		return combined_df
+	else:
+		return firebase_df
 
 def geocode(lat, lon):
 	try:
@@ -51,5 +69,7 @@ def geocode(lat, lon):
 			raise
 		return None
 
-data = getData()
-data.to_csv('data_new.csv')
+
+data = loadData()
+data = updateZipCodes(data)
+data.to_csv(csv_file)
