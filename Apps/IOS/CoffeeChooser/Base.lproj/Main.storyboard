@@ -13,7 +13,7 @@
         <!--Predict-->
         <scene sceneID="hoL-oz-bTy">
             <objects>
-                <viewController title="Predict" id="0Rf-dr-JnV" customClass="PredictViewController" customModule="CoffeeChooser" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Predict" id="0Rf-dr-JnV" customClass="PredictViewController" customModule="CoffeeBot" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7Zx-ki-N0H"/>
                         <viewControllerLayoutGuide type="bottom" id="3TS-on-TJV"/>
@@ -93,7 +93,7 @@
         <!--Train-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CoffeeChooser" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CoffeeBot" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -102,83 +102,58 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lWf-rY-NBq">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lWf-rY-NBq">
                                 <rect key="frame" x="0.0" y="69" width="375" height="1132"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="10G-ec-dZA">
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="10G-ec-dZA">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="598"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Iced Coffee" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iIt-G9-4Ze">
-                                                <rect key="frame" x="153" y="734" width="89" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Iced Coffee" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iIt-G9-4Ze">
+                                                <rect key="frame" x="153.66666666666666" y="550" width="89" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4TZ-n3-oLq" userLabel="HotCofeeBtn">
-                                                <rect key="frame" x="109" y="28" width="156" height="287"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="156" id="46j-vx-8Es"/>
-                                                    <constraint firstAttribute="height" constant="287" id="pNw-b6-xFt"/>
-                                                </constraints>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hot Coffee" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hwb-2j-6f1">
+                                                <rect key="frame" x="145" y="250" width="84" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4TZ-n3-oLq" userLabel="HotCofeeBtn">
+                                                <rect key="frame" x="124" y="28" width="126" height="199"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="Hot Coffee"/>
                                                 <connections>
                                                     <action selector="hotCoffeeSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TxJ-pX-43I"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jy4-tV-OvR" userLabel="IceCoffeeBtn">
-                                                <rect key="frame" x="109" y="395" width="156" height="318"/>
-                                                <state key="normal" image="Iced Coffee"/>
-                                                <connections>
-                                                    <action selector="icedCoffeeSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CMP-wd-gR0"/>
-                                                </connections>
-                                            </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hot Coffee" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hwb-2j-6f1">
-                                                <rect key="frame" x="155" y="323" width="84" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstItem="Hwb-2j-6f1" firstAttribute="top" secondItem="4TZ-n3-oLq" secondAttribute="bottom" constant="8" symbolic="YES" id="4IE-5P-gxq"/>
-                                            <constraint firstItem="4TZ-n3-oLq" firstAttribute="leading" secondItem="Jy4-tV-OvR" secondAttribute="leading" id="9Vz-Z4-YyB"/>
-                                            <constraint firstItem="iIt-G9-4Ze" firstAttribute="top" secondItem="Jy4-tV-OvR" secondAttribute="bottom" constant="21" id="ORb-ON-7xa"/>
-                                            <constraint firstItem="Jy4-tV-OvR" firstAttribute="top" secondItem="Hwb-2j-6f1" secondAttribute="bottom" constant="51" id="PQP-hj-Q0R"/>
-                                            <constraint firstAttribute="height" constant="598" id="VWm-Iz-GcU"/>
-                                            <constraint firstItem="4TZ-n3-oLq" firstAttribute="top" secondItem="10G-ec-dZA" secondAttribute="topMargin" constant="20" id="YOF-Q9-wXA"/>
-                                            <constraint firstItem="4TZ-n3-oLq" firstAttribute="centerX" secondItem="iIt-G9-4Ze" secondAttribute="centerX" constant="-10.5" id="Ygo-Ve-aai"/>
-                                            <constraint firstItem="4TZ-n3-oLq" firstAttribute="centerX" secondItem="Hwb-2j-6f1" secondAttribute="centerX" constant="-10" id="h6i-sU-daj"/>
-                                            <constraint firstItem="Jy4-tV-OvR" firstAttribute="centerX" secondItem="10G-ec-dZA" secondAttribute="centerX" id="jHi-Wd-YpK"/>
-                                            <constraint firstItem="4TZ-n3-oLq" firstAttribute="centerX" secondItem="10G-ec-dZA" secondAttribute="centerX" id="mou-bD-brX"/>
-                                        </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jy4-tV-OvR" userLabel="IceCoffeeBtn">
+                                        <rect key="frame" x="111" y="301" width="153" height="227"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="Iced Coffee"/>
+                                        <connections>
+                                            <action selector="icedCoffeeSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CMP-wd-gR0"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="10G-ec-dZA" secondAttribute="bottom" constant="201" id="HUj-w8-Ele"/>
-                                    <constraint firstItem="10G-ec-dZA" firstAttribute="leading" secondItem="lWf-rY-NBq" secondAttribute="leading" id="Lc1-k8-THx"/>
-                                    <constraint firstItem="10G-ec-dZA" firstAttribute="centerX" secondItem="lWf-rY-NBq" secondAttribute="centerX" id="gtK-5Q-azR"/>
-                                    <constraint firstAttribute="trailing" secondItem="10G-ec-dZA" secondAttribute="trailing" id="nuY-nZ-UEJ"/>
-                                    <constraint firstItem="10G-ec-dZA" firstAttribute="top" secondItem="lWf-rY-NBq" secondAttribute="top" id="ytZ-dd-oDz"/>
-                                </constraints>
                             </scrollView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select your coffee" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q7m-Wf-Gte">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select your coffee" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q7m-Wf-Gte">
                                 <rect key="frame" x="16" y="64" width="359" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="Q7m-Wf-Gte" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="13I-XI-9ce"/>
-                            <constraint firstAttribute="trailing" secondItem="lWf-rY-NBq" secondAttribute="trailing" id="8aJ-rc-HgJ"/>
-                            <constraint firstItem="lWf-rY-NBq" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="69" id="Dp2-iT-5wO"/>
-                            <constraint firstItem="Q7m-Wf-Gte" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="F6N-Lk-MGq"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Q7m-Wf-Gte" secondAttribute="trailing" constant="-16" id="IRA-xp-sxc"/>
-                            <constraint firstAttribute="bottom" secondItem="lWf-rY-NBq" secondAttribute="bottom" constant="-201" id="jXt-ds-Swc"/>
-                            <constraint firstItem="lWf-rY-NBq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="nbi-20-uHY"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Train" id="I4I-Pl-Ysj">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="Et9-y9-4xI">

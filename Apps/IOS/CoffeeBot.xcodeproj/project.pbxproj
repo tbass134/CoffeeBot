@@ -17,9 +17,10 @@
 		3C6DFC581ED864E6002822D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C6DFC561ED864E6002822D0 /* LaunchScreen.storyboard */; };
 		3C6DFC601ED86B3A002822D0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6DFC5F1ED86B3A002822D0 /* CoreLocation.framework */; };
 		3C6DFC621ED86E3B002822D0 /* OpenWeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6DFC611ED86E3B002822D0 /* OpenWeatherAPI.swift */; };
-		3C6DFC641ED88000002822D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C6DFC631ED88000002822D0 /* GoogleService-Info.plist */; };
 		3C6DFC681EDA18E8002822D0 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6DFC661EDA18E8002822D0 /* Fabric.framework */; };
 		3C6DFC691EDA18E8002822D0 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6DFC671EDA18E8002822D0 /* Crashlytics.framework */; };
+		3C9115C1202F550500449511 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9115C0202F550500449511 /* Config.swift */; };
+		3C9115CB202F568700449511 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C9115CA202F568700449511 /* GoogleService-Info.plist */; };
 		3CC52731202F5081006FB9E6 /* coffee_prediction.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3CC52730202F5081006FB9E6 /* coffee_prediction.mlmodel */; };
 /* End PBXBuildFile section */
 
@@ -39,9 +40,10 @@
 		3C6DFC591ED864E6002822D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C6DFC5F1ED86B3A002822D0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3C6DFC611ED86E3B002822D0 /* OpenWeatherAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenWeatherAPI.swift; sourceTree = "<group>"; };
-		3C6DFC631ED88000002822D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3C6DFC661EDA18E8002822D0 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		3C6DFC671EDA18E8002822D0 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		3C9115C0202F550500449511 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		3C9115CA202F568700449511 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3CC52730202F5081006FB9E6 /* coffee_prediction.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = coffee_prediction.mlmodel; sourceTree = "<group>"; };
 		D316BDDFAFA1A039163C9236 /* Pods-CoffeeBot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeeBot.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoffeeBot/Pods-CoffeeBot.release.xcconfig"; sourceTree = "<group>"; };
 		EFB2D947DB00B55BBE6B6D6D /* Pods_CoffeeBot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoffeeBot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,10 +96,10 @@
 		3C6DFC4C1ED864E6002822D0 /* CoffeeChooser */ = {
 			isa = PBXGroup;
 			children = (
+				3C9115CA202F568700449511 /* GoogleService-Info.plist */,
 				3CC52732202F5087006FB9E6 /* Model */,
 				3C11D7B51FF486E40008BBA3 /* default.gpx */,
 				3C11D7AE1FF45BCD0008BBA3 /* CoreMLHelpers */,
-				3C6DFC631ED88000002822D0 /* GoogleService-Info.plist */,
 				3C6DFC4D1ED864E6002822D0 /* AppDelegate.swift */,
 				3C6DFC4F1ED864E6002822D0 /* ViewController.swift */,
 				3C6DFC511ED864E6002822D0 /* Main.storyboard */,
@@ -107,6 +109,7 @@
 				3C6DFC611ED86E3B002822D0 /* OpenWeatherAPI.swift */,
 				3C11D7AB1FF4533D0008BBA3 /* PredictViewController.swift */,
 				3C11D7B81FF5D9AE0008BBA3 /* LocationManager.swift */,
+				3C9115C0202F550500449511 /* Config.swift */,
 			);
 			path = CoffeeChooser;
 			sourceTree = "<group>";
@@ -194,7 +197,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C6DFC581ED864E6002822D0 /* LaunchScreen.storyboard in Resources */,
-				3C6DFC641ED88000002822D0 /* GoogleService-Info.plist in Resources */,
+				3C9115CB202F568700449511 /* GoogleService-Info.plist in Resources */,
 				3C6DFC551ED864E6002822D0 /* Assets.xcassets in Resources */,
 				3C6DFC531ED864E6002822D0 /* Main.storyboard in Resources */,
 			);
@@ -283,6 +286,7 @@
 				3C11D7AC1FF4533D0008BBA3 /* PredictViewController.swift in Sources */,
 				3CC52731202F5081006FB9E6 /* coffee_prediction.mlmodel in Sources */,
 				3C6DFC501ED864E6002822D0 /* ViewController.swift in Sources */,
+				3C9115C1202F550500449511 /* Config.swift in Sources */,
 				3C11D7B91FF5D9AE0008BBA3 /* LocationManager.swift in Sources */,
 				3C6DFC4E1ED864E6002822D0 /* AppDelegate.swift in Sources */,
 				3C6DFC621ED86E3B002822D0 /* OpenWeatherAPI.swift in Sources */,

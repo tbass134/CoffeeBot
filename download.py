@@ -68,7 +68,24 @@ def geocode(lat, lon):
 			raise
 		return None
 
+#in the IOS app, the coffee type(hot or iced) was stored as '2'
+#however in the Alexa skill, it was stored as '1'
+#this function just converts any '2' to '1'
+def convertCoffeeType(x):
+    if x == 2:
+        return 1
+    else:
+        return x
 
 data = loadData()
 data = updateZipCodes(data)
+
+#Perform some minor cleanup
+data['type'] = data['type'].apply(convertCoffeeType)
+
+#replace nan values in `device` with `ios` since these values came from the ios app, which did not set `device`
+data['device'].fillna('IOS', inplace=True)
+
+
+
 data.to_csv(csv_file)
