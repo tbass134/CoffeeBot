@@ -169,7 +169,7 @@ class ViewController: UIViewController,  LocationManagerDelegate {
 									location: json["name"].stringValue,
 									lat:json["coord"]["lat"].floatValue,
 									lon:json["coord"]["lon"].floatValue,
-									weatherCond: json["weather"]["main"].stringValue,
+									weatherCond: json["weather"][0]["main"].stringValue,
 									clouds: json["clouds"]["all"].intValue,
 									visibility: json["visibility"].intValue,
 									windSpeed: json["wind"]["speed"].intValue,

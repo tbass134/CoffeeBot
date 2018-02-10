@@ -32,7 +32,7 @@ exports.saveWeatherData = function (json, coffee_type) {
             location: json["name"],
             lat: json["coord"]["lat"],
             lon: json["coord"]["lon"],
-            weatherCond: (typeof json["weather"]["main"] == "undefined") ? "" : json["weather"]["main"],
+            weatherCond: json["weather"][0]["main"],
             clouds: json["clouds"]["all"],
             visibility: json["visibility"],
             windSpeed: json["wind"]["speed"],
