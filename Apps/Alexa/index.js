@@ -9,13 +9,14 @@
  **/
 
 'use strict';
+require('dotenv').config()
 
 const Alexa = require('alexa-sdk');
 const Weather = require('./weather.js')
 const Firebase = require('./firebase.js')
 const Requests = require('./requests.js')
 
-const APP_ID = "amzn1.ask.skill.bc15fa0f-c1d5-4c4e-963c-26eb1729a5ca";
+const APP_ID = process.env.ALEXA_SKILL_ID;
 
 const handlers = {
     'LaunchRequest': function () {
@@ -181,7 +182,7 @@ var languageStrings = {
             "WELCOME_MESSAGE": "Welcome to %s. %s",
             "WELCOME_REPROMPT": "For instructions on what you can say, please say help me.",
             "REQUEST_COFFEE_CARD_TITLE":"%s - Your are drinking. (%s)",
-            "REQUEST_COFFEE_MESSAGE":"Thanks for your input. Tqhis will help me better predict what coffee you should have next time",
+            "REQUEST_COFFEE_MESSAGE":"Thanks for your input. This will help me better predict what coffee you should have next time",
 
 
             "GET_COFFEE_CARD_TITLE":"%s - I think you should have %s",
