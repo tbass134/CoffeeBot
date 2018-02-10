@@ -1,0 +1,475 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		37FC0BC2CCAF4601985D1943 /* Pods_CoffeeBot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFB2D947DB00B55BBE6B6D6D /* Pods_CoffeeBot.framework */; };
+		3C11D7AC1FF4533D0008BBA3 /* PredictViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C11D7AB1FF4533D0008BBA3 /* PredictViewController.swift */; };
+		3C11D7B91FF5D9AE0008BBA3 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C11D7B81FF5D9AE0008BBA3 /* LocationManager.swift */; };
+		3C6DFC4E1ED864E6002822D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6DFC4D1ED864E6002822D0 /* AppDelegate.swift */; };
+		3C6DFC501ED864E6002822D0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6DFC4F1ED864E6002822D0 /* ViewController.swift */; };
+		3C6DFC531ED864E6002822D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C6DFC511ED864E6002822D0 /* Main.storyboard */; };
+		3C6DFC551ED864E6002822D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C6DFC541ED864E6002822D0 /* Assets.xcassets */; };
+		3C6DFC581ED864E6002822D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C6DFC561ED864E6002822D0 /* LaunchScreen.storyboard */; };
+		3C6DFC601ED86B3A002822D0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6DFC5F1ED86B3A002822D0 /* CoreLocation.framework */; };
+		3C6DFC621ED86E3B002822D0 /* OpenWeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6DFC611ED86E3B002822D0 /* OpenWeatherAPI.swift */; };
+		3C6DFC641ED88000002822D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C6DFC631ED88000002822D0 /* GoogleService-Info.plist */; };
+		3C6DFC681EDA18E8002822D0 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6DFC661EDA18E8002822D0 /* Fabric.framework */; };
+		3C6DFC691EDA18E8002822D0 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6DFC671EDA18E8002822D0 /* Crashlytics.framework */; };
+		3CC52731202F5081006FB9E6 /* coffee_prediction.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3CC52730202F5081006FB9E6 /* coffee_prediction.mlmodel */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0049113161E84510F8067688 /* Pods_CoffeeChooser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoffeeChooser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		26939420D9D2400AF8374FF0 /* Pods-CoffeeBot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeeBot.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoffeeBot/Pods-CoffeeBot.debug.xcconfig"; sourceTree = "<group>"; };
+		3C11D7AB1FF4533D0008BBA3 /* PredictViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictViewController.swift; sourceTree = "<group>"; };
+		3C11D7AE1FF45BCD0008BBA3 /* CoreMLHelpers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CoreMLHelpers; sourceTree = "<group>"; };
+		3C11D7B51FF486E40008BBA3 /* default.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = default.gpx; sourceTree = "<group>"; };
+		3C11D7B81FF5D9AE0008BBA3 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		3C6DFC4A1ED864E6002822D0 /* CoffeeBot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeeBot.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C6DFC4D1ED864E6002822D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3C6DFC4F1ED864E6002822D0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3C6DFC521ED864E6002822D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3C6DFC541ED864E6002822D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3C6DFC571ED864E6002822D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3C6DFC591ED864E6002822D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3C6DFC5F1ED86B3A002822D0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		3C6DFC611ED86E3B002822D0 /* OpenWeatherAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenWeatherAPI.swift; sourceTree = "<group>"; };
+		3C6DFC631ED88000002822D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3C6DFC661EDA18E8002822D0 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		3C6DFC671EDA18E8002822D0 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		3CC52730202F5081006FB9E6 /* coffee_prediction.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = coffee_prediction.mlmodel; sourceTree = "<group>"; };
+		D316BDDFAFA1A039163C9236 /* Pods-CoffeeBot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeeBot.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoffeeBot/Pods-CoffeeBot.release.xcconfig"; sourceTree = "<group>"; };
+		EFB2D947DB00B55BBE6B6D6D /* Pods_CoffeeBot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoffeeBot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3C6DFC471ED864E6002822D0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3C6DFC601ED86B3A002822D0 /* CoreLocation.framework in Frameworks */,
+				3C6DFC691EDA18E8002822D0 /* Crashlytics.framework in Frameworks */,
+				3C6DFC681EDA18E8002822D0 /* Fabric.framework in Frameworks */,
+				37FC0BC2CCAF4601985D1943 /* Pods_CoffeeBot.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		11F3C2AEEB9C1D0E4ABAEB08 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				26939420D9D2400AF8374FF0 /* Pods-CoffeeBot.debug.xcconfig */,
+				D316BDDFAFA1A039163C9236 /* Pods-CoffeeBot.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		3C6DFC411ED864E6002822D0 = {
+			isa = PBXGroup;
+			children = (
+				3C6DFC661EDA18E8002822D0 /* Fabric.framework */,
+				3C6DFC671EDA18E8002822D0 /* Crashlytics.framework */,
+				3C6DFC4C1ED864E6002822D0 /* CoffeeChooser */,
+				3C6DFC4B1ED864E6002822D0 /* Products */,
+				11F3C2AEEB9C1D0E4ABAEB08 /* Pods */,
+				6AB02CEE087C1D6E2EE29AF1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		3C6DFC4B1ED864E6002822D0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3C6DFC4A1ED864E6002822D0 /* CoffeeBot.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3C6DFC4C1ED864E6002822D0 /* CoffeeChooser */ = {
+			isa = PBXGroup;
+			children = (
+				3CC52732202F5087006FB9E6 /* Model */,
+				3C11D7B51FF486E40008BBA3 /* default.gpx */,
+				3C11D7AE1FF45BCD0008BBA3 /* CoreMLHelpers */,
+				3C6DFC631ED88000002822D0 /* GoogleService-Info.plist */,
+				3C6DFC4D1ED864E6002822D0 /* AppDelegate.swift */,
+				3C6DFC4F1ED864E6002822D0 /* ViewController.swift */,
+				3C6DFC511ED864E6002822D0 /* Main.storyboard */,
+				3C6DFC541ED864E6002822D0 /* Assets.xcassets */,
+				3C6DFC561ED864E6002822D0 /* LaunchScreen.storyboard */,
+				3C6DFC591ED864E6002822D0 /* Info.plist */,
+				3C6DFC611ED86E3B002822D0 /* OpenWeatherAPI.swift */,
+				3C11D7AB1FF4533D0008BBA3 /* PredictViewController.swift */,
+				3C11D7B81FF5D9AE0008BBA3 /* LocationManager.swift */,
+			);
+			path = CoffeeChooser;
+			sourceTree = "<group>";
+		};
+		3CC52732202F5087006FB9E6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3CC52730202F5081006FB9E6 /* coffee_prediction.mlmodel */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6AB02CEE087C1D6E2EE29AF1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3C6DFC5F1ED86B3A002822D0 /* CoreLocation.framework */,
+				0049113161E84510F8067688 /* Pods_CoffeeChooser.framework */,
+				EFB2D947DB00B55BBE6B6D6D /* Pods_CoffeeBot.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3C6DFC491ED864E6002822D0 /* CoffeeBot */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3C6DFC5C1ED864E6002822D0 /* Build configuration list for PBXNativeTarget "CoffeeBot" */;
+			buildPhases = (
+				81ED8803F6B792BAE63673FF /* [CP] Check Pods Manifest.lock */,
+				3C6DFC461ED864E6002822D0 /* Sources */,
+				3C6DFC471ED864E6002822D0 /* Frameworks */,
+				3C6DFC481ED864E6002822D0 /* Resources */,
+				5E66EDBEDF00501F6EBC8FA0 /* [CP] Embed Pods Frameworks */,
+				B951A03709770908774AA18E /* [CP] Copy Pods Resources */,
+				3C6DFC651EDA18AE002822D0 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CoffeeBot;
+			productName = CoffeeChooser;
+			productReference = 3C6DFC4A1ED864E6002822D0 /* CoffeeBot.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3C6DFC421ED864E6002822D0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Dark Bear Interactive";
+				TargetAttributes = {
+					3C6DFC491ED864E6002822D0 = {
+						CreatedOnToolsVersion = 8.3.1;
+						DevelopmentTeam = A583HE3WU9;
+						ProvisioningStyle = Manual;
+					};
+				};
+			};
+			buildConfigurationList = 3C6DFC451ED864E6002822D0 /* Build configuration list for PBXProject "CoffeeBot" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3C6DFC411ED864E6002822D0;
+			productRefGroup = 3C6DFC4B1ED864E6002822D0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3C6DFC491ED864E6002822D0 /* CoffeeBot */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3C6DFC481ED864E6002822D0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3C6DFC581ED864E6002822D0 /* LaunchScreen.storyboard in Resources */,
+				3C6DFC641ED88000002822D0 /* GoogleService-Info.plist in Resources */,
+				3C6DFC551ED864E6002822D0 /* Assets.xcassets in Resources */,
+				3C6DFC531ED864E6002822D0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3C6DFC651EDA18AE002822D0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 8f6f8420d7e3cb5d9c96457762fff0e46714a8d7 fa17bf771dcb800d3b48fdde548266b21bd9829a612acdb49382af2a06f621a2 ";
+		};
+		5E66EDBEDF00501F6EBC8FA0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CoffeeBot/Pods-CoffeeBot-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoffeeBot/Pods-CoffeeBot-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		81ED8803F6B792BAE63673FF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CoffeeBot-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B951A03709770908774AA18E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoffeeBot/Pods-CoffeeBot-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3C6DFC461ED864E6002822D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3C11D7AC1FF4533D0008BBA3 /* PredictViewController.swift in Sources */,
+				3CC52731202F5081006FB9E6 /* coffee_prediction.mlmodel in Sources */,
+				3C6DFC501ED864E6002822D0 /* ViewController.swift in Sources */,
+				3C11D7B91FF5D9AE0008BBA3 /* LocationManager.swift in Sources */,
+				3C6DFC4E1ED864E6002822D0 /* AppDelegate.swift in Sources */,
+				3C6DFC621ED86E3B002822D0 /* OpenWeatherAPI.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3C6DFC511ED864E6002822D0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3C6DFC521ED864E6002822D0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3C6DFC561ED864E6002822D0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3C6DFC571ED864E6002822D0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3C6DFC5A1ED864E6002822D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3C6DFC5B1ED864E6002822D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3C6DFC5D1ED864E6002822D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26939420D9D2400AF8374FF0 /* Pods-CoffeeBot.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = A583HE3WU9;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = CoffeeChooser/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tonyhung.coffeebot;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "7faab999-a44e-4833-bc99-1be55975958b";
+				PROVISIONING_PROFILE_SPECIFIER = CoffeeBot;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		3C6DFC5E1ED864E6002822D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D316BDDFAFA1A039163C9236 /* Pods-CoffeeBot.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = A583HE3WU9;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = CoffeeChooser/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tonyhung.coffeebot;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "1ebce2b4-2790-4aaa-800d-30801d91837b";
+				PROVISIONING_PROFILE_SPECIFIER = "CoffeeBot-Adhoc";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3C6DFC451ED864E6002822D0 /* Build configuration list for PBXProject "CoffeeBot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C6DFC5A1ED864E6002822D0 /* Debug */,
+				3C6DFC5B1ED864E6002822D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3C6DFC5C1ED864E6002822D0 /* Build configuration list for PBXNativeTarget "CoffeeBot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C6DFC5D1ED864E6002822D0 /* Debug */,
+				3C6DFC5E1ED864E6002822D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3C6DFC421ED864E6002822D0 /* Project object */;
+}
