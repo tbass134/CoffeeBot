@@ -13,7 +13,6 @@ from dotenv import load_dotenv
 dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(dotenv_path)
 
-#TODO: remove creds
 GOOGLE_APPLICATION_CREDENTIALS = os.environ.get("PATH_TO_GOOGLE_APPLICATION_CREDENTIALS")
 cred = credentials.Certificate(GOOGLE_APPLICATION_CREDENTIALS)
 csv_file = os.environ.get('csv_file')
