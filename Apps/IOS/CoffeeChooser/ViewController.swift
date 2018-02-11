@@ -87,7 +87,7 @@ class ViewController: UIViewController,  LocationManagerDelegate {
     }
     
     override func viewDidLayoutSubviews() {
-        self.scrollView.contentSize = CGSize(width: 0, height: 1000)
+//        self.scrollView.contentSize = CGSize(width: 0, height: 1000)
     }
     
    override func viewDidAppear(_ animated: Bool) {
@@ -145,6 +145,10 @@ class ViewController: UIViewController,  LocationManagerDelegate {
     }
     
     func saveItem(_ coffeeType:Coffee) {
+		#if (arch(i386) || arch(x86_64))
+		return
+		#endif
+		
         guard let json = self.jsonData, let location = self.lastlocation else {
             return
         }
