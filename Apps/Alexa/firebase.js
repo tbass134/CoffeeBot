@@ -20,7 +20,7 @@ firebaseDatabase = firebaseAdmin.database()
 
 exports.saveWeatherData = function (json, coffee_type) {
     return new Promise(function (resolve, reject) {
-        var database = admin.database();
+        var database = firebaseAdmin.database();
         const uuidV1 = require('uuid/v1');
         var ref = database.ref(uuidV1());
         var item = {
