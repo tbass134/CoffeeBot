@@ -6,6 +6,8 @@ import numpy as np
 from pygeocoder import Geocoder, GeocoderError
 import time
 import os
+import requests
+import dateutil.parser
 
 from os.path import join, dirname
 from dotenv import load_dotenv
@@ -16,6 +18,10 @@ load_dotenv(dotenv_path)
 GOOGLE_APPLICATION_CREDENTIALS = os.environ.get("PATH_TO_GOOGLE_APPLICATION_CREDENTIALS")
 cred = credentials.Certificate(GOOGLE_APPLICATION_CREDENTIALS)
 csv_file = os.environ.get('csv_file')
+
+W_UNDERGROUND_BASE_URL = 'http://api.wunderground.com/api'
+W_UNDERGROUND_API_KEY = os.environ.get('WEATHER_UNDERGROUND_API_KEY')
+
 
 firebase_admin.initialize_app(cred, {
     'databaseURL': os.environ.get('databaseURL')
@@ -33,7 +39,6 @@ def updateZipCodes(df):
 		lat = df.loc[index, 'lat']
 		lon = df.loc[index, 'lon']
 		print(df.loc[index, 'zipcode'])
-		# if np.isnan(df.loc[index, 'zipcode']):
 		if pd.isnull(df.loc[index, 'zipcode']):
 			try:
 				zipcode = geocode(lat, lon)
@@ -42,6 +47,22 @@ def updateZipCodes(df):
 				time.sleep(20)
 			except Exception as e:
 				print(e)
+		if pd.isnull(df.loc[index, 'weatherCond']):
+			try:
+				zipcode = str(df.loc[index, 'zipcode'])
+				date = str(df.loc[index, 'date'])
+				# print("get weather condition zip:{} date:{}".format(zipcode, date))
+				d = dateutil.parser.parse(date)
+				print(d)
+				city, state = getLocationFromZip(zipcode)
+				time.sleep(1)
+				condition = getWeatherConditions(city, state, d)
+				df.loc[index, 'weatherCond'] = str(condition)
+				print("condition {} {}".format(index, condition))
+				# time.sleep(20)
+			except Exception as e:
+				print("error {}".format(e))
+
 
 	return df
 
@@ -67,6 +88,33 @@ def geocode(lat, lon):
 		# Raise except if OVER_USAGE_LIMIT
 			raise
 		return None
+
+def getWeatherConditions(city, state, date):
+
+	day = date.strftime("%Y%m%d")
+	print(day)
+	hour = date.strftime("%H")
+	print(hour)
+
+	url = W_UNDERGROUND_BASE_URL+"/"+W_UNDERGROUND_API_KEY+"/history_"+day+"/q/"+state+"/"+city.replace(" ","_")+".json"
+	print(url)
+	response = requests.request("GET", url)
+	json = response.json()
+
+	observations = json['history']['observations']
+	for date in observations:
+		if date['date']['hour'] == hour:
+			return date['conds']
+	return None
+
+def getLocationFromZip(zip):
+	url = W_UNDERGROUND_BASE_URL+"/"+W_UNDERGROUND_API_KEY+"/geolookup/q/"+zip+".json"
+	response = requests.request("GET", url)
+	json = response.json()
+	print(json['location']['city'])
+	print(json['location']['state'])
+	return (json['location']['city'], json['location']['state'])
+
 
 #in the IOS app, the coffee type(hot or iced) was stored as '2'
 #however in the Alexa skill, it was stored as '1'
