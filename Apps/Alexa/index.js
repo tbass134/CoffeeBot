@@ -40,9 +40,9 @@ const handlers = {
             itemName = itemSlot.value.toLowerCase();
 
             if (itemName == "hot coffee") {
-                coffee_type = 1
+                coffee_type = "1"
             }  else if (itemName == "iced coffee") {
-                coffee_type = 0
+                coffee_type = "0"
             } else {
                 console.log(itemName + " not found");
 
@@ -55,20 +55,27 @@ const handlers = {
                 that.attributes['repromptSpeech'] = repromptSpeech;
     
                 that.emit(':ask', speechOutput, repromptSpeech);
+                return
             }
         }
         console.log("coffee_type: " + coffee_type)
         console.log("itemName" + itemName);
 
         var cardTitle = that.t("REQUEST_COFFEE_CARD_TITLE", that.t("SKILL_NAME"), itemName);
+        var data = {
+            coffee_type:coffee_type,
+            event:that.event
+        }
+        Requests.getZip(data)
+        .then(function(data) {
+            return Weather.getWeather(data)
+        }).then(function (data) {
 
-        Requests.getZip(that.event)
-        .then(function(json) {
-            return Weather.getWeather(json.postalCode)
-        }).then(function (json) {
-            return Firebase.saveWeatherData(json,coffee_type)
-        }).then(function (json) {
-            console.log('Data saved')
+            console.log("Weather JSON", data.weather)
+            console.log("Selected coffee type", data.coffee_type)
+            return Firebase.saveWeatherData(data.weather,data.coffee_type)
+        }).then(function (data) {
+            console.log('Data saved', data)
             that.attributes['speechOutput'] = that.t("REQUEST_COFFEE_MESSAGE");
             that.attributes['repromptSpeech'] = that.t("REPEAT_MESSAGE");
             
@@ -182,15 +189,15 @@ var languageStrings = {
             "WELCOME_MESSAGE": "Welcome to %s. %s",
             "WELCOME_REPROMPT": "For instructions on what you can say, please say help me.",
             "REQUEST_COFFEE_CARD_TITLE":"%s - Your are drinking. (%s)",
-            "REQUEST_COFFEE_MESSAGE":"Thanks for your input. This will help me better predict what coffee you should have next time",
+            "REQUEST_COFFEE_MESSAGE":"Thanks for your input. This will help me better predict what coffee you should have next time.",
 
 
-            "GET_COFFEE_CARD_TITLE":"%s - I think you should have %s",
-            "GET_COFFEE_OUTPUT":"I think you should have %s",
+            "GET_COFFEE_CARD_TITLE":"%s - I think you should have %s.",
+            "GET_COFFEE_OUTPUT":"I think you should have %s.",
 
             "STOP_MESSAGE": "Goodbye!",
             "REPEAT_MESSAGE": "Try saying repeat.",
-            "NOT_FOUND_MESSAGE": "I\'m sorry, I currently do not know how to do this.",
+            "NOT_FOUND_MESSAGE": "I\'m sorry, I currently do not know how to do this",
             "NOT_FOUND_REPROMPT": "What else can I help with?",
             "NO_COFFEE_TYPE_FOUND": "I'\m sorry, I didnt hear you. Please say if you are having Hot Coffee or Iced Coffee",
             "LOCATION_PERMISSIONS_REJECTED": "You have refused to allow or have not allowed %s access to the address information in the Alexa app. %s cannot function without address information. To permit access to address information, enable %s again, and consent to provide address information in the Alexa app."

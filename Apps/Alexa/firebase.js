@@ -19,6 +19,7 @@ firebaseDatabase = firebaseAdmin.database()
 
 
 exports.saveWeatherData = function (json, coffee_type) {
+    console.log("Saving weather data", json)
     return new Promise(function (resolve, reject) {
         var database = firebaseAdmin.database();
         const uuidV1 = require('uuid/v1');
@@ -37,8 +38,10 @@ exports.saveWeatherData = function (json, coffee_type) {
             visibility: json["visibility"],
             windSpeed: json["wind"]["speed"],
             windDeg: json["wind"]["deg"],
-            pressure: json["main"]["pressure"]
+            pressure: json["main"]["pressure"],
+            zipcode: json["zipcode"]
         }
+        console.log("saving weather Data: ", item)
         ref.set(item, function (error) {
             if (error) {
                 console.log("Data could not be saved." + error);

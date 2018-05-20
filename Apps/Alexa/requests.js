@@ -1,8 +1,8 @@
 var request = require("request");
 
-exports.getZip = function(event) {
+exports.getZip = function(data) {
     return new Promise(function (resolve, reject) {
-
+        var event = data.event
         try {
             var deviceId = event.context.System.device.deviceId
             consentToken = event.context.System.user.permissions.consentToken
@@ -32,8 +32,8 @@ exports.getZip = function(event) {
                     return
                 }
                 console.log('getZipSUccess: ', json);
-                console.log(body);
-                resolve(json)
+                data.location = json
+                resolve(data)
 
             });
         } catch(e) {
