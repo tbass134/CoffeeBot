@@ -66,75 +66,83 @@ struct SelectedItem {
     }
 }
 
-class ViewController: UIViewController,  LocationManagerDelegate {
 
-    @IBOutlet weak var icedCoffeBtn: UIButton!
-    @IBOutlet weak var hotCoffeeBtn: UIButton!
-    var ref: DatabaseReference!
+class TrainViewController: UIViewController  {
+
+	var ref: DatabaseReference!
 
     var jsonData:JSON?
 	var lastlocation:CLLocationCoordinate2D?
-	var locationManager:LocationManager?
+	var locationLoaded = false
+	let hotCoffeeImage = UIImage.init(named: "coffee_hot")
+	let icedCoffeeImage = UIImage.init(named: "coffee_iced")
     
-    @IBOutlet weak var scrollView: UIScrollView!
-    
-    @IBOutlet weak var mainView: UIView!
+	@IBOutlet weak var collectionView: UICollectionView!
+	
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
-		locationManager = LocationManager()
-		locationManager?.delegate = self
+		
+		_ = LocationManager.shared.getLocation()
+		
+		NotificationCenter.default.addObserver(self, selector: #selector(locationUpdated(notification:)), name: .locationDidChange, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(locationStatusChanged(notification:)), name: Notification.Name.locationStatusChanged, object: nil)
+		
+		NotificationCenter.default.addObserver(self, selector: #selector(locationError(notification:)), name: Notification.Name.locationDidFail, object: nil)
+		
+		
+		self.collectionView.reloadData()
+		
+		// Create the info button
+		let infoButton = UIButton(type: .infoLight)
+		infoButton.addTarget(self, action: #selector(aboutBtnSelected), for: .touchUpInside)
+		self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: infoButton)
     }
-    
-    override func viewDidLayoutSubviews() {
-//        self.scrollView.contentSize = CGSize(width: 0, height: 1000)
-    }
-    
+	
    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.icedCoffeBtn.isEnabled = false
-        self.hotCoffeeBtn.isEnabled = false
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
     }
 	
-	func locationUpdated(location: CLLocationCoordinate2D) {
-
-        print("locations = \(location.latitude) \(location.longitude)")
-        
-        OpenWeatherAPI.sharedInstance.weatherDataFor(location: location, completion: {
-            (response: JSON?) in
-            self.jsonData = response
+	func locationUpdated(notification: NSNotification) {
+		guard let location = notification.userInfo!["location"] as? CLLocationCoordinate2D else {
+			return
+		}
+		
+		print("locations = \(location.latitude) \(location.longitude)")
+		self.lastlocation = nil
+		self.collectionView.reloadData()
+		OpenWeatherAPI.sharedInstance.weatherDataFor(location: location, completion: {
+			(response: JSON?) in
+			self.jsonData = response
 			self.lastlocation = location
-            self.icedCoffeBtn.isEnabled = true
-            self.hotCoffeeBtn.isEnabled = true
-        })
-    }
+			self.collectionView.reloadData()
+			
+		})
+	}
 	
-	func didChangeAuthorization(status: CLAuthorizationStatus) {
+	func locationStatusChanged(notification: NSNotification) {
+		guard let status = notification.userInfo!["status"] as? CLAuthorizationStatus else {
+			return
+		}
+		
 		if status == .denied {
-			let alert = UIAlertController(title: "Location Access required", message: "Access to your current location is required", preferredStyle: .alert)
-			alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (action) in
-				alert.dismiss(animated: true, completion: nil)
-			}));
-			self.present(alert, animated: true, completion: nil)
+			presentAlert(title: "Location Access required", message: "Access to your current location is required")
 		}
 	}
-    
-    
+	
+	func locationError(notification:Notification) {
+		presentAlert(title: "Unable to aquire location", message: "Please try again.")
+	}
+	
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+		
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func hotCoffeeSelected(_ sender: Any) {
-        saveItem(Coffee.Hot)
-    }
-
-    @IBAction func icedCoffeeSelected(_ sender: Any) {
-         saveItem(Coffee.Iced)
-    }
     @IBAction func aboutBtnSelected(_ sender: Any) {
         
         let alert = UIAlertController(title: "About this app.", message: "Whenever you reach for a cup of coffee, open this app and select the type of coffee your are drinking (hot or iced) This will help the application be able to perdict what type of coffee you will have in the future", preferredStyle: .alert)
@@ -145,9 +153,10 @@ class ViewController: UIViewController,  LocationManagerDelegate {
     }
     
     func saveItem(_ coffeeType:Coffee) {
-		#if (arch(i386) || arch(x86_64))
-		return
-		#endif
+		
+//		#if (arch(i386) || arch(x86_64))
+//		return
+//		#endif
 		
         guard let json = self.jsonData, let location = self.lastlocation else {
             return
@@ -181,9 +190,10 @@ class ViewController: UIViewController,  LocationManagerDelegate {
 									pressure:  json["main"]["pressure"].floatValue,
 									zipcode:postalCode)
 			
-			Auth.auth().signInAnonymously() { (user, error) in
+			
+			if let user = Auth.auth().currentUser {
 				
-				item.userId = user!.uid
+				item.userId = user.uid
 				
 				let coffeeSelectionRef = self.ref.child(UUID().uuidString)
 				coffeeSelectionRef.setValue(item.toAnyObject())
@@ -195,11 +205,87 @@ class ViewController: UIViewController,  LocationManagerDelegate {
 			}
 			
 		})
-		
-		
-		
-        
         
     }
 }
 
+extension TrainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+	
+	func numberOfSections(in collectionView: UICollectionView) -> Int {
+		return 1
+	}
+	
+	
+	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+		return 2
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
+		
+		if (indexPath.row == 0) {
+			cell.imageView.image = hotCoffeeImage
+			cell.label.text = "Hot Coffee"
+		} else if (indexPath.row == 1) {
+			cell.imageView.image = icedCoffeeImage
+			cell.label.text = "Iced Coffee"
+		}
+		
+		if (self.lastlocation == nil) {
+			cell.imageView.image = self.Noir(image: cell.imageView.image!)
+		} else {
+			if (indexPath.row == 0) {
+				cell.imageView.image = hotCoffeeImage
+			} else if (indexPath.row == 1) {
+				cell.imageView.image = icedCoffeeImage
+			}
+		}
+		return cell
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+		
+		switch kind {
+		case UICollectionElementKindSectionHeader:
+			let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
+																			 withReuseIdentifier: "header",
+																			 for: indexPath) as! HeaderView
+			headerView.label.text = "Select the type of coffee you are currently having"
+			return headerView
+		default:
+			assert(false, "Unexpected element kind")
+		}
+	}
+	
+	func Noir(image:UIImage) -> UIImage {
+		let context = CIContext(options: nil)
+		let currentFilter = CIFilter(name: "CIPhotoEffectNoir")
+		currentFilter!.setValue(CIImage(image: image), forKey: kCIInputImageKey)
+		let output = currentFilter!.outputImage
+		let cgimg = context.createCGImage(output!,from: output!.extent)
+		let processedImage = UIImage(cgImage: cgimg!)
+		return processedImage
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		if (self.lastlocation == nil) {
+			return
+		}
+		
+		if (indexPath.row == 0) {
+			saveItem(Coffee.Hot)
+		} else if (indexPath.row == 1) {
+			saveItem(Coffee.Iced)
+		}
+	}
+}
+
+class CollectionViewCell:UICollectionViewCell {
+	@IBOutlet weak var imageView: UIImageView!
+	@IBOutlet weak var label: UILabel!
+}
+
+class HeaderView: UICollectionReusableView {
+	@IBOutlet weak var label: UILabel!
+	
+}

@@ -11,7 +11,7 @@
 		3C11D7AC1FF4533D0008BBA3 /* PredictViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C11D7AB1FF4533D0008BBA3 /* PredictViewController.swift */; };
 		3C11D7B91FF5D9AE0008BBA3 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C11D7B81FF5D9AE0008BBA3 /* LocationManager.swift */; };
 		3C6DFC4E1ED864E6002822D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6DFC4D1ED864E6002822D0 /* AppDelegate.swift */; };
-		3C6DFC501ED864E6002822D0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6DFC4F1ED864E6002822D0 /* ViewController.swift */; };
+		3C6DFC501ED864E6002822D0 /* TrainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6DFC4F1ED864E6002822D0 /* TrainViewController.swift */; };
 		3C6DFC531ED864E6002822D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C6DFC511ED864E6002822D0 /* Main.storyboard */; };
 		3C6DFC551ED864E6002822D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C6DFC541ED864E6002822D0 /* Assets.xcassets */; };
 		3C6DFC581ED864E6002822D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C6DFC561ED864E6002822D0 /* LaunchScreen.storyboard */; };
@@ -21,7 +21,10 @@
 		3C6DFC691EDA18E8002822D0 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6DFC671EDA18E8002822D0 /* Crashlytics.framework */; };
 		3C9115C1202F550500449511 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9115C0202F550500449511 /* Config.swift */; };
 		3C9115CB202F568700449511 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C9115CA202F568700449511 /* GoogleService-Info.plist */; };
-		3CC52731202F5081006FB9E6 /* coffee_prediction.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3CC52730202F5081006FB9E6 /* coffee_prediction.mlmodel */; };
+		3CA4E6CA20DEB49700217292 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA4E6C920DEB49700217292 /* UIViewController+Extensions.swift */; };
+		3CA4E6CE20DEBC6A00217292 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA4E6CD20DEBC6A00217292 /* LoginViewController.swift */; };
+		3CA4E6D020DEC4E000217292 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA4E6CF20DEC4E000217292 /* TabBarController.swift */; };
+		3CCE2ECF20CD4E9400D7157D /* coffee_prediction2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3CCE2ECE20CD4E9400D7157D /* coffee_prediction2.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +36,7 @@
 		3C11D7B81FF5D9AE0008BBA3 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		3C6DFC4A1ED864E6002822D0 /* CoffeeBot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeeBot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C6DFC4D1ED864E6002822D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3C6DFC4F1ED864E6002822D0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3C6DFC4F1ED864E6002822D0 /* TrainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainViewController.swift; sourceTree = "<group>"; };
 		3C6DFC521ED864E6002822D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3C6DFC541ED864E6002822D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3C6DFC571ED864E6002822D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -44,7 +47,10 @@
 		3C6DFC671EDA18E8002822D0 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		3C9115C0202F550500449511 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		3C9115CA202F568700449511 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		3CC52730202F5081006FB9E6 /* coffee_prediction.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = coffee_prediction.mlmodel; sourceTree = "<group>"; };
+		3CA4E6C920DEB49700217292 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		3CA4E6CD20DEBC6A00217292 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		3CA4E6CF20DEC4E000217292 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		3CCE2ECE20CD4E9400D7157D /* coffee_prediction2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = coffee_prediction2.mlmodel; sourceTree = "<group>"; };
 		D316BDDFAFA1A039163C9236 /* Pods-CoffeeBot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeeBot.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoffeeBot/Pods-CoffeeBot.release.xcconfig"; sourceTree = "<group>"; };
 		EFB2D947DB00B55BBE6B6D6D /* Pods_CoffeeBot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoffeeBot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -96,28 +102,39 @@
 		3C6DFC4C1ED864E6002822D0 /* CoffeeChooser */ = {
 			isa = PBXGroup;
 			children = (
+				3CA4E6C620DE7E2A00217292 /* extensions */,
 				3C9115CA202F568700449511 /* GoogleService-Info.plist */,
 				3CC52732202F5087006FB9E6 /* Model */,
 				3C11D7B51FF486E40008BBA3 /* default.gpx */,
 				3C11D7AE1FF45BCD0008BBA3 /* CoreMLHelpers */,
 				3C6DFC4D1ED864E6002822D0 /* AppDelegate.swift */,
-				3C6DFC4F1ED864E6002822D0 /* ViewController.swift */,
+				3CA4E6CD20DEBC6A00217292 /* LoginViewController.swift */,
+				3C11D7AB1FF4533D0008BBA3 /* PredictViewController.swift */,
+				3C6DFC4F1ED864E6002822D0 /* TrainViewController.swift */,
 				3C6DFC511ED864E6002822D0 /* Main.storyboard */,
+				3CA4E6CF20DEC4E000217292 /* TabBarController.swift */,
 				3C6DFC541ED864E6002822D0 /* Assets.xcassets */,
 				3C6DFC561ED864E6002822D0 /* LaunchScreen.storyboard */,
 				3C6DFC591ED864E6002822D0 /* Info.plist */,
 				3C6DFC611ED86E3B002822D0 /* OpenWeatherAPI.swift */,
-				3C11D7AB1FF4533D0008BBA3 /* PredictViewController.swift */,
 				3C11D7B81FF5D9AE0008BBA3 /* LocationManager.swift */,
 				3C9115C0202F550500449511 /* Config.swift */,
 			);
 			path = CoffeeChooser;
 			sourceTree = "<group>";
 		};
+		3CA4E6C620DE7E2A00217292 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3CA4E6C920DEB49700217292 /* UIViewController+Extensions.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
 		3CC52732202F5087006FB9E6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3CC52730202F5081006FB9E6 /* coffee_prediction.mlmodel */,
+				3CCE2ECE20CD4E9400D7157D /* coffee_prediction2.mlmodel */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -144,7 +161,6 @@
 				3C6DFC471ED864E6002822D0 /* Frameworks */,
 				3C6DFC481ED864E6002822D0 /* Resources */,
 				5E66EDBEDF00501F6EBC8FA0 /* [CP] Embed Pods Frameworks */,
-				B951A03709770908774AA18E /* [CP] Copy Pods Resources */,
 				3C6DFC651EDA18AE002822D0 /* ShellScript */,
 			);
 			buildRules = (
@@ -170,6 +186,11 @@
 						CreatedOnToolsVersion = 8.3.1;
 						DevelopmentTeam = A583HE3WU9;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -261,21 +282,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B951A03709770908774AA18E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoffeeBot/Pods-CoffeeBot-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -283,10 +289,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CA4E6CE20DEBC6A00217292 /* LoginViewController.swift in Sources */,
 				3C11D7AC1FF4533D0008BBA3 /* PredictViewController.swift in Sources */,
-				3CC52731202F5081006FB9E6 /* coffee_prediction.mlmodel in Sources */,
-				3C6DFC501ED864E6002822D0 /* ViewController.swift in Sources */,
+				3C6DFC501ED864E6002822D0 /* TrainViewController.swift in Sources */,
+				3CA4E6D020DEC4E000217292 /* TabBarController.swift in Sources */,
 				3C9115C1202F550500449511 /* Config.swift in Sources */,
+				3CCE2ECF20CD4E9400D7157D /* coffee_prediction2.mlmodel in Sources */,
+				3CA4E6CA20DEB49700217292 /* UIViewController+Extensions.swift in Sources */,
 				3C11D7B91FF5D9AE0008BBA3 /* LocationManager.swift in Sources */,
 				3C6DFC4E1ED864E6002822D0 /* AppDelegate.swift in Sources */,
 				3C6DFC621ED86E3B002822D0 /* OpenWeatherAPI.swift in Sources */,
@@ -425,7 +434,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tonyhung.coffeebot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7faab999-a44e-4833-bc99-1be55975958b";
+				PROVISIONING_PROFILE = "b0d7ca61-7789-4d9a-812a-da41e8885b07";
 				PROVISIONING_PROFILE_SPECIFIER = CoffeeBot;
 				SWIFT_VERSION = 3.0;
 			};
@@ -446,7 +455,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tonyhung.coffeebot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1ebce2b4-2790-4aaa-800d-30801d91837b";
+				PROVISIONING_PROFILE = "4017b9bf-3443-495c-b2d9-c63e563f5b28";
 				PROVISIONING_PROFILE_SPECIFIER = "CoffeeBot-Adhoc";
 				SWIFT_VERSION = 3.0;
 			};
