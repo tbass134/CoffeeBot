@@ -144,12 +144,8 @@ class TrainViewController: UIViewController  {
     }
 
     @IBAction func aboutBtnSelected(_ sender: Any) {
-        
-        let alert = UIAlertController(title: "About this app.", message: "Whenever you reach for a cup of coffee, open this app and select the type of coffee your are drinking (hot or iced) This will help the application be able to perdict what type of coffee you will have in the future", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (action) in
-            alert.dismiss(animated: true, completion: nil)
-        }));
-        self.present(alert, animated: true, completion: nil)
+		
+		presentAlert(title: "About this app.", message: "Whenever you reach for a cup of coffee, open this app and select the type of coffee your are drinking (hot or iced) This will help the application be able to perdict what type of coffee you will have in the future")
     }
     
     func saveItem(_ coffeeType:Coffee) {
@@ -255,6 +251,8 @@ extension TrainViewController: UICollectionViewDelegate, UICollectionViewDataSou
 		default:
 			assert(false, "Unexpected element kind")
 		}
+		
+		return UICollectionReusableView()
 	}
 	
 	func Noir(image:UIImage) -> UIImage {

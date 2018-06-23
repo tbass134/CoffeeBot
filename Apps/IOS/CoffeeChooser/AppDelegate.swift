@@ -19,9 +19,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-		UITabBarItem.appearance().titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -5)
         FirebaseApp.configure()
         Fabric.with([Crashlytics.self])
+		
+		let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+		var vc:UIViewController?
+		
+		guard let _ = Auth.auth().currentUser else {
+			vc = storyboard.instantiateViewController(withIdentifier: "Login")
+			self.window = UIWindow(frame: UIScreen.main.bounds)
+			self.window?.rootViewController = vc
+			self.window?.makeKeyAndVisible()
+			return true
+		}
+		
+		vc = storyboard.instantiateViewController(withIdentifier: "MainView")
+		
+		
+		self.window = UIWindow(frame: UIScreen.main.bounds)
+		self.window?.rootViewController = vc
+		self.window?.makeKeyAndVisible()
 
         return true
     }

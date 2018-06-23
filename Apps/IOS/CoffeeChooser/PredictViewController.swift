@@ -10,6 +10,7 @@ import UIKit
 import CoreLocation
 import SwiftyJSON
 import CoreML
+import Firebase
 
 class PredictViewController: UIViewController {
 
@@ -27,6 +28,23 @@ class PredictViewController: UIViewController {
 		NotificationCenter.default.addObserver(self, selector: #selector(locationStatusChanged(notification:)), name: Notification.Name.locationStatusChanged, object: nil)
 		
 		NotificationCenter.default.addObserver(self, selector: #selector(locationError(notification:)), name: Notification.Name.locationDidFail, object: nil)
+		
+		let alertShown = UserDefaults.standard.bool(forKey: "didViewCreateAccountAlert")
+		if ((Auth.auth().currentUser?.isAnonymous)! && !alertShown) {
+			let alert = UIAlertController(title: "You haven't created an account yet", message: "Creating an account will allow the app to perform coffee predictions specificly to your preferences", preferredStyle: .alert)
+			alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (alert) in
+				let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+				var vc:UIViewController?
+				vc = storyboard.instantiateViewController(withIdentifier: "Login")
+				let window = UIApplication.shared.windows.first
+				window?.rootViewController = vc
+				window?.makeKeyAndVisible()
+			}))
+			alert.addAction(UIAlertAction(title: "No Thanks", style: .cancel, handler:nil))
+			UserDefaults.standard.set(true, forKey: "didViewCreateAccountAlert")
+			
+			present(alert, animated: true, completion: nil)
+		}
     }
 	
 	func locationUpdated(notification: NSNotification) {

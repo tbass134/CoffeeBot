@@ -16,6 +16,7 @@ class TabBarController: UITabBarController {
 		let emptyView = UIView(frame: .zero)
 		self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: emptyView)
         // Do any additional setup after loading the view.
+		
     }
 
 	override func viewWillAppear(_ animated: Bool) {
