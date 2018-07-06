@@ -150,9 +150,9 @@ class TrainViewController: UIViewController  {
     
     func saveItem(_ coffeeType:Coffee) {
 		
-//		#if (arch(i386) || arch(x86_64))
-//		return
-//		#endif
+		#if (arch(i386) || arch(x86_64))
+		return
+		#endif
 		
         guard let json = self.jsonData, let location = self.lastlocation else {
             return
@@ -216,6 +216,7 @@ extension TrainViewController: UICollectionViewDelegate, UICollectionViewDataSou
 		return 2
 	}
 	
+	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
 		
@@ -276,6 +277,7 @@ extension TrainViewController: UICollectionViewDelegate, UICollectionViewDataSou
 			saveItem(Coffee.Iced)
 		}
 	}
+	
 }
 
 class CollectionViewCell:UICollectionViewCell {
@@ -284,6 +286,10 @@ class CollectionViewCell:UICollectionViewCell {
 }
 
 class HeaderView: UICollectionReusableView {
-	@IBOutlet weak var label: UILabel!
+	@IBOutlet weak var label: UILabel! {
+		didSet {
+			label.font = UIFont.init(name: "Helvetica Neue", size: 16)
+		}
+	}
 	
 }

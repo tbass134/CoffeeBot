@@ -124,7 +124,7 @@ class LoginButton: UIButton {
 		self.backgroundColor = kLoginButtonBackgroundColor
 		self.layer.cornerRadius = kLoginButtonCornerRadius
 		self.tintColor = kLoginButtonTintColor
-		self.titleLabel?.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 14)
+		self.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 14)
 	}
 	
 }

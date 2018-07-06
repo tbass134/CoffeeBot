@@ -11,6 +11,7 @@ target 'CoffeeBot' do
 	pod 'Firebase/Database'
 	pod 'Firebase/Auth'
 	pod 'Firebase/Core'
+	pod 'SwiftSVG', '~> 2.0'
 
 
 end

@@ -19,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+//		UITabBarItem.appearance().setTi leTextAttributes([NSForegroundColorAttributeName : UIColor.clear], for: .highlighted)
+ 
         FirebaseApp.configure()
         Fabric.with([Crashlytics.self])
 		

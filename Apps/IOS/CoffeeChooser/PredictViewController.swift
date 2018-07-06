@@ -17,8 +17,12 @@ class PredictViewController: UIViewController {
 	var lastLocation:CLLocationCoordinate2D?
 
 	@IBOutlet weak var class_image: UIImageView!
-	@IBOutlet weak var location_txt: UILabel!
 	@IBOutlet weak var predict_label: UILabel!
+	var weatherView:WeatherViewController? {
+		didSet {
+			weatherView?.view.isHidden = true
+		}
+	}
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,19 +74,14 @@ class PredictViewController: UIViewController {
 	}
 	
 	@IBAction func predictAction(_ sender: Any) {
-		guard let _ = self.lastLocation else {
-			presentAlert(title: "Location Access required", message: "Access to your current location is required")
-			return
-		}
-		
-		predict(self.lastLocation!)
+		_ = LocationManager.shared.getLocation()
 	}
 	
 	func predict(_ location:CLLocationCoordinate2D) {
 		
+
 		self.class_image.image = nil
 		self.predict_label.text = ""
-		self.location_txt.text = ""
 		
 		guard let location = self.lastLocation else {
 			return
@@ -95,6 +94,10 @@ class PredictViewController: UIViewController {
 			guard let json = response else {
 				return
 			}
+			
+			self.weatherView?.weatherData = json
+			self.weatherView?.view.isHidden = false
+
 			
 			if #available(iOS 11.0, *) {
 				let model = coffee_prediction2()
@@ -145,8 +148,7 @@ class PredictViewController: UIViewController {
 					guard let pm = placemarks?.first, let locality = pm.locality, let administrativeArea = pm.administrativeArea,  let country = pm.country else {
 						return
 					}
-					
-					self.location_txt.text = "Your Location:\n" + locality + ", " + administrativeArea + " " + country
+					self.weatherView?.locationLabel.text = locality + ", " + administrativeArea + " " + country
 					
 				})
 			} else {
@@ -175,8 +177,13 @@ class PredictViewController: UIViewController {
 		if str.lowercased().range(of:"none") != nil {
 			str = "Clear"
 		}
+
+		//TODO check for thunderstorm
+		guard let index = weather_conds.index(of: str) else {
+			items[0] = 1
+			return items
+		}
 		
-		let index = weather_conds.index(of: str)!
 		items[index] = 1
 		return items
 	}
@@ -186,14 +193,15 @@ class PredictViewController: UIViewController {
     }
     
 
-    /*
+	
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+		if segue.identifier == "weatherView" {
+			weatherView = segue.destination as! WeatherViewController
+		}
+	}
+	
 
 }
