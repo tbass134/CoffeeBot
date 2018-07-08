@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AboutViewController: UIViewController {
+class AboutViewController: SuperViewController {
 
 	@IBOutlet weak var textView: UITextView! {
 		didSet {

@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class LoginViewController: UIViewController, UITextFieldDelegate {
+class LoginViewController: SuperViewController, UITextFieldDelegate {
 
 	@IBOutlet weak var usernameTextField: LoginTextField!
 	@IBOutlet weak var passwordTextField: LoginTextField!
@@ -109,7 +109,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
 }
 
-let kLoginButtonBackgroundColor = UIColor(displayP3Red: 31/255, green: 75/255, blue: 164/255, alpha: 1)
+let kLoginButtonBackgroundColor = UIColor(red:0.94, green:0.37, blue:0.00, alpha:1.00)
 let kLoginButtonTintColor = UIColor.white
 let kLoginButtonCornerRadius: CGFloat = 13.0
 

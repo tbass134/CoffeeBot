@@ -67,7 +67,7 @@ struct SelectedItem {
 }
 
 
-class TrainViewController: UIViewController  {
+class TrainViewController: SuperViewController  {
 
 	var ref: DatabaseReference!
 
@@ -92,6 +92,7 @@ class TrainViewController: UIViewController  {
 		
 		
 		self.collectionView.reloadData()
+		self.collectionView.backgroundColor = UIColor.clear
 		
 		// Create the info button
 		let infoButton = UIButton(type: .infoLight)
@@ -229,7 +230,7 @@ extension TrainViewController: UICollectionViewDelegate, UICollectionViewDataSou
 		}
 		
 		if (self.lastlocation == nil) {
-			cell.imageView.image = self.Noir(image: cell.imageView.image!)
+			cell.imageView.image = cell.imageView.image!.Noir()
 		} else {
 			if (indexPath.row == 0) {
 				cell.imageView.image = hotCoffeeImage
@@ -256,15 +257,7 @@ extension TrainViewController: UICollectionViewDelegate, UICollectionViewDataSou
 		return UICollectionReusableView()
 	}
 	
-	func Noir(image:UIImage) -> UIImage {
-		let context = CIContext(options: nil)
-		let currentFilter = CIFilter(name: "CIPhotoEffectNoir")
-		currentFilter!.setValue(CIImage(image: image), forKey: kCIInputImageKey)
-		let output = currentFilter!.outputImage
-		let cgimg = context.createCGImage(output!,from: output!.extent)
-		let processedImage = UIImage(cgImage: cgimg!)
-		return processedImage
-	}
+	
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		if (self.lastlocation == nil) {

@@ -13,7 +13,6 @@ extension Notification.Name {
 	static let locationDidChange = Notification.Name("locationDidChange")
 	static let locationStatusChanged = Notification.Name("locationStatusChanged")
 	static let locationDidFail = Notification.Name("locationDidFail")
-
 }
 
 class LocationManager: NSObject, CLLocationManagerDelegate {

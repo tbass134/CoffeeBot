@@ -12,7 +12,7 @@ import SwiftyJSON
 import CoreML
 import Firebase
 
-class PredictViewController: UIViewController {
+class PredictViewController: SuperViewController {
 
 	var lastLocation:CLLocationCoordinate2D?
 
@@ -27,28 +27,28 @@ class PredictViewController: UIViewController {
 	override func viewDidLoad() {
         super.viewDidLoad()
 		_ = LocationManager.shared.getLocation()
-		
+
 		NotificationCenter.default.addObserver(self, selector: #selector(locationUpdated(notification:)), name: .locationDidChange, object: nil)
 		NotificationCenter.default.addObserver(self, selector: #selector(locationStatusChanged(notification:)), name: Notification.Name.locationStatusChanged, object: nil)
 		
 		NotificationCenter.default.addObserver(self, selector: #selector(locationError(notification:)), name: Notification.Name.locationDidFail, object: nil)
 		
-		let alertShown = UserDefaults.standard.bool(forKey: "didViewCreateAccountAlert")
-		if ((Auth.auth().currentUser?.isAnonymous)! && !alertShown) {
-			let alert = UIAlertController(title: "You haven't created an account yet", message: "Creating an account will allow the app to perform coffee predictions specificly to your preferences", preferredStyle: .alert)
-			alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (alert) in
-				let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-				var vc:UIViewController?
-				vc = storyboard.instantiateViewController(withIdentifier: "Login")
-				let window = UIApplication.shared.windows.first
-				window?.rootViewController = vc
-				window?.makeKeyAndVisible()
-			}))
-			alert.addAction(UIAlertAction(title: "No Thanks", style: .cancel, handler:nil))
-			UserDefaults.standard.set(true, forKey: "didViewCreateAccountAlert")
-			
-			present(alert, animated: true, completion: nil)
-		}
+//		let alertShown = UserDefaults.standard.bool(forKey: "didViewCreateAccountAlert")
+//		if ((Auth.auth().currentUser?.isAnonymous)! && !alertShown) {
+//			let alert = UIAlertController(title: "You haven't created an account yet", message: "Creating an account will allow the app to perform coffee predictions specificly to your preferences", preferredStyle: .alert)
+//			alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (alert) in
+//				let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+//				var vc:UIViewController?
+//				vc = storyboard.instantiateViewController(withIdentifier: "Login")
+//				let window = UIApplication.shared.windows.first
+//				window?.rootViewController = vc
+//				window?.makeKeyAndVisible()
+//			}))
+//			alert.addAction(UIAlertAction(title: "No Thanks", style: .cancel, handler:nil))
+//			UserDefaults.standard.set(true, forKey: "didViewCreateAccountAlert")
+//
+//			present(alert, animated: true, completion: nil)
+//		}
     }
 	
 	func locationUpdated(notification: NSNotification) {
@@ -66,11 +66,15 @@ class PredictViewController: UIViewController {
 		
 		if status == .denied {
 			presentAlert(title: "Location Access required", message: "Access to your current location is required")
+			self.predict_label.text = "Location Not Determined"
+			self.class_image.image = self.class_image.image?.Noir()
+			
 		}
 	}
 	
 	func locationError(notification:Notification) {
 		presentAlert(title: "Unable to aquire location", message: "Please try again.")
+		self.predict_label.text = "Location Not Determined"
 	}
 	
 	@IBAction func predictAction(_ sender: Any) {
@@ -100,7 +104,7 @@ class PredictViewController: UIViewController {
 
 			
 			if #available(iOS 11.0, *) {
-				let model = coffee_prediction2()
+				let model = coffee_prediction()
 				guard let mlMultiArray = try? MLMultiArray(shape:[12,1], dataType:MLMultiArrayDataType.double) else {
 					fatalError("Unexpected runtime error. MLMultiArray")
 				}
@@ -115,7 +119,7 @@ class PredictViewController: UIViewController {
 				for (index, element) in values.enumerated() {
 					mlMultiArray[index] = NSNumber(floatLiteral: element )
 				}
-				let input = coffee_prediction2Input(input: mlMultiArray)
+				let input = coffee_predictionInput(input: mlMultiArray)
 				guard let prediction = try? model.prediction(input: input) else {
 					return
 				}
@@ -145,10 +149,10 @@ class PredictViewController: UIViewController {
 						return
 					}
 					
-					guard let pm = placemarks?.first, let locality = pm.locality, let administrativeArea = pm.administrativeArea,  let country = pm.country else {
+					guard let pm = placemarks?.first, let locality = pm.locality, let administrativeArea = pm.administrativeArea else {
 						return
 					}
-					self.weatherView?.locationLabel.text = locality + ", " + administrativeArea + " " + country
+					self.weatherView?.locationLabel.text = locality + ", " + administrativeArea
 					
 				})
 			} else {
