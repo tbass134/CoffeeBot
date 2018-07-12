@@ -234,6 +234,7 @@
 		3C38979C20EFD5A000E9973E /* Float+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C38979B20EFD5A000E9973E /* Float+extensions.swift */; };
 		3C38979E20EFE3A900E9973E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C38979D20EFE3A900E9973E /* AboutViewController.swift */; };
 		3C3897A220EFE88000E9973E /* privacy_policy.html in Resources */ = {isa = PBXBuildFile; fileRef = 3C3897A120EFE88000E9973E /* privacy_policy.html */; };
+		3C3897A420F0022100E9973E /* UIImage+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3897A320F0022100E9973E /* UIImage+extension.swift */; };
 		3C6DFC4E1ED864E6002822D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6DFC4D1ED864E6002822D0 /* AppDelegate.swift */; };
 		3C6DFC501ED864E6002822D0 /* TrainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6DFC4F1ED864E6002822D0 /* TrainViewController.swift */; };
 		3C6DFC531ED864E6002822D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C6DFC511ED864E6002822D0 /* Main.storyboard */; };
@@ -249,7 +250,7 @@
 		3CA4E6CE20DEBC6A00217292 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA4E6CD20DEBC6A00217292 /* LoginViewController.swift */; };
 		3CA4E6D020DEC4E000217292 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA4E6CF20DEC4E000217292 /* TabBarController.swift */; };
 		3CA4E6D420E4699200217292 /* UITabBar+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA4E6D320E4699200217292 /* UITabBar+extension.swift */; };
-		3CCE2ECF20CD4E9400D7157D /* coffee_prediction2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3CCE2ECE20CD4E9400D7157D /* coffee_prediction2.mlmodel */; };
+		3CCE2ECF20CD4E9400D7157D /* coffee_prediction.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3CCE2ECE20CD4E9400D7157D /* coffee_prediction.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -483,7 +484,8 @@
 		3C38979B20EFD5A000E9973E /* Float+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Float+extensions.swift"; sourceTree = "<group>"; };
 		3C38979D20EFE3A900E9973E /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		3C3897A120EFE88000E9973E /* privacy_policy.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = privacy_policy.html; sourceTree = "<group>"; };
-		3C6DFC4A1ED864E6002822D0 /* CoffeeBot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeeBot.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C3897A320F0022100E9973E /* UIImage+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+extension.swift"; sourceTree = "<group>"; };
+		3C6DFC4A1ED864E6002822D0 /* CoffeeChooser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeeChooser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C6DFC4D1ED864E6002822D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C6DFC4F1ED864E6002822D0 /* TrainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainViewController.swift; sourceTree = "<group>"; };
 		3C6DFC521ED864E6002822D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -500,7 +502,7 @@
 		3CA4E6CD20DEBC6A00217292 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3CA4E6CF20DEC4E000217292 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		3CA4E6D320E4699200217292 /* UITabBar+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+extension.swift"; sourceTree = "<group>"; };
-		3CCE2ECE20CD4E9400D7157D /* coffee_prediction2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = coffee_prediction2.mlmodel; sourceTree = "<group>"; };
+		3CCE2ECE20CD4E9400D7157D /* coffee_prediction.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = coffee_prediction.mlmodel; sourceTree = "<group>"; };
 		D316BDDFAFA1A039163C9236 /* Pods-CoffeeBot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeeBot.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoffeeBot/Pods-CoffeeBot.release.xcconfig"; sourceTree = "<group>"; };
 		EFB2D947DB00B55BBE6B6D6D /* Pods_CoffeeBot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoffeeBot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -770,7 +772,7 @@
 		3C6DFC4B1ED864E6002822D0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3C6DFC4A1ED864E6002822D0 /* CoffeeBot.app */,
+				3C6DFC4A1ED864E6002822D0 /* CoffeeChooser.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -810,6 +812,7 @@
 				3CA4E6C920DEB49700217292 /* UIViewController+Extensions.swift */,
 				3CA4E6D320E4699200217292 /* UITabBar+extension.swift */,
 				3C38979B20EFD5A000E9973E /* Float+extensions.swift */,
+				3C3897A320F0022100E9973E /* UIImage+extension.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -817,7 +820,7 @@
 		3CC52732202F5087006FB9E6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3CCE2ECE20CD4E9400D7157D /* coffee_prediction2.mlmodel */,
+				3CCE2ECE20CD4E9400D7157D /* coffee_prediction.mlmodel */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -835,9 +838,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3C6DFC491ED864E6002822D0 /* CoffeeBot */ = {
+		3C6DFC491ED864E6002822D0 /* CoffeeChooser */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3C6DFC5C1ED864E6002822D0 /* Build configuration list for PBXNativeTarget "CoffeeBot" */;
+			buildConfigurationList = 3C6DFC5C1ED864E6002822D0 /* Build configuration list for PBXNativeTarget "CoffeeChooser" */;
 			buildPhases = (
 				81ED8803F6B792BAE63673FF /* [CP] Check Pods Manifest.lock */,
 				3C6DFC461ED864E6002822D0 /* Sources */,
@@ -850,9 +853,9 @@
 			);
 			dependencies = (
 			);
-			name = CoffeeBot;
+			name = CoffeeChooser;
 			productName = CoffeeChooser;
-			productReference = 3C6DFC4A1ED864E6002822D0 /* CoffeeBot.app */;
+			productReference = 3C6DFC4A1ED864E6002822D0 /* CoffeeChooser.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -877,7 +880,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3C6DFC451ED864E6002822D0 /* Build configuration list for PBXProject "CoffeeBot" */;
+			buildConfigurationList = 3C6DFC451ED864E6002822D0 /* Build configuration list for PBXProject "CoffeeChooser" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -890,7 +893,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3C6DFC491ED864E6002822D0 /* CoffeeBot */,
+				3C6DFC491ED864E6002822D0 /* CoffeeChooser */,
 			);
 		};
 /* End PBXProject section */
@@ -1195,13 +1198,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C3897A420F0022100E9973E /* UIImage+extension.swift in Sources */,
 				3CA4E6CE20DEBC6A00217292 /* LoginViewController.swift in Sources */,
 				3C09B2E920E92A7000733933 /* WeatherViewController.swift in Sources */,
 				3C11D7AC1FF4533D0008BBA3 /* PredictViewController.swift in Sources */,
 				3C6DFC501ED864E6002822D0 /* TrainViewController.swift in Sources */,
 				3CA4E6D020DEC4E000217292 /* TabBarController.swift in Sources */,
 				3C9115C1202F550500449511 /* Config.swift in Sources */,
-				3CCE2ECF20CD4E9400D7157D /* coffee_prediction2.mlmodel in Sources */,
+				3CCE2ECF20CD4E9400D7157D /* coffee_prediction.mlmodel in Sources */,
 				3CA4E6CA20DEB49700217292 /* UIViewController+Extensions.swift in Sources */,
 				3CA4E6D420E4699200217292 /* UITabBar+extension.swift in Sources */,
 				3C11D7B91FF5D9AE0008BBA3 /* LocationManager.swift in Sources */,
@@ -1358,10 +1362,10 @@
 				);
 				INFOPLIST_FILE = CoffeeChooser/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tonyhung.coffeebot;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tonyhung.coffeechooser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b0d7ca61-7789-4d9a-812a-da41e8885b07";
-				PROVISIONING_PROFILE_SPECIFIER = CoffeeBot;
+				PROVISIONING_PROFILE = "41ab5f47-1061-4e43-9920-0378503b9d75";
+				PROVISIONING_PROFILE_SPECIFIER = "CoffeeChooser-Dev";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -1379,10 +1383,10 @@
 				);
 				INFOPLIST_FILE = CoffeeChooser/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tonyhung.coffeebot;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tonyhung.coffeechooser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4017b9bf-3443-495c-b2d9-c63e563f5b28";
-				PROVISIONING_PROFILE_SPECIFIER = "CoffeeBot-Adhoc";
+				PROVISIONING_PROFILE = "e92f5cd9-f732-4d78-bfe6-33f9dea8a0df";
+				PROVISIONING_PROFILE_SPECIFIER = "CoffeeChooser-Dist";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -1390,7 +1394,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3C6DFC451ED864E6002822D0 /* Build configuration list for PBXProject "CoffeeBot" */ = {
+		3C6DFC451ED864E6002822D0 /* Build configuration list for PBXProject "CoffeeChooser" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3C6DFC5A1ED864E6002822D0 /* Debug */,
@@ -1399,7 +1403,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3C6DFC5C1ED864E6002822D0 /* Build configuration list for PBXNativeTarget "CoffeeBot" */ = {
+		3C6DFC5C1ED864E6002822D0 /* Build configuration list for PBXNativeTarget "CoffeeChooser" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3C6DFC5D1ED864E6002822D0 /* Debug */,

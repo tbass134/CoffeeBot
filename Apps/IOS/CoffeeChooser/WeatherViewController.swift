@@ -15,7 +15,11 @@ class WeatherViewController: UIViewController {
 	@IBOutlet weak var iconView: UIView!
 	@IBOutlet  var tempLabel: UILabel!
 	@IBOutlet weak var conditionLabel: UILabel!
-	@IBOutlet weak var locationLabel: UILabel!
+	@IBOutlet weak var locationLabel: UILabel! {
+		didSet {
+			locationLabel.text = ""
+		}
+	}
 	@IBOutlet weak var highLabel: UILabel!
 	@IBOutlet weak var lowLabel: UILabel!
 

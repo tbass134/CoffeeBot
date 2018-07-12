@@ -151,6 +151,8 @@ class TrainViewController: SuperViewController  {
     
     func saveItem(_ coffeeType:Coffee) {
 		
+		print("selected")
+
 		#if (arch(i386) || arch(x86_64))
 		return
 		#endif
@@ -257,8 +259,6 @@ extension TrainViewController: UICollectionViewDelegate, UICollectionViewDataSou
 		return UICollectionReusableView()
 	}
 	
-	
-	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		if (self.lastlocation == nil) {
 			return
@@ -271,11 +271,34 @@ extension TrainViewController: UICollectionViewDelegate, UICollectionViewDataSou
 		}
 	}
 	
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+		
+		if #available(iOS 11.0, *) {
+			return CGSize(width: (view.safeAreaLayoutGuide.layoutFrame.width), height: 200)
+		} else {
+			// Fallback on earlier versions
+			return CGSize(width: (collectionView.frame.size.width), height: 200)
+		}
+	}
+	
+	
 }
 
 class CollectionViewCell:UICollectionViewCell {
 	@IBOutlet weak var imageView: UIImageView!
 	@IBOutlet weak var label: UILabel!
+	
+	override var isHighlighted: Bool {
+		didSet{
+			if self.isHighlighted {
+				imageView.alpha = 0.5
+			}
+			else {
+				imageView.alpha = 1
+			}
+		}
+	}
+
 }
 
 class HeaderView: UICollectionReusableView {

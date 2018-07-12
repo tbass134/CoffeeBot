@@ -1,4 +1,4 @@
-//
+	//
 //  PredictViewController.swift
 //  CoffeeChooser
 //
@@ -16,6 +16,7 @@ class PredictViewController: SuperViewController {
 
 	var lastLocation:CLLocationCoordinate2D?
 
+	@IBOutlet weak var iconHeightConstraint: NSLayoutConstraint!
 	@IBOutlet weak var class_image: UIImageView!
 	@IBOutlet weak var predict_label: UILabel!
 	var weatherView:WeatherViewController? {
@@ -27,6 +28,9 @@ class PredictViewController: SuperViewController {
 	override func viewDidLoad() {
         super.viewDidLoad()
 		_ = LocationManager.shared.getLocation()
+		if (Int((UIApplication.shared.windows.first?.frame.size.height)!) < 600) {
+			iconHeightConstraint.constant = 200
+		}
 
 		NotificationCenter.default.addObserver(self, selector: #selector(locationUpdated(notification:)), name: .locationDidChange, object: nil)
 		NotificationCenter.default.addObserver(self, selector: #selector(locationStatusChanged(notification:)), name: Notification.Name.locationStatusChanged, object: nil)
@@ -82,8 +86,7 @@ class PredictViewController: SuperViewController {
 	}
 	
 	func predict(_ location:CLLocationCoordinate2D) {
-		
-
+	
 		self.class_image.image = nil
 		self.predict_label.text = ""
 		
@@ -203,7 +206,7 @@ class PredictViewController: SuperViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if segue.identifier == "weatherView" {
-			weatherView = segue.destination as! WeatherViewController
+			weatherView = segue.destination as? WeatherViewController
 		}
 	}
 	
