@@ -12,7 +12,7 @@ class AboutViewController: SuperViewController {
 
 	@IBOutlet weak var textView: UITextView! {
 		didSet {
-			textView.text = "Coffee Choose uses Machine Learning to be able to tell you what type of coffee you should drink, weather it is hot or iced coffee.\n\nTapping on the Train tab will allow you to enter what coffee you are drinking right now. This will help the app better predict what you should have next time."
+			textView.text = "Coffee Choose uses Machine Learning to be able to tell you what type of coffee you should drink, whether it is hot or iced coffee.\n\nTapping on the Train tab will allow you to enter what coffee you are drinking right now. This will help the app better predict what you should have next time."
 		}
 	}
 	@IBAction func viewPP(_ sender: Any) {
@@ -54,8 +54,9 @@ class WebViewController: UIViewController, WKUIDelegate {
 	}
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		var url = NSURL(fileURLWithPath:Bundle.main.path(forResource: "privacy_policy", ofType:"html")!)
+		
+		var url = URL(string:"https://s3.amazonaws.com/coffee-chooser-app/privacy_policy.html")
 
-		let myRequest = URLRequest(url: url as URL)
+		let myRequest = URLRequest(url: url!)
 		webView.load(myRequest)
 	}}
