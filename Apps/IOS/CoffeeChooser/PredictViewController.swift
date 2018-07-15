@@ -108,7 +108,7 @@ class PredictViewController: SuperViewController {
 			
 			if #available(iOS 11.0, *) {
 				let model = coffee_prediction()
-				guard let mlMultiArray = try? MLMultiArray(shape:[12,1], dataType:MLMultiArrayDataType.double) else {
+				guard let mlMultiArray = try? MLMultiArray(shape:[13,1], dataType:MLMultiArrayDataType.double) else {
 					fatalError("Unexpected runtime error. MLMultiArray")
 				}
 				var values = [json["clouds"]["all"].doubleValue,
@@ -167,7 +167,7 @@ class PredictViewController: SuperViewController {
 	func toOneHot(_ string:String) -> [Double] {
 		var str = string
 		var items = [Double](repeating: 0.0, count: 7)
-		let weather_conds:[String] = ["Clear", "Clouds", "Fog", "Haze", "Rain", "Smoke", "Snow"]
+		let weather_conds:[String] = ["Clear", "Clouds", "Fog", "Haze", "Rain", "Smoke", "Snow", "Thunderstorm"]
 		
 		if str.lowercased().range(of:"cloud") != nil || str.lowercased().range(of:"overcast") != nil{
 			str = "Clouds"
@@ -185,7 +185,6 @@ class PredictViewController: SuperViewController {
 			str = "Clear"
 		}
 
-		//TODO check for thunderstorm
 		guard let index = weather_conds.index(of: str) else {
 			items[0] = 1
 			return items
