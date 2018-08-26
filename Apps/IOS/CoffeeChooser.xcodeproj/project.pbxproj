@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		37FC0BC2CCAF4601985D1943 /* Pods_CoffeeBot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFB2D947DB00B55BBE6B6D6D /* Pods_CoffeeBot.framework */; };
 		3C09B2E920E92A7000733933 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C09B2E820E92A7000733933 /* WeatherViewController.swift */; };
 		3C09B2EB20E9364000733933 /* icons.json in Resources */ = {isa = PBXBuildFile; fileRef = 3C09B2EA20E9364000733933 /* icons.json */; };
 		3C09B3C820E9488C00733933 /* wi-thermometer-exterior.svg in Resources */ = {isa = PBXBuildFile; fileRef = 3C09B2ED20E9488C00733933 /* wi-thermometer-exterior.svg */; };
@@ -244,18 +243,16 @@
 		3C6DFC621ED86E3B002822D0 /* OpenWeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6DFC611ED86E3B002822D0 /* OpenWeatherAPI.swift */; };
 		3C6DFC681EDA18E8002822D0 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6DFC661EDA18E8002822D0 /* Fabric.framework */; };
 		3C6DFC691EDA18E8002822D0 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6DFC671EDA18E8002822D0 /* Crashlytics.framework */; };
-		3C9115C1202F550500449511 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9115C0202F550500449511 /* Config.swift */; };
 		3C9115CB202F568700449511 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C9115CA202F568700449511 /* GoogleService-Info.plist */; };
 		3CA4E6CA20DEB49700217292 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA4E6C920DEB49700217292 /* UIViewController+Extensions.swift */; };
 		3CA4E6CE20DEBC6A00217292 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA4E6CD20DEBC6A00217292 /* LoginViewController.swift */; };
 		3CA4E6D020DEC4E000217292 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA4E6CF20DEC4E000217292 /* TabBarController.swift */; };
 		3CA4E6D420E4699200217292 /* UITabBar+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA4E6D320E4699200217292 /* UITabBar+extension.swift */; };
 		3CD898C120FA76D800A5FA5A /* coffee_prediction.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3CD898C020FA76D700A5FA5A /* coffee_prediction.mlmodel */; };
+		9CE3E125DAB53D6A5094D01C /* Pods_CoffeeChooser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFDB8BE943F036B05EF8500B /* Pods_CoffeeChooser.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0049113161E84510F8067688 /* Pods_CoffeeChooser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoffeeChooser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		26939420D9D2400AF8374FF0 /* Pods-CoffeeBot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeeBot.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoffeeBot/Pods-CoffeeBot.debug.xcconfig"; sourceTree = "<group>"; };
 		3C09B2E820E92A7000733933 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		3C09B2EA20E9364000733933 /* icons.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = icons.json; sourceTree = "<group>"; };
 		3C09B2ED20E9488C00733933 /* wi-thermometer-exterior.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "wi-thermometer-exterior.svg"; sourceTree = "<group>"; };
@@ -496,15 +493,15 @@
 		3C6DFC611ED86E3B002822D0 /* OpenWeatherAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenWeatherAPI.swift; sourceTree = "<group>"; };
 		3C6DFC661EDA18E8002822D0 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		3C6DFC671EDA18E8002822D0 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
-		3C9115C0202F550500449511 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		3C9115CA202F568700449511 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3CA4E6C920DEB49700217292 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		3CA4E6CD20DEBC6A00217292 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3CA4E6CF20DEC4E000217292 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		3CA4E6D320E4699200217292 /* UITabBar+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+extension.swift"; sourceTree = "<group>"; };
 		3CD898C020FA76D700A5FA5A /* coffee_prediction.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = coffee_prediction.mlmodel; path = ../../../../models/coffee_prediction.mlmodel; sourceTree = "<group>"; };
-		D316BDDFAFA1A039163C9236 /* Pods-CoffeeBot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeeBot.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoffeeBot/Pods-CoffeeBot.release.xcconfig"; sourceTree = "<group>"; };
-		EFB2D947DB00B55BBE6B6D6D /* Pods_CoffeeBot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoffeeBot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B45A9E55CF9BC391CE9B77B /* Pods-CoffeeChooser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeeChooser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoffeeChooser/Pods-CoffeeChooser.debug.xcconfig"; sourceTree = "<group>"; };
+		EF4FE456F7BCFA178EF76B4B /* Pods-CoffeeChooser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeeChooser.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoffeeChooser/Pods-CoffeeChooser.release.xcconfig"; sourceTree = "<group>"; };
+		EFDB8BE943F036B05EF8500B /* Pods_CoffeeChooser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoffeeChooser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -515,7 +512,7 @@
 				3C6DFC601ED86B3A002822D0 /* CoreLocation.framework in Frameworks */,
 				3C6DFC691EDA18E8002822D0 /* Crashlytics.framework in Frameworks */,
 				3C6DFC681EDA18E8002822D0 /* Fabric.framework in Frameworks */,
-				37FC0BC2CCAF4601985D1943 /* Pods_CoffeeBot.framework in Frameworks */,
+				9CE3E125DAB53D6A5094D01C /* Pods_CoffeeChooser.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,8 +522,8 @@
 		11F3C2AEEB9C1D0E4ABAEB08 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				26939420D9D2400AF8374FF0 /* Pods-CoffeeBot.debug.xcconfig */,
-				D316BDDFAFA1A039163C9236 /* Pods-CoffeeBot.release.xcconfig */,
+				7B45A9E55CF9BC391CE9B77B /* Pods-CoffeeChooser.debug.xcconfig */,
+				EF4FE456F7BCFA178EF76B4B /* Pods-CoffeeChooser.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -800,7 +797,6 @@
 				3C6DFC591ED864E6002822D0 /* Info.plist */,
 				3C6DFC611ED86E3B002822D0 /* OpenWeatherAPI.swift */,
 				3C11D7B81FF5D9AE0008BBA3 /* LocationManager.swift */,
-				3C9115C0202F550500449511 /* Config.swift */,
 				3C09B2E820E92A7000733933 /* WeatherViewController.swift */,
 			);
 			path = CoffeeChooser;
@@ -829,8 +825,7 @@
 			isa = PBXGroup;
 			children = (
 				3C6DFC5F1ED86B3A002822D0 /* CoreLocation.framework */,
-				0049113161E84510F8067688 /* Pods_CoffeeChooser.framework */,
-				EFB2D947DB00B55BBE6B6D6D /* Pods_CoffeeBot.framework */,
+				EFDB8BE943F036B05EF8500B /* Pods_CoffeeChooser.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1145,7 +1140,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./Fabric.framework/run 8f6f8420d7e3cb5d9c96457762fff0e46714a8d7 fa17bf771dcb800d3b48fdde548266b21bd9829a612acdb49382af2a06f621a2 ";
+			shellScript = "./Fabric.framework/run 8f6f8420d7e3cb5d9c96457762fff0e46714a8d7 fa17bf771dcb800d3b48fdde548266b21bd9829a612acdb49382af2a06f621a2 \n";
 		};
 		5E66EDBEDF00501F6EBC8FA0 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1153,7 +1148,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-CoffeeBot/Pods-CoffeeBot-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-CoffeeChooser/Pods-CoffeeChooser-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
@@ -1170,7 +1165,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoffeeBot/Pods-CoffeeBot-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoffeeChooser/Pods-CoffeeChooser-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		81ED8803F6B792BAE63673FF /* [CP] Check Pods Manifest.lock */ = {
@@ -1184,7 +1179,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CoffeeBot-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-CoffeeChooser-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1204,7 +1199,6 @@
 				3C11D7AC1FF4533D0008BBA3 /* PredictViewController.swift in Sources */,
 				3C6DFC501ED864E6002822D0 /* TrainViewController.swift in Sources */,
 				3CA4E6D020DEC4E000217292 /* TabBarController.swift in Sources */,
-				3C9115C1202F550500449511 /* Config.swift in Sources */,
 				3CA4E6CA20DEB49700217292 /* UIViewController+Extensions.swift in Sources */,
 				3CA4E6D420E4699200217292 /* UITabBar+extension.swift in Sources */,
 				3C11D7B91FF5D9AE0008BBA3 /* LocationManager.swift in Sources */,
@@ -1351,7 +1345,7 @@
 		};
 		3C6DFC5D1ED864E6002822D0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 26939420D9D2400AF8374FF0 /* Pods-CoffeeBot.debug.xcconfig */;
+			baseConfigurationReference = 7B45A9E55CF9BC391CE9B77B /* Pods-CoffeeChooser.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1372,7 +1366,7 @@
 		};
 		3C6DFC5E1ED864E6002822D0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D316BDDFAFA1A039163C9236 /* Pods-CoffeeBot.release.xcconfig */;
+			baseConfigurationReference = EF4FE456F7BCFA178EF76B4B /* Pods-CoffeeChooser.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
