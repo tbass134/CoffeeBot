@@ -48,7 +48,7 @@ class WeatherViewController: UIViewController {
 		
 		let jsonPath = Bundle.main.path(forResource: "icons", ofType: "json")
 		let jsonData = try! NSData(contentsOfFile: jsonPath!, options: NSData.ReadingOptions.alwaysMapped)
-		let json = JSON(data: jsonData as Data)
+		let json = try! JSON(data: jsonData as Data)
 		
 		let weatherIcon = weatherData["weather"][0]["id"]
 		let weatherIconCode = weatherIcon.intValue
@@ -63,6 +63,7 @@ class WeatherViewController: UIViewController {
 			iconStr = icon
 		}
 		
+        self.iconView.layer.sublayers = nil
 		let svgURL = Bundle.main.url(forResource: prefix + iconStr!, withExtension: "svg")!
 		let _ = CALayer(SVGURL: svgURL) { (svgLayer) in
 			// Set the fill color

@@ -11,63 +11,12 @@ import CoreLocation
 import SwiftyJSON
 import Firebase
 import FirebaseDatabase
-
-enum Coffee:Int {
-    case Hot = 1
-    case Iced = 0
-}
-
-struct SelectedItem {
-    
-    let formatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.calendar = Calendar(identifier: .iso8601)
-        formatter.locale = Locale(identifier: "en_US_POSIX")
-        formatter.timeZone = TimeZone(secondsFromGMT: 0)
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSXXXXX"
-        return formatter
-    }()
-    
-    var userId:String?
-    var type:Int
-    var date:Date
-    var temp:Int
-    var humidity:Float
-    var location:String
-//    var coords:CLLocationCoordinate2D
-	var lat:Float
-	var lon:Float
-    var weatherCond:String
-    var clouds:Int
-    var visibility:Int
-    var windSpeed:Int
-    var windDeg:Float
-    var pressure:Float
-	var zipcode:String
-	
-    func toAnyObject() -> Any {
-        return [
-            "type": type,
-            "date": formatter.string(from: date),
-            "temp": temp,
-            "humidity":humidity,
-            "location":location,
-            "lat":lat,
-            "lon":lon,
-            "weatherCond":weatherCond,
-            "clouds":clouds,
-            "visibility":visibility,
-            "windSpeed":windSpeed,
-            "windDeg":windDeg,
-            "pressure":pressure,
-			"zipcode":zipcode,
-            "userId":userId!
-        ]
-    }
-}
+import SwiftLocation
+import Intents
+import IntentsUI
 
 
-class TrainViewController: SuperViewController  {
+class TrainViewController: SuperViewController, CoffeeCellDelegate  {
 
 	var ref: DatabaseReference!
 
@@ -82,15 +31,14 @@ class TrainViewController: SuperViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
-		
-		_ = LocationManager.shared.getLocation()
-		
+        
+        _ = LocationManager.shared.startReceivingSignificantLocationChanges()
 		NotificationCenter.default.addObserver(self, selector: #selector(locationUpdated(notification:)), name: .locationDidChange, object: nil)
 		NotificationCenter.default.addObserver(self, selector: #selector(locationStatusChanged(notification:)), name: Notification.Name.locationStatusChanged, object: nil)
 		
 		NotificationCenter.default.addObserver(self, selector: #selector(locationError(notification:)), name: Notification.Name.locationDidFail, object: nil)
-		
-		
+        
+    
 		self.collectionView.reloadData()
 		self.collectionView.backgroundColor = UIColor.clear
 		
@@ -102,28 +50,36 @@ class TrainViewController: SuperViewController  {
 	
    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+    
+        guard let lastLoc = LocationManager.shared.lastLocation() else {
+            return
+        }
+        loadWeatherData(lastLoc)
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
     }
 	
 	func locationUpdated(notification: NSNotification) {
-		guard let location = notification.userInfo!["location"] as? CLLocationCoordinate2D else {
+		guard let location = notification.userInfo!["location"] as? CLLocation else {
 			return
 		}
+		loadWeatherData(location)
+		print("locations",location.coordinate)
 		
-		print("locations = \(location.latitude) \(location.longitude)")
-		self.lastlocation = nil
-		self.collectionView.reloadData()
-		OpenWeatherAPI.sharedInstance.weatherDataFor(location: location, completion: {
-			(response: JSON?) in
-			self.jsonData = response
-			self.lastlocation = location
-			self.collectionView.reloadData()
-			
-		})
 	}
-	
+    func loadWeatherData(_ location:CLLocation) {
+        self.lastlocation = nil
+        self.collectionView.reloadData()
+        OpenWeatherAPI.sharedInstance.weatherDataFor(location: location.coordinate, completion: {
+            (response: JSON?) in
+            self.jsonData = response
+            self.lastlocation = location.coordinate
+            self.collectionView.reloadData()
+            
+        })
+    }
 	func locationStatusChanged(notification: NSNotification) {
 		guard let status = notification.userInfo!["status"] as? CLAuthorizationStatus else {
 			return
@@ -174,7 +130,7 @@ class TrainViewController: SuperViewController  {
 				return
 			}
 			
-			var item = SelectedItem(userId: nil, type: coffeeType.rawValue,
+			var item = CoffeeOrder(userId: nil, type: coffeeType.rawValue,
 									date: Date.init(),
 									temp: json["main"]["temp"].intValue,
 									humidity: json["main"]["humidity"].floatValue,
@@ -222,11 +178,15 @@ extension TrainViewController: UICollectionViewDelegate, UICollectionViewDataSou
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
+        cell.delegate = self
 		
 		if (indexPath.row == 0) {
+            cell.type = Coffee.Hot
 			cell.imageView.image = hotCoffeeImage
 			cell.label.text = "Hot Coffee"
 		} else if (indexPath.row == 1) {
+            cell.type = Coffee.Iced
+
 			cell.imageView.image = icedCoffeeImage
 			cell.label.text = "Iced Coffee"
 		}
@@ -240,6 +200,7 @@ extension TrainViewController: UICollectionViewDelegate, UICollectionViewDataSou
 				cell.imageView.image = icedCoffeeImage
 			}
 		}
+        
 		return cell
 	}
 	
@@ -280,14 +241,79 @@ extension TrainViewController: UICollectionViewDelegate, UICollectionViewDataSou
 			return CGSize(width: (collectionView.frame.size.width), height: 200)
 		}
 	}
+    
+    func siriButtonTapped(cell: CollectionViewCell) {
+        print(cell.type)
+        
+        guard let type = cell.type else {
+            return
+        }
+        if #available(iOS 12.0, *) {
+            if type == .Hot {
+                //SelectHotCoffeeIntent
+                let getCoffeeTypeIntent = GetCoffeeTypeIntent()
+
+                if let shortcut = INShortcut(intent: getCoffeeTypeIntent) {
+                    let viewController = INUIAddVoiceShortcutViewController(shortcut: shortcut)
+                    viewController.modalPresentationStyle = .formSheet
+                    viewController.delegate = self as? INUIAddVoiceShortcutViewControllerDelegate // Object conforming to `INUIAddVoiceShortcutViewControllerDelegate`.
+                    present(viewController, animated: true, completion: nil)
+                }
+            } else {
+                //SelectIcedCoffeeIntent
+                let getCoffeeTypeIntent = GetCoffeeTypeIntent()
+                
+                if let shortcut = INShortcut(intent: getCoffeeTypeIntent) {
+                    let viewController = INUIAddVoiceShortcutViewController(shortcut: shortcut)
+                    viewController.modalPresentationStyle = .formSheet
+                    viewController.delegate = self as? INUIAddVoiceShortcutViewControllerDelegate // Object conforming to `INUIAddVoiceShortcutViewControllerDelegate`.
+                    present(viewController, animated: true, completion: nil)
+                }
+            }
+        } else {
+            // Fallback on earlier versions
+        }
+    }
 	
 	
 }
 
 class CollectionViewCell:UICollectionViewCell {
-	@IBOutlet weak var imageView: UIImageView!
-	@IBOutlet weak var label: UILabel!
-	
+    var type:Coffee?
+    var delegate:CoffeeCellDelegate?
+    
+    @IBOutlet weak var imageView: UIImageView! {
+        didSet {
+            
+        }
+    }
+    @IBOutlet weak var label: UILabel! {
+        didSet {
+            
+        }
+    }
+    @IBOutlet weak var siriView: UIView! {
+        didSet {
+            if #available(iOS 12.0, *) {
+
+                let button = INUIAddVoiceShortcutButton(style: .white)
+                button.translatesAutoresizingMaskIntoConstraints = false
+
+                siriView.addSubview(button)
+                siriView.centerXAnchor.constraint(equalTo: button.centerXAnchor).isActive = true
+                siriView.centerYAnchor.constraint(equalTo: button.centerYAnchor).isActive = true
+                button.addTarget(self, action: #selector(self.addToSiri(_:)), for: .touchUpInside)
+            }
+        }
+    }
+    
+    @objc func addToSiri(_ sender: Any) {
+        print("here")
+        delegate?.siriButtonTapped(cell: self)
+        
+    }
+
+    
 	override var isHighlighted: Bool {
 		didSet{
 			if self.isHighlighted {
@@ -308,4 +334,8 @@ class HeaderView: UICollectionReusableView {
 		}
 	}
 	
+}
+
+protocol CoffeeCellDelegate {
+    func siriButtonTapped(cell:CollectionViewCell)
 }

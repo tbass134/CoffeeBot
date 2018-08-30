@@ -34,6 +34,8 @@
 			</dict>
 		</array>
 	</dict>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -41,10 +43,16 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-	<key>NSLocationAlwaysUsageDescription</key>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Access to your current location allows the app to learn and predict your coffee habits</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Access to your current location allows the app to learn and predict your coffee habits</string>
+	<key>NSSiriUsageDescription</key>
+	<string>Need Siri</string>
+	<key>NSUserActivityTypes</key>
+	<array>
+		<string>GetCoffeeTypeIntent</string>
+	</array>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>

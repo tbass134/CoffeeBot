@@ -249,8 +249,46 @@
 		3CA4E6D020DEC4E000217292 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA4E6CF20DEC4E000217292 /* TabBarController.swift */; };
 		3CA4E6D420E4699200217292 /* UITabBar+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA4E6D320E4699200217292 /* UITabBar+extension.swift */; };
 		3CD898C120FA76D800A5FA5A /* coffee_prediction.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3CD898C020FA76D700A5FA5A /* coffee_prediction.mlmodel */; };
+		450B1BD92135FC580056C876 /* CoffeeBotIntent.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 450B1BD82135FC580056C876 /* CoffeeBotIntent.intentdefinition */; };
+		450B1BDA2135FC580056C876 /* CoffeeBotIntent.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 450B1BD82135FC580056C876 /* CoffeeBotIntent.intentdefinition */; };
+		450B1BDD213643A20056C876 /* CoffeeOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450B1BDC213643A20056C876 /* CoffeeOrder.swift */; };
+		450B1BDE213643A20056C876 /* CoffeeOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450B1BDC213643A20056C876 /* CoffeeOrder.swift */; };
+		450B1BE121364E300056C876 /* GetCoffeeTypeIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450B1BE021364E300056C876 /* GetCoffeeTypeIntentHandler.swift */; };
+		450B1BE221364E300056C876 /* GetCoffeeTypeIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450B1BE021364E300056C876 /* GetCoffeeTypeIntentHandler.swift */; };
+		450B1BE5213652A20056C876 /* CoffeeTypePrediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450B1BE4213652A20056C876 /* CoffeeTypePrediction.swift */; };
+		450B1BE6213652A20056C876 /* CoffeeTypePrediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450B1BE4213652A20056C876 /* CoffeeTypePrediction.swift */; };
+		450B1BE7213655BE0056C876 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C11D7B81FF5D9AE0008BBA3 /* LocationManager.swift */; };
+		4549AF7B21379DB600B650E9 /* OpenWeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6DFC611ED86E3B002822D0 /* OpenWeatherAPI.swift */; };
+		4549AF7C21379E0900B650E9 /* coffee_prediction.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3CD898C020FA76D700A5FA5A /* coffee_prediction.mlmodel */; };
+		45CCFD502132496700C60E7D /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CCFD4F2132496700C60E7D /* IntentHandler.swift */; };
+		45CCFD652132496700C60E7D /* SiriKit.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 45CCFD4D2132496700C60E7D /* SiriKit.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		9CE3E125DAB53D6A5094D01C /* Pods_CoffeeChooser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFDB8BE943F036B05EF8500B /* Pods_CoffeeChooser.framework */; };
+		CC13AEC270EC3D7C8816BB87 /* Pods_SiriKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44E1D52B988443FFC03F80C5 /* Pods_SiriKit.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		45CCFD632132496700C60E7D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3C6DFC421ED864E6002822D0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 45CCFD4C2132496700C60E7D;
+			remoteInfo = SiriKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		45CCFD6C2132496700C60E7D /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				45CCFD652132496700C60E7D /* SiriKit.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3C09B2E820E92A7000733933 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
@@ -499,9 +537,25 @@
 		3CA4E6CF20DEC4E000217292 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		3CA4E6D320E4699200217292 /* UITabBar+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+extension.swift"; sourceTree = "<group>"; };
 		3CD898C020FA76D700A5FA5A /* coffee_prediction.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = coffee_prediction.mlmodel; path = ../../../../models/coffee_prediction.mlmodel; sourceTree = "<group>"; };
+		44E1D52B988443FFC03F80C5 /* Pods_SiriKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SiriKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		450B1BD82135FC580056C876 /* CoffeeBotIntent.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = CoffeeBotIntent.intentdefinition; sourceTree = "<group>"; };
+		450B1BDC213643A20056C876 /* CoffeeOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeOrder.swift; sourceTree = "<group>"; };
+		450B1BE021364E300056C876 /* GetCoffeeTypeIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCoffeeTypeIntentHandler.swift; sourceTree = "<group>"; };
+		450B1BE4213652A20056C876 /* CoffeeTypePrediction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeTypePrediction.swift; sourceTree = "<group>"; };
+		4549AF7A2137999A00B650E9 /* SiriKit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SiriKit.entitlements; sourceTree = "<group>"; };
+		45CCFD482132336400C60E7D /* CoffeeChooser.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoffeeChooser.entitlements; sourceTree = "<group>"; };
+		45CCFD4D2132496700C60E7D /* SiriKit.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SiriKit.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		45CCFD4F2132496700C60E7D /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		45CCFD512132496700C60E7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45CCFD572132496700C60E7D /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
+		45CCFD5A2132496700C60E7D /* IntentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentViewController.swift; sourceTree = "<group>"; };
+		45CCFD5D2132496700C60E7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		45CCFD5F2132496700C60E7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B45A9E55CF9BC391CE9B77B /* Pods-CoffeeChooser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeeChooser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoffeeChooser/Pods-CoffeeChooser.debug.xcconfig"; sourceTree = "<group>"; };
+		80AAABB81DE56FAC05F89681 /* Pods-SiriKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SiriKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SiriKit/Pods-SiriKit.debug.xcconfig"; sourceTree = "<group>"; };
 		EF4FE456F7BCFA178EF76B4B /* Pods-CoffeeChooser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeeChooser.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoffeeChooser/Pods-CoffeeChooser.release.xcconfig"; sourceTree = "<group>"; };
 		EFDB8BE943F036B05EF8500B /* Pods_CoffeeChooser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoffeeChooser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4D19ADC4F71A2AE55C32509 /* Pods-SiriKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SiriKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-SiriKit/Pods-SiriKit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -516,6 +570,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		45CCFD4A2132496700C60E7D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC13AEC270EC3D7C8816BB87 /* Pods_SiriKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -524,6 +586,8 @@
 			children = (
 				7B45A9E55CF9BC391CE9B77B /* Pods-CoffeeChooser.debug.xcconfig */,
 				EF4FE456F7BCFA178EF76B4B /* Pods-CoffeeChooser.release.xcconfig */,
+				80AAABB81DE56FAC05F89681 /* Pods-SiriKit.debug.xcconfig */,
+				F4D19ADC4F71A2AE55C32509 /* Pods-SiriKit.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -760,6 +824,8 @@
 				3C6DFC661EDA18E8002822D0 /* Fabric.framework */,
 				3C6DFC671EDA18E8002822D0 /* Crashlytics.framework */,
 				3C6DFC4C1ED864E6002822D0 /* CoffeeChooser */,
+				45CCFD4E2132496700C60E7D /* SiriKit */,
+				45CCFD592132496700C60E7D /* SiriKitUI */,
 				3C6DFC4B1ED864E6002822D0 /* Products */,
 				11F3C2AEEB9C1D0E4ABAEB08 /* Pods */,
 				6AB02CEE087C1D6E2EE29AF1 /* Frameworks */,
@@ -770,6 +836,7 @@
 			isa = PBXGroup;
 			children = (
 				3C6DFC4A1ED864E6002822D0 /* CoffeeChooser.app */,
+				45CCFD4D2132496700C60E7D /* SiriKit.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -777,6 +844,8 @@
 		3C6DFC4C1ED864E6002822D0 /* CoffeeChooser */ = {
 			isa = PBXGroup;
 			children = (
+				450B1BD72135FC340056C876 /* Shared */,
+				45CCFD482132336400C60E7D /* CoffeeChooser.entitlements */,
 				3C3897A120EFE88000E9973E /* privacy_policy.html */,
 				3C09B2EA20E9364000733933 /* icons.json */,
 				3CA4E6C620DE7E2A00217292 /* extensions */,
@@ -795,8 +864,6 @@
 				3C09B2EC20E9488C00733933 /* svg */,
 				3C6DFC561ED864E6002822D0 /* LaunchScreen.storyboard */,
 				3C6DFC591ED864E6002822D0 /* Info.plist */,
-				3C6DFC611ED86E3B002822D0 /* OpenWeatherAPI.swift */,
-				3C11D7B81FF5D9AE0008BBA3 /* LocationManager.swift */,
 				3C09B2E820E92A7000733933 /* WeatherViewController.swift */,
 			);
 			path = CoffeeChooser;
@@ -821,11 +888,46 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		450B1BD72135FC340056C876 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				450B1BD82135FC580056C876 /* CoffeeBotIntent.intentdefinition */,
+				450B1BDC213643A20056C876 /* CoffeeOrder.swift */,
+				450B1BE4213652A20056C876 /* CoffeeTypePrediction.swift */,
+				3C11D7B81FF5D9AE0008BBA3 /* LocationManager.swift */,
+				3C6DFC611ED86E3B002822D0 /* OpenWeatherAPI.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		45CCFD4E2132496700C60E7D /* SiriKit */ = {
+			isa = PBXGroup;
+			children = (
+				4549AF7A2137999A00B650E9 /* SiriKit.entitlements */,
+				45CCFD4F2132496700C60E7D /* IntentHandler.swift */,
+				45CCFD512132496700C60E7D /* Info.plist */,
+				450B1BE021364E300056C876 /* GetCoffeeTypeIntentHandler.swift */,
+			);
+			path = SiriKit;
+			sourceTree = "<group>";
+		};
+		45CCFD592132496700C60E7D /* SiriKitUI */ = {
+			isa = PBXGroup;
+			children = (
+				45CCFD5A2132496700C60E7D /* IntentViewController.swift */,
+				45CCFD5C2132496700C60E7D /* MainInterface.storyboard */,
+				45CCFD5F2132496700C60E7D /* Info.plist */,
+			);
+			path = SiriKitUI;
+			sourceTree = "<group>";
+		};
 		6AB02CEE087C1D6E2EE29AF1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				3C6DFC5F1ED86B3A002822D0 /* CoreLocation.framework */,
 				EFDB8BE943F036B05EF8500B /* Pods_CoffeeChooser.framework */,
+				45CCFD572132496700C60E7D /* IntentsUI.framework */,
+				44E1D52B988443FFC03F80C5 /* Pods_SiriKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -843,15 +945,35 @@
 				3C6DFC481ED864E6002822D0 /* Resources */,
 				5E66EDBEDF00501F6EBC8FA0 /* [CP] Embed Pods Frameworks */,
 				3C6DFC651EDA18AE002822D0 /* ShellScript */,
+				45CCFD6C2132496700C60E7D /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				45CCFD642132496700C60E7D /* PBXTargetDependency */,
 			);
 			name = CoffeeChooser;
 			productName = CoffeeChooser;
 			productReference = 3C6DFC4A1ED864E6002822D0 /* CoffeeChooser.app */;
 			productType = "com.apple.product-type.application";
+		};
+		45CCFD4C2132496700C60E7D /* SiriKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 45CCFD692132496700C60E7D /* Build configuration list for PBXNativeTarget "SiriKit" */;
+			buildPhases = (
+				C3D0E1E79A17C557D0ED3F34 /* [CP] Check Pods Manifest.lock */,
+				45CCFD492132496700C60E7D /* Sources */,
+				45CCFD4A2132496700C60E7D /* Frameworks */,
+				45CCFD4B2132496700C60E7D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SiriKit;
+			productName = SiriKit;
+			productReference = 45CCFD4D2132496700C60E7D /* SiriKit.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -859,7 +981,7 @@
 		3C6DFC421ED864E6002822D0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 1000;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Dark Bear Interactive";
 				TargetAttributes = {
@@ -868,7 +990,23 @@
 						DevelopmentTeam = A583HE3WU9;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Siri = {
+								enabled = 1;
+							};
+						};
+					};
+					45CCFD4C2132496700C60E7D = {
+						CreatedOnToolsVersion = 10.0;
+						DevelopmentTeam = A583HE3WU9;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
 							};
 						};
@@ -889,6 +1027,7 @@
 			projectRoot = "";
 			targets = (
 				3C6DFC491ED864E6002822D0 /* CoffeeChooser */,
+				45CCFD4C2132496700C60E7D /* SiriKit */,
 			);
 		};
 /* End PBXProject section */
@@ -1126,6 +1265,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		45CCFD4B2132496700C60E7D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -1152,6 +1298,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftLocation/SwiftLocation.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSVG/SwiftSVG.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
@@ -1160,6 +1307,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftLocation.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSVG.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
@@ -1186,6 +1334,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C3D0E1E79A17C557D0ED3F34 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SiriKit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1193,6 +1359,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				450B1BDD213643A20056C876 /* CoffeeOrder.swift in Sources */,
 				3C3897A420F0022100E9973E /* UIImage+extension.swift in Sources */,
 				3CA4E6CE20DEBC6A00217292 /* LoginViewController.swift in Sources */,
 				3C09B2E920E92A7000733933 /* WeatherViewController.swift in Sources */,
@@ -1202,15 +1369,41 @@
 				3CA4E6CA20DEB49700217292 /* UIViewController+Extensions.swift in Sources */,
 				3CA4E6D420E4699200217292 /* UITabBar+extension.swift in Sources */,
 				3C11D7B91FF5D9AE0008BBA3 /* LocationManager.swift in Sources */,
+				450B1BE5213652A20056C876 /* CoffeeTypePrediction.swift in Sources */,
 				3C38979E20EFE3A900E9973E /* AboutViewController.swift in Sources */,
 				3CD898C120FA76D800A5FA5A /* coffee_prediction.mlmodel in Sources */,
+				450B1BE121364E300056C876 /* GetCoffeeTypeIntentHandler.swift in Sources */,
 				3C6DFC4E1ED864E6002822D0 /* AppDelegate.swift in Sources */,
 				3C38979C20EFD5A000E9973E /* Float+extensions.swift in Sources */,
+				450B1BD92135FC580056C876 /* CoffeeBotIntent.intentdefinition in Sources */,
 				3C6DFC621ED86E3B002822D0 /* OpenWeatherAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		45CCFD492132496700C60E7D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				450B1BE6213652A20056C876 /* CoffeeTypePrediction.swift in Sources */,
+				4549AF7C21379E0900B650E9 /* coffee_prediction.mlmodel in Sources */,
+				450B1BDE213643A20056C876 /* CoffeeOrder.swift in Sources */,
+				4549AF7B21379DB600B650E9 /* OpenWeatherAPI.swift in Sources */,
+				450B1BE7213655BE0056C876 /* LocationManager.swift in Sources */,
+				45CCFD502132496700C60E7D /* IntentHandler.swift in Sources */,
+				450B1BDA2135FC580056C876 /* CoffeeBotIntent.intentdefinition in Sources */,
+				450B1BE221364E300056C876 /* GetCoffeeTypeIntentHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		45CCFD642132496700C60E7D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 45CCFD4C2132496700C60E7D /* SiriKit */;
+			targetProxy = 45CCFD632132496700C60E7D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3C6DFC511ED864E6002822D0 /* Main.storyboard */ = {
@@ -1227,6 +1420,14 @@
 				3C6DFC571ED864E6002822D0 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		45CCFD5C2132496700C60E7D /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45CCFD5D2132496700C60E7D /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1347,7 +1548,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7B45A9E55CF9BC391CE9B77B /* Pods-CoffeeChooser.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CoffeeChooser/CoffeeChooser.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = A583HE3WU9;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1355,6 +1559,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = CoffeeChooser/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tonyhung.coffeechooser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1368,7 +1573,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EF4FE456F7BCFA178EF76B4B /* Pods-CoffeeChooser.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CoffeeChooser/CoffeeChooser.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = A583HE3WU9;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1376,12 +1584,62 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = CoffeeChooser/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tonyhung.coffeechooser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "e92f5cd9-f732-4d78-bfe6-33f9dea8a0df";
 				PROVISIONING_PROFILE_SPECIFIER = "CoffeeChooser-Dist";
 				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		45CCFD6A2132496700C60E7D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80AAABB81DE56FAC05F89681 /* Pods-SiriKit.debug.xcconfig */;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = SiriKit/SiriKit.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A583HE3WU9;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = SiriKit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tonyhung.coffeechooser.SiriKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		45CCFD6B2132496700C60E7D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4D19ADC4F71A2AE55C32509 /* Pods-SiriKit.release.xcconfig */;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = SiriKit/SiriKit.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A583HE3WU9;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = SiriKit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tonyhung.coffeechooser.SiriKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -1402,6 +1660,15 @@
 			buildConfigurations = (
 				3C6DFC5D1ED864E6002822D0 /* Debug */,
 				3C6DFC5E1ED864E6002822D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		45CCFD692132496700C60E7D /* Build configuration list for PBXNativeTarget "SiriKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45CCFD6A2132496700C60E7D /* Debug */,
+				45CCFD6B2132496700C60E7D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
