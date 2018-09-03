@@ -18,7 +18,6 @@ import IntentsUI
 
 class TrainViewController: SuperViewController, CoffeeCellDelegate  {
     
-    
 
 	var ref: DatabaseReference!
 
@@ -35,7 +34,6 @@ class TrainViewController: SuperViewController, CoffeeCellDelegate  {
         super.viewDidLoad()
         ref = Database.database().reference()
         
-        _ = LocationManager.shared.startReceivingSignificantLocationChanges()
 		NotificationCenter.default.addObserver(self, selector: #selector(locationUpdated(notification:)), name: .locationDidChange, object: nil)
 		NotificationCenter.default.addObserver(self, selector: #selector(locationStatusChanged(notification:)), name: Notification.Name.locationStatusChanged, object: nil)
 		
@@ -55,9 +53,10 @@ class TrainViewController: SuperViewController, CoffeeCellDelegate  {
         super.viewDidAppear(animated)
     
         guard let lastLoc = LocationManager.shared.lastLocation() else {
+            weatherDataLoaded(nil)
             return
         }
-        loadWeatherData(lastLoc)
+        weatherDataLoaded(lastLoc)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -66,25 +65,21 @@ class TrainViewController: SuperViewController, CoffeeCellDelegate  {
 	
 	func locationUpdated(notification: NSNotification) {
 		guard let location = notification.userInfo!["location"] as? CLLocation else {
+            weatherDataLoaded(nil)
+
 			return
 		}
-		loadWeatherData(location)
-		print("locations",location.coordinate)
+        weatherDataLoaded(location)
 		
 	}
-    func loadWeatherData(_ location:CLLocation) {
-        self.lastlocation = nil
-        self.collectionView.reloadData()
+    
+    func weatherDataLoaded(_ location:CLLocation?) {
         
-        //TODO no need for weather data here, since we'll do it in CoffeeTypeTrain
-        OpenWeatherAPI.sharedInstance.weatherDataFor(location: location.coordinate, completion: {
-            (response: JSON?) in
-            self.jsonData = response
-            self.lastlocation = location
-            self.collectionView.reloadData()
-            
-        })
+        print("locations",location?.coordinate)
+        self.lastlocation = location
+        self.collectionView.reloadData()
     }
+   
 	func locationStatusChanged(notification: NSNotification) {
 		guard let status = notification.userInfo!["status"] as? CLAuthorizationStatus else {
 			return

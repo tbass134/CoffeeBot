@@ -69,8 +69,8 @@ class WeatherViewController: UIViewController {
 			// Set the fill color
 			svgLayer.fillColor = UIColor(red:0.94, green:0.37, blue:0.00, alpha:1.00).cgColor
 			
-			svgLayer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-			svgLayer.position = CGPoint(x: self.iconView.layer.bounds.midX, y:0)
+			svgLayer.anchorPoint = CGPoint(x: 0, y: 0)
+			svgLayer.position = CGPoint(x: self.iconView.layer.bounds.minX, y:0)
 			
 			// Aspect fit the layer to self.view
 			svgLayer.resizeToFit(self.iconView.bounds)

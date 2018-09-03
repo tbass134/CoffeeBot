@@ -45,7 +45,6 @@ class PredictViewController: SuperViewController {
 			iconHeightConstraint.constant = 200
 		}
         
-        _ = LocationManager.shared.startReceivingSignificantLocationChanges()
         
 
         NotificationCenter.default.addObserver(self, selector: #selector(locationUpdated(notification:)), name: .locationDidChange, object: nil)
@@ -140,10 +139,12 @@ class PredictViewController: SuperViewController {
 	func locationError(notification:Notification) {
 		presentAlert(title: "Unable to aquire location", message: "Please try again.")
 		self.predict_label.text = "Location Not Determined"
+        self.weatherView?.view.isHidden = true
+
 	}
 	
 	@IBAction func predictAction(_ sender: Any) {
-		_ = LocationManager.shared.startReceivingSignificantLocationChanges()
+       LocationManager.shared.getCurrentLocation()
 	}
 	
 	func predict(_ location:CLLocationCoordinate2D) {
@@ -170,7 +171,7 @@ class PredictViewController: SuperViewController {
             }
             
             let percent = Int(round(result.classProbability[result.classLabel]! * 100))
-            self.predict_label.text = self.predict_label.text! + "\n(\(percent)% probability)"
+            self.predict_label.text = self.predict_label.text! + "\n(\(percent)% confidence)"
             
             Locator.location(fromCoordinates: location, locale: nil, using: .apple, timeout: nil, onSuccess: { (place) -> (Void) in
                 guard let pm = place.first, let locality = pm.city, let administrativeArea = pm.administrativeArea else {

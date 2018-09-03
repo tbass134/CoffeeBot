@@ -17,33 +17,15 @@ import SwiftLocation
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var textLog = TextLog()
-
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
         FirebaseApp.configure()
         Fabric.with([Crashlytics.self])
         
-        if let _ = launchOptions?[UIApplicationLaunchOptionsKey.location] {
-            print("didFinishLaunchingWithOptions",launchOptions)
-            textLog.write("CoffeeChooser didFinishLaunchingWithOptions \(launchOptions)\n")
-
-          
-            Locator.subscribeSignificantLocations(onUpdate: { newLocation in
-                self.textLog.write("CoffeeChooser didFinishLaunchingWithOptions got newLocation \(newLocation)\n")
-                // This block will be executed with the details of the significant location change that triggered the background app launch,
-                // and will continue to execute for any future significant location change events as well (unless canceled).
-            }, onFail: { (err, lastLocation) in
-                // Something bad has occurred
-                print("didFinishLaunchingWithOptions error",err)
-
-
-                self.textLog.write("CoffeeChooser didFinishLaunchingWithOptions err \(err)\n")
-                self.textLog.write("CoffeeChooser didFinishLaunchingWithOptions lastLocation \(lastLocation)\n")
-            })
-        }
+        _ = LocationManager.shared.startReceivingSignificantLocationChanges()
+        
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         var vc:UIViewController?
 
@@ -112,31 +94,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
-}
-
-
-struct TextLog: TextOutputStream {
-    
-    /// Appends the given string to the stream.
-    mutating func write(_ string: String) {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .allDomainsMask)
-        let documentDirectoryPath = paths.first!
-        let log = documentDirectoryPath.appendingPathComponent("log.txt")
-        
-        do {
-            let handle = try FileHandle(forWritingTo: log)
-            handle.seekToEndOfFile()
-            handle.write(string.data(using: .utf8)!)
-            handle.closeFile()
-        } catch {
-            print(error.localizedDescription)
-            do {
-                try string.data(using: .utf8)?.write(to: log)
-            } catch {
-                print(error.localizedDescription)
-            }
-        }
-        
-    }
-    
 }
