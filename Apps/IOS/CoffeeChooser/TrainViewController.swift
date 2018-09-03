@@ -17,11 +17,14 @@ import IntentsUI
 
 
 class TrainViewController: SuperViewController, CoffeeCellDelegate  {
+    
+    
 
 	var ref: DatabaseReference!
 
     var jsonData:JSON?
-	var lastlocation:CLLocationCoordinate2D?
+	var lastlocation:CLLocation?
+    
 	var locationLoaded = false
 	let hotCoffeeImage = UIImage.init(named: "coffee_hot")
 	let icedCoffeeImage = UIImage.init(named: "coffee_iced")
@@ -72,10 +75,12 @@ class TrainViewController: SuperViewController, CoffeeCellDelegate  {
     func loadWeatherData(_ location:CLLocation) {
         self.lastlocation = nil
         self.collectionView.reloadData()
+        
+        //TODO no need for weather data here, since we'll do it in CoffeeTypeTrain
         OpenWeatherAPI.sharedInstance.weatherDataFor(location: location.coordinate, completion: {
             (response: JSON?) in
             self.jsonData = response
-            self.lastlocation = location.coordinate
+            self.lastlocation = location
             self.collectionView.reloadData()
             
         })
@@ -110,56 +115,23 @@ class TrainViewController: SuperViewController, CoffeeCellDelegate  {
 		print("selected")
 
 		#if (arch(i386) || arch(x86_64))
-		return
+//        return
 		#endif
 		
-        guard let json = self.jsonData, let location = self.lastlocation else {
+        guard let location = self.lastlocation else {
             return
         }
+        
+        CoffeeTypeTrain.shared.train(location, coffeeType: coffeeType) { (success) in
+            
+            let alert = UIAlertController(title: "Coffee Type Saved", message: "Your input was saved! Come back again to enter your enter coffee type when you order more coffee!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (action) in
+                alert.dismiss(animated: true, completion: nil)
+            }));
+            self.present(alert, animated: true, completion: nil)
+
+        }
 		
-		let clLoc  = CLLocation(latitude:location.latitude, longitude:location.longitude)
-		
-		CLGeocoder().reverseGeocodeLocation(clLoc, completionHandler: {(placemarks, error) -> Void in
-			
-			if error != nil {
-				print("Reverse geocoder failed with error" + (error?.localizedDescription)!)
-				return
-			}
-			
-			guard let pm = placemarks?.first, let postalCode = pm.postalCode else {
-				return
-			}
-			
-			var item = CoffeeOrder(userId: nil, type: coffeeType.rawValue,
-									date: Date.init(),
-									temp: json["main"]["temp"].intValue,
-									humidity: json["main"]["humidity"].floatValue,
-									location: json["name"].stringValue,
-									lat:json["coord"]["lat"].floatValue,
-									lon:json["coord"]["lon"].floatValue,
-									weatherCond: json["weather"][0]["main"].stringValue,
-									clouds: json["clouds"]["all"].intValue,
-									visibility: json["visibility"].intValue,
-									windSpeed: json["wind"]["speed"].intValue,
-									windDeg: json["wind"]["deg"].floatValue,
-									pressure:  json["main"]["pressure"].floatValue,
-									zipcode:postalCode)
-			
-			
-			if let user = Auth.auth().currentUser {
-				
-				item.userId = user.uid
-				
-				let coffeeSelectionRef = self.ref.child(UUID().uuidString)
-				coffeeSelectionRef.setValue(item.toAnyObject())
-				let alert = UIAlertController(title: "Coffee Type Saved", message: "Your input was saved! Come back again to enter your enter coffee type when you order more coffee!", preferredStyle: .alert)
-				alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (action) in
-					alert.dismiss(animated: true, completion: nil)
-				}));
-				self.present(alert, animated: true, completion: nil)
-			}
-			
-		})
         
     }
 }
@@ -251,9 +223,9 @@ extension TrainViewController: UICollectionViewDelegate, UICollectionViewDataSou
         if #available(iOS 12.0, *) {
             if type == .Hot {
                 //SelectHotCoffeeIntent
-                let getCoffeeTypeIntent = GetCoffeeTypeIntent()
+                let selectHotCoffeeIntent = SelectHotCoffeeIntent()
 
-                if let shortcut = INShortcut(intent: getCoffeeTypeIntent) {
+                if let shortcut = INShortcut(intent: selectHotCoffeeIntent) {
                     let viewController = INUIAddVoiceShortcutViewController(shortcut: shortcut)
                     viewController.modalPresentationStyle = .formSheet
                     viewController.delegate = self as? INUIAddVoiceShortcutViewControllerDelegate // Object conforming to `INUIAddVoiceShortcutViewControllerDelegate`.
@@ -261,9 +233,9 @@ extension TrainViewController: UICollectionViewDelegate, UICollectionViewDataSou
                 }
             } else {
                 //SelectIcedCoffeeIntent
-                let getCoffeeTypeIntent = GetCoffeeTypeIntent()
+                let selectIcedCoffeeIntent = SelectIcedCoffeeIntent()
                 
-                if let shortcut = INShortcut(intent: getCoffeeTypeIntent) {
+                if let shortcut = INShortcut(intent: selectIcedCoffeeIntent) {
                     let viewController = INUIAddVoiceShortcutViewController(shortcut: shortcut)
                     viewController.modalPresentationStyle = .formSheet
                     viewController.delegate = self as? INUIAddVoiceShortcutViewControllerDelegate // Object conforming to `INUIAddVoiceShortcutViewControllerDelegate`.
@@ -274,9 +246,26 @@ extension TrainViewController: UICollectionViewDelegate, UICollectionViewDataSou
             // Fallback on earlier versions
         }
     }
-	
-	
 }
+
+@available(iOS 12.0, *)
+extension TrainViewController: INUIAddVoiceShortcutViewControllerDelegate {
+    func addVoiceShortcutViewController(_ controller: INUIAddVoiceShortcutViewController,
+                                        didFinishWith voiceShortcut: INVoiceShortcut?,
+                                        error: Error?) {
+        if let error = error as NSError? {
+            print(error)
+        }
+        
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    func addVoiceShortcutViewControllerDidCancel(_ controller: INUIAddVoiceShortcutViewController) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+}
+
+
 
 class CollectionViewCell:UICollectionViewCell {
     var type:Coffee?

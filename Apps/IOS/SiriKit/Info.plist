@@ -35,9 +35,9 @@
 			<array/>
 			<key>IntentsSupported</key>
 			<array>
+				<string>SelectHotCoffeeIntent</string>
+				<string>SelectIcedCoffeeIntent</string>
 				<string>GetCoffeeTypeIntent</string>
-				<string>PredictCoffeeIntent</string>
-				<string>SaveCoffeeIntent</string>
 			</array>
 		</dict>
 		<key>NSExtensionPointIdentifier</key>

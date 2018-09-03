@@ -260,6 +260,11 @@
 		450B1BE7213655BE0056C876 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C11D7B81FF5D9AE0008BBA3 /* LocationManager.swift */; };
 		4549AF7B21379DB600B650E9 /* OpenWeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6DFC611ED86E3B002822D0 /* OpenWeatherAPI.swift */; };
 		4549AF7C21379E0900B650E9 /* coffee_prediction.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3CD898C020FA76D700A5FA5A /* coffee_prediction.mlmodel */; };
+		4549AF822137BDD500B650E9 /* SelectHotCoffeeIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4549AF812137BDD500B650E9 /* SelectHotCoffeeIntentHandler.swift */; };
+		4549AF842137BDF800B650E9 /* SelectIcedCoffeeIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4549AF832137BDF800B650E9 /* SelectIcedCoffeeIntentHandler.swift */; };
+		4549AF862137BF1300B650E9 /* CoffeeTypeTrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4549AF852137BF1300B650E9 /* CoffeeTypeTrain.swift */; };
+		4549AF872137C0E700B650E9 /* CoffeeTypeTrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4549AF852137BF1300B650E9 /* CoffeeTypeTrain.swift */; };
+		4549AF8A2137C5E200B650E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4549AF892137C5E200B650E9 /* GoogleService-Info.plist */; };
 		45CCFD502132496700C60E7D /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CCFD4F2132496700C60E7D /* IntentHandler.swift */; };
 		45CCFD652132496700C60E7D /* SiriKit.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 45CCFD4D2132496700C60E7D /* SiriKit.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		9CE3E125DAB53D6A5094D01C /* Pods_CoffeeChooser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFDB8BE943F036B05EF8500B /* Pods_CoffeeChooser.framework */; };
@@ -543,6 +548,10 @@
 		450B1BE021364E300056C876 /* GetCoffeeTypeIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCoffeeTypeIntentHandler.swift; sourceTree = "<group>"; };
 		450B1BE4213652A20056C876 /* CoffeeTypePrediction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeTypePrediction.swift; sourceTree = "<group>"; };
 		4549AF7A2137999A00B650E9 /* SiriKit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SiriKit.entitlements; sourceTree = "<group>"; };
+		4549AF812137BDD500B650E9 /* SelectHotCoffeeIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectHotCoffeeIntentHandler.swift; sourceTree = "<group>"; };
+		4549AF832137BDF800B650E9 /* SelectIcedCoffeeIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectIcedCoffeeIntentHandler.swift; sourceTree = "<group>"; };
+		4549AF852137BF1300B650E9 /* CoffeeTypeTrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeTypeTrain.swift; sourceTree = "<group>"; };
+		4549AF892137C5E200B650E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		45CCFD482132336400C60E7D /* CoffeeChooser.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoffeeChooser.entitlements; sourceTree = "<group>"; };
 		45CCFD4D2132496700C60E7D /* SiriKit.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SiriKit.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		45CCFD4F2132496700C60E7D /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
@@ -896,6 +905,7 @@
 				450B1BE4213652A20056C876 /* CoffeeTypePrediction.swift */,
 				3C11D7B81FF5D9AE0008BBA3 /* LocationManager.swift */,
 				3C6DFC611ED86E3B002822D0 /* OpenWeatherAPI.swift */,
+				4549AF852137BF1300B650E9 /* CoffeeTypeTrain.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -903,10 +913,13 @@
 		45CCFD4E2132496700C60E7D /* SiriKit */ = {
 			isa = PBXGroup;
 			children = (
+				4549AF892137C5E200B650E9 /* GoogleService-Info.plist */,
 				4549AF7A2137999A00B650E9 /* SiriKit.entitlements */,
 				45CCFD4F2132496700C60E7D /* IntentHandler.swift */,
 				45CCFD512132496700C60E7D /* Info.plist */,
 				450B1BE021364E300056C876 /* GetCoffeeTypeIntentHandler.swift */,
+				4549AF812137BDD500B650E9 /* SelectHotCoffeeIntentHandler.swift */,
+				4549AF832137BDF800B650E9 /* SelectIcedCoffeeIntentHandler.swift */,
 			);
 			path = SiriKit;
 			sourceTree = "<group>";
@@ -1269,6 +1282,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4549AF8A2137C5E200B650E9 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1363,6 +1377,7 @@
 				3C3897A420F0022100E9973E /* UIImage+extension.swift in Sources */,
 				3CA4E6CE20DEBC6A00217292 /* LoginViewController.swift in Sources */,
 				3C09B2E920E92A7000733933 /* WeatherViewController.swift in Sources */,
+				4549AF862137BF1300B650E9 /* CoffeeTypeTrain.swift in Sources */,
 				3C11D7AC1FF4533D0008BBA3 /* PredictViewController.swift in Sources */,
 				3C6DFC501ED864E6002822D0 /* TrainViewController.swift in Sources */,
 				3CA4E6D020DEC4E000217292 /* TabBarController.swift in Sources */,
@@ -1385,10 +1400,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				450B1BE6213652A20056C876 /* CoffeeTypePrediction.swift in Sources */,
+				4549AF842137BDF800B650E9 /* SelectIcedCoffeeIntentHandler.swift in Sources */,
+				4549AF872137C0E700B650E9 /* CoffeeTypeTrain.swift in Sources */,
 				4549AF7C21379E0900B650E9 /* coffee_prediction.mlmodel in Sources */,
 				450B1BDE213643A20056C876 /* CoffeeOrder.swift in Sources */,
 				4549AF7B21379DB600B650E9 /* OpenWeatherAPI.swift in Sources */,
 				450B1BE7213655BE0056C876 /* LocationManager.swift in Sources */,
+				4549AF822137BDD500B650E9 /* SelectHotCoffeeIntentHandler.swift in Sources */,
 				45CCFD502132496700C60E7D /* IntentHandler.swift in Sources */,
 				450B1BDA2135FC580056C876 /* CoffeeBotIntent.intentdefinition in Sources */,
 				450B1BE221364E300056C876 /* GetCoffeeTypeIntentHandler.swift in Sources */,

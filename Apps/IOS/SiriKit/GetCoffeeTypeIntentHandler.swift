@@ -14,7 +14,6 @@ public class GetCoffeeTypeIntentHandler: NSObject, GetCoffeeTypeIntentHandling {
     @available(iOS 12.0, *)
     public func handle(intent: GetCoffeeTypeIntent, completion: @escaping (GetCoffeeTypeIntentResponse) -> Void) {
         
-        
         OperationQueue.main.addOperation{
             guard let lastLoc = LocationManager.shared.lastLocation() else {
                 let response = GetCoffeeTypeIntentResponse(code: .failure, userActivity: nil)
@@ -42,3 +41,5 @@ public class GetCoffeeTypeIntentHandler: NSObject, GetCoffeeTypeIntentHandling {
         }
     }
 }
+    
+

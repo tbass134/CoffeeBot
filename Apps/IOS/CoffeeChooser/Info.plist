@@ -52,6 +52,8 @@
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string>GetCoffeeTypeIntent</string>
+		<string>SelectHotCoffeeIntent</string>
+		<string>SelectIcedCoffeeIntent</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>
