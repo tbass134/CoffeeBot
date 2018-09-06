@@ -8,5 +8,9 @@
 	<array>
 		<string>group.com.tonyhung.coffeechooser</string>
 	</array>
+	<key>keychain-access-groups</key>
+	<array>
+		<string>$(AppIdentifierPrefix)com.tonyhung.coffeechooser</string>
+	</array>
 </dict>
 </plist>

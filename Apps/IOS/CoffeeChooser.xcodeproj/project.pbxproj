@@ -264,7 +264,9 @@
 		4549AF842137BDF800B650E9 /* SelectIcedCoffeeIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4549AF832137BDF800B650E9 /* SelectIcedCoffeeIntentHandler.swift */; };
 		4549AF862137BF1300B650E9 /* CoffeeTypeTrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4549AF852137BF1300B650E9 /* CoffeeTypeTrain.swift */; };
 		4549AF872137C0E700B650E9 /* CoffeeTypeTrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4549AF852137BF1300B650E9 /* CoffeeTypeTrain.swift */; };
-		4549AF8A2137C5E200B650E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4549AF892137C5E200B650E9 /* GoogleService-Info.plist */; };
+		4554C523214088940078BC66 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C9115CA202F568700449511 /* GoogleService-Info.plist */; };
+		4554C525214090A90078BC66 /* ApplicationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554C524214090A90078BC66 /* ApplicationBuilder.swift */; };
+		4554C526214092A90078BC66 /* ApplicationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554C524214090A90078BC66 /* ApplicationBuilder.swift */; };
 		45CCFD502132496700C60E7D /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CCFD4F2132496700C60E7D /* IntentHandler.swift */; };
 		45CCFD652132496700C60E7D /* SiriKit.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 45CCFD4D2132496700C60E7D /* SiriKit.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		9CE3E125DAB53D6A5094D01C /* Pods_CoffeeChooser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFDB8BE943F036B05EF8500B /* Pods_CoffeeChooser.framework */; };
@@ -551,7 +553,7 @@
 		4549AF812137BDD500B650E9 /* SelectHotCoffeeIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectHotCoffeeIntentHandler.swift; sourceTree = "<group>"; };
 		4549AF832137BDF800B650E9 /* SelectIcedCoffeeIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectIcedCoffeeIntentHandler.swift; sourceTree = "<group>"; };
 		4549AF852137BF1300B650E9 /* CoffeeTypeTrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeTypeTrain.swift; sourceTree = "<group>"; };
-		4549AF892137C5E200B650E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4554C524214090A90078BC66 /* ApplicationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationBuilder.swift; sourceTree = "<group>"; };
 		45CCFD482132336400C60E7D /* CoffeeChooser.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoffeeChooser.entitlements; sourceTree = "<group>"; };
 		45CCFD4D2132496700C60E7D /* SiriKit.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SiriKit.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		45CCFD4F2132496700C60E7D /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
@@ -858,7 +860,6 @@
 				3C3897A120EFE88000E9973E /* privacy_policy.html */,
 				3C09B2EA20E9364000733933 /* icons.json */,
 				3CA4E6C620DE7E2A00217292 /* extensions */,
-				3C9115CA202F568700449511 /* GoogleService-Info.plist */,
 				3CC52732202F5087006FB9E6 /* Model */,
 				3C11D7B51FF486E40008BBA3 /* default.gpx */,
 				3C11D7AE1FF45BCD0008BBA3 /* CoreMLHelpers */,
@@ -900,12 +901,14 @@
 		450B1BD72135FC340056C876 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				3C9115CA202F568700449511 /* GoogleService-Info.plist */,
 				450B1BD82135FC580056C876 /* CoffeeBotIntent.intentdefinition */,
 				450B1BDC213643A20056C876 /* CoffeeOrder.swift */,
 				450B1BE4213652A20056C876 /* CoffeeTypePrediction.swift */,
 				3C11D7B81FF5D9AE0008BBA3 /* LocationManager.swift */,
 				3C6DFC611ED86E3B002822D0 /* OpenWeatherAPI.swift */,
 				4549AF852137BF1300B650E9 /* CoffeeTypeTrain.swift */,
+				4554C524214090A90078BC66 /* ApplicationBuilder.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -913,7 +916,6 @@
 		45CCFD4E2132496700C60E7D /* SiriKit */ = {
 			isa = PBXGroup;
 			children = (
-				4549AF892137C5E200B650E9 /* GoogleService-Info.plist */,
 				4549AF7A2137999A00B650E9 /* SiriKit.entitlements */,
 				45CCFD4F2132496700C60E7D /* IntentHandler.swift */,
 				45CCFD512132496700C60E7D /* Info.plist */,
@@ -1009,6 +1011,9 @@
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
+							com.apple.Keychain = {
+								enabled = 1;
+							};
 							com.apple.Siri = {
 								enabled = 1;
 							};
@@ -1020,6 +1025,9 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.Keychain = {
 								enabled = 1;
 							};
 						};
@@ -1282,7 +1290,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4549AF8A2137C5E200B650E9 /* GoogleService-Info.plist in Resources */,
+				4554C523214088940078BC66 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1312,6 +1320,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftLocation/SwiftLocation.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSVG/SwiftSVG.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -1321,6 +1330,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftLocation.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSVG.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -1391,6 +1401,7 @@
 				3C6DFC4E1ED864E6002822D0 /* AppDelegate.swift in Sources */,
 				3C38979C20EFD5A000E9973E /* Float+extensions.swift in Sources */,
 				450B1BD92135FC580056C876 /* CoffeeBotIntent.intentdefinition in Sources */,
+				4554C525214090A90078BC66 /* ApplicationBuilder.swift in Sources */,
 				3C6DFC621ED86E3B002822D0 /* OpenWeatherAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1401,6 +1412,7 @@
 			files = (
 				450B1BE6213652A20056C876 /* CoffeeTypePrediction.swift in Sources */,
 				4549AF842137BDF800B650E9 /* SelectIcedCoffeeIntentHandler.swift in Sources */,
+				4554C526214092A90078BC66 /* ApplicationBuilder.swift in Sources */,
 				4549AF872137C0E700B650E9 /* CoffeeTypeTrain.swift in Sources */,
 				4549AF7C21379E0900B650E9 /* coffee_prediction.mlmodel in Sources */,
 				450B1BDE213643A20056C876 /* CoffeeOrder.swift in Sources */,

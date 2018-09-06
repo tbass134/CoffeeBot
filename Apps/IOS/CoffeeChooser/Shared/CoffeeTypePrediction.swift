@@ -67,7 +67,7 @@ class CoffeeTypePrediction {
     
     func toOneHot(_ string:String) -> [Double] {
         var str = string
-        var items = [Double](repeating: 0.0, count: 7)
+        var items = [Double](repeating: 0.0, count: 8)
         let weather_conds:[String] = ["Clear", "Clouds", "Fog", "Haze", "Rain", "Smoke", "Snow", "Thunderstorm"]
         
         if str.lowercased().range(of:"cloud") != nil || str.lowercased().range(of:"overcast") != nil{

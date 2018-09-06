@@ -11,6 +11,7 @@ def sharedPods
 	pod 'Firebase/Core'
 	pod 'SwiftSVG', '~> 2.0'
 	pod 'SwiftLocation', '~> 3.2.3'
+	pod 'KeychainAccess'
 
 end
 

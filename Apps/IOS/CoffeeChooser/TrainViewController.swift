@@ -16,9 +16,8 @@ import Intents
 import IntentsUI
 
 
-class TrainViewController: SuperViewController, CoffeeCellDelegate  {
+class TrainViewController: SuperViewController  {
     
-
 	var ref: DatabaseReference!
 
     var jsonData:JSON?
@@ -35,12 +34,9 @@ class TrainViewController: SuperViewController, CoffeeCellDelegate  {
         ref = Database.database().reference()
         
 		NotificationCenter.default.addObserver(self, selector: #selector(locationUpdated(notification:)), name: .locationDidChange, object: nil)
-		NotificationCenter.default.addObserver(self, selector: #selector(locationStatusChanged(notification:)), name: Notification.Name.locationStatusChanged, object: nil)
 		
 		NotificationCenter.default.addObserver(self, selector: #selector(locationError(notification:)), name: Notification.Name.locationDidFail, object: nil)
-        
     
-		self.collectionView.reloadData()
 		self.collectionView.backgroundColor = UIColor.clear
 		
 		// Create the info button
@@ -53,7 +49,6 @@ class TrainViewController: SuperViewController, CoffeeCellDelegate  {
         super.viewDidAppear(animated)
     
         guard let lastLoc = LocationManager.shared.lastLocation() else {
-            weatherDataLoaded(nil)
             return
         }
         weatherDataLoaded(lastLoc)
@@ -74,31 +69,15 @@ class TrainViewController: SuperViewController, CoffeeCellDelegate  {
 	}
     
     func weatherDataLoaded(_ location:CLLocation?) {
-        
-        print("locations",location?.coordinate)
+        print("locations",location?.coordinate as Any)
         self.lastlocation = location
         self.collectionView.reloadData()
     }
-   
-	func locationStatusChanged(notification: NSNotification) {
-		guard let status = notification.userInfo!["status"] as? CLAuthorizationStatus else {
-			return
-		}
-		
-		if status == .denied {
-			presentAlert(title: "Location Access required", message: "Access to your current location is required")
-		}
-	}
-	
+
+
 	func locationError(notification:Notification) {
 		presentAlert(title: "Unable to aquire location", message: "Please try again.")
 	}
-	
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-		
-        // Dispose of any resources that can be recreated.
-    }
 
     @IBAction func aboutBtnSelected(_ sender: Any) {
 		
@@ -110,7 +89,7 @@ class TrainViewController: SuperViewController, CoffeeCellDelegate  {
 		print("selected")
 
 		#if (arch(i386) || arch(x86_64))
-//        return
+        return
 		#endif
 		
         guard let location = self.lastlocation else {
@@ -126,8 +105,6 @@ class TrainViewController: SuperViewController, CoffeeCellDelegate  {
             self.present(alert, animated: true, completion: nil)
 
         }
-		
-        
     }
 }
 
@@ -137,11 +114,9 @@ extension TrainViewController: UICollectionViewDelegate, UICollectionViewDataSou
 		return 1
 	}
 	
-	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return 2
 	}
-	
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
@@ -153,7 +128,6 @@ extension TrainViewController: UICollectionViewDelegate, UICollectionViewDataSou
 			cell.label.text = "Hot Coffee"
 		} else if (indexPath.row == 1) {
             cell.type = Coffee.Iced
-
 			cell.imageView.image = icedCoffeeImage
 			cell.label.text = "Iced Coffee"
 		}
@@ -208,95 +182,74 @@ extension TrainViewController: UICollectionViewDelegate, UICollectionViewDataSou
 			return CGSize(width: (collectionView.frame.size.width), height: 200)
 		}
 	}
-    
-    func siriButtonTapped(cell: CollectionViewCell) {
-        print(cell.type)
-        
-        guard let type = cell.type else {
-            return
-        }
-        if #available(iOS 12.0, *) {
-            if type == .Hot {
-                //SelectHotCoffeeIntent
-                let selectHotCoffeeIntent = SelectHotCoffeeIntent()
-
-                if let shortcut = INShortcut(intent: selectHotCoffeeIntent) {
-                    let viewController = INUIAddVoiceShortcutViewController(shortcut: shortcut)
-                    viewController.modalPresentationStyle = .formSheet
-                    viewController.delegate = self as? INUIAddVoiceShortcutViewControllerDelegate // Object conforming to `INUIAddVoiceShortcutViewControllerDelegate`.
-                    present(viewController, animated: true, completion: nil)
-                }
-            } else {
-                //SelectIcedCoffeeIntent
-                let selectIcedCoffeeIntent = SelectIcedCoffeeIntent()
-                
-                if let shortcut = INShortcut(intent: selectIcedCoffeeIntent) {
-                    let viewController = INUIAddVoiceShortcutViewController(shortcut: shortcut)
-                    viewController.modalPresentationStyle = .formSheet
-                    viewController.delegate = self as? INUIAddVoiceShortcutViewControllerDelegate // Object conforming to `INUIAddVoiceShortcutViewControllerDelegate`.
-                    present(viewController, animated: true, completion: nil)
-                }
-            }
-        } else {
-            // Fallback on earlier versions
-        }
-    }
 }
 
-@available(iOS 12.0, *)
-extension TrainViewController: INUIAddVoiceShortcutViewControllerDelegate {
-    func addVoiceShortcutViewController(_ controller: INUIAddVoiceShortcutViewController,
-                                        didFinishWith voiceShortcut: INVoiceShortcut?,
-                                        error: Error?) {
-        if let error = error as NSError? {
-            print(error)
-        }
-        
-        controller.dismiss(animated: true, completion: nil)
+extension TrainViewController:CoffeeCellDelegate {
+    
+    @available(iOS 12.0, *)
+    func presentAddVoiceShortcutvc(vc:INUIAddVoiceShortcutViewController) {
+        present(vc, animated: true, completion: nil)
     }
     
-    func addVoiceShortcutViewControllerDidCancel(_ controller: INUIAddVoiceShortcutViewController) {
-        controller.dismiss(animated: true, completion: nil)
-    }
-}
+    @available(iOS 12.0, *)
+    func presentEditVoiceShortcutvc(vc:INUIEditVoiceShortcutViewController) {
+        present(vc, animated: true, completion: nil)
 
+    }
+    
+    @available(iOS 12.0, *)
+    func dismissAddVoiceShortcutVC(vc:INUIAddVoiceShortcutViewController) {
+        vc.dismiss(animated: true, completion: nil  )
+    }
+    
+    @available(iOS 12.0, *)
+    func dismissEditVoiceShortcutVC(vc:INUIEditVoiceShortcutViewController) {
+        vc.dismiss(animated: true, completion: nil  )
+    }
+
+}
 
 
 class CollectionViewCell:UICollectionViewCell {
-    var type:Coffee?
-    var delegate:CoffeeCellDelegate?
-    
-    @IBOutlet weak var imageView: UIImageView! {
-        didSet {
-            
-        }
-    }
-    @IBOutlet weak var label: UILabel! {
-        didSet {
-            
-        }
-    }
-    @IBOutlet weak var siriView: UIView! {
+    var type:Coffee? {
         didSet {
             if #available(iOS 12.0, *) {
+                INPreferences.requestSiriAuthorization { (status) in
+                    
+                    if status != .authorized {
+                        return
+                    }
 
-                let button = INUIAddVoiceShortcutButton(style: .white)
-                button.translatesAutoresizingMaskIntoConstraints = false
+                    let addShortcutButton = INUIAddVoiceShortcutButton(style: .whiteOutline)
 
-                siriView.addSubview(button)
-                siriView.centerXAnchor.constraint(equalTo: button.centerXAnchor).isActive = true
-                siriView.centerYAnchor.constraint(equalTo: button.centerYAnchor).isActive = true
-                button.addTarget(self, action: #selector(self.addToSiri(_:)), for: .touchUpInside)
+                    if self.type == Coffee.Hot {
+                        let intent = SelectHotCoffeeIntent()
+                        intent.suggestedInvocationPhrase = "I'm having hot coffee"
+                        addShortcutButton.shortcut = INShortcut(intent: intent)
+
+                    } else if self.type == Coffee.Iced {
+                        let intent = SelectIcedCoffeeIntent()
+                        intent.suggestedInvocationPhrase = "I'm having iced coffee"
+                        addShortcutButton.shortcut = INShortcut(intent: intent)
+                    }
+                    
+                    addShortcutButton.delegate = self as! INUIAddVoiceShortcutButtonDelegate
+                    
+                    addShortcutButton.translatesAutoresizingMaskIntoConstraints = false
+                    self.siriView.addSubview(addShortcutButton)
+                    self.siriView.centerXAnchor.constraint(equalTo: addShortcutButton.centerXAnchor).isActive = true
+                    self.siriView.centerYAnchor.constraint(equalTo: addShortcutButton.centerYAnchor).isActive = true
+                }
+    
             }
         }
     }
+    var delegate:CoffeeCellDelegate?
     
-    @objc func addToSiri(_ sender: Any) {
-        print("here")
-        delegate?.siriButtonTapped(cell: self)
-        
-    }
-
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var siriView: UIView!
+    
     
 	override var isHighlighted: Bool {
 		didSet{
@@ -308,8 +261,64 @@ class CollectionViewCell:UICollectionViewCell {
 			}
 		}
 	}
-
 }
+
+@available(iOS 12.0, *)
+extension CollectionViewCell: INUIAddVoiceShortcutButtonDelegate {
+    
+    func present(_ addVoiceShortcutViewController: INUIAddVoiceShortcutViewController, for addVoiceShortcutButton: INUIAddVoiceShortcutButton) {
+        addVoiceShortcutViewController.delegate = self
+        delegate?.presentAddVoiceShortcutvc(vc: addVoiceShortcutViewController)
+    }
+    
+    /// - Tag: edit_phrase
+    
+    func present(_ editVoiceShortcutViewController: INUIEditVoiceShortcutViewController, for addVoiceShortcutButton: INUIAddVoiceShortcutButton) {
+        editVoiceShortcutViewController.delegate = self
+        delegate?.presentEditVoiceShortcutvc(vc: editVoiceShortcutViewController)
+    }
+}
+
+@available(iOS 12.0, *)
+extension CollectionViewCell: INUIAddVoiceShortcutViewControllerDelegate {
+    
+    func addVoiceShortcutViewController(_ controller: INUIAddVoiceShortcutViewController,
+                                        didFinishWith voiceShortcut: INVoiceShortcut?,
+                                        error: Error?) {
+        if let error = error as NSError? {
+            print(error)
+        }
+        delegate?.dismissAddVoiceShortcutVC(vc: controller)
+    }
+    
+    func addVoiceShortcutViewControllerDidCancel(_ controller: INUIAddVoiceShortcutViewController) {
+        delegate?.dismissAddVoiceShortcutVC(vc: controller)
+    }
+}
+
+@available(iOS 12.0, *)
+extension CollectionViewCell: INUIEditVoiceShortcutViewControllerDelegate {
+    
+    func editVoiceShortcutViewController(_ controller: INUIEditVoiceShortcutViewController,
+                                         didUpdate voiceShortcut: INVoiceShortcut?,
+                                         error: Error?) {
+        if let error = error as NSError? {
+            print(error)
+        }
+        
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    func editVoiceShortcutViewController(_ controller: INUIEditVoiceShortcutViewController,
+                                         didDeleteVoiceShortcutWithIdentifier deletedVoiceShortcutIdentifier: UUID) {
+        delegate?.dismissEditVoiceShortcutVC(vc: controller)
+    }
+    
+    func editVoiceShortcutViewControllerDidCancel(_ controller: INUIEditVoiceShortcutViewController) {
+        delegate?.dismissEditVoiceShortcutVC(vc: controller)
+    }
+}
+
 
 class HeaderView: UICollectionReusableView {
 	@IBOutlet weak var label: UILabel! {
@@ -321,5 +330,16 @@ class HeaderView: UICollectionReusableView {
 }
 
 protocol CoffeeCellDelegate {
-    func siriButtonTapped(cell:CollectionViewCell)
+    @available(iOS 12.0, *)
+    func presentAddVoiceShortcutvc(vc:INUIAddVoiceShortcutViewController)
+    
+    @available(iOS 12.0, *)
+    func presentEditVoiceShortcutvc(vc:INUIEditVoiceShortcutViewController)
+    
+    @available(iOS 12.0, *)
+    func dismissAddVoiceShortcutVC(vc:INUIAddVoiceShortcutViewController)
+    
+    @available(iOS 12.0, *)
+    func dismissEditVoiceShortcutVC(vc:INUIEditVoiceShortcutViewController)
+
 }

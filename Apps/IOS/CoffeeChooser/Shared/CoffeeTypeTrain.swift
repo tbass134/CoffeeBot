@@ -19,7 +19,9 @@ class CoffeeTypeTrain {
     
     func train(_ location:CLLocation, coffeeType:Coffee, completion: @escaping (_ success:Bool) -> Void) {
         
-        var ref = Database.database().reference()
+        if FirebaseApp.app() == nil {
+            FirebaseApp.configure()
+        }
 
         OpenWeatherAPI.sharedInstance.weatherDataFor(location: location.coordinate, completion: {
             (response: JSON?) in
@@ -53,7 +55,7 @@ class CoffeeTypeTrain {
                 if let user = Auth.auth().currentUser {
                     
                     item.userId = user.uid
-                    
+                    var ref = Database.database().reference()
                     let coffeeSelectionRef = ref.child(UUID().uuidString)
                     coffeeSelectionRef.setValue(item.toAnyObject())
                     completion(true)

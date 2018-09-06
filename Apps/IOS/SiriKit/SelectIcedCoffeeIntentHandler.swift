@@ -12,11 +12,6 @@ import Firebase
 public class SelectIcedCoffeeIntentHandler:NSObject, SelectIcedCoffeeIntentHandling {
     public func handle(intent: SelectIcedCoffeeIntent, completion: @escaping (SelectIcedCoffeeIntentResponse) -> Void) {
       
-        if FirebaseApp.app() == nil {
-            FirebaseApp.configure()
-        }
-
-        
         
         guard let lastLoc = LocationManager.shared.lastLocation() else {
             let response = SelectIcedCoffeeIntentResponse(code: .failure, userActivity: nil)

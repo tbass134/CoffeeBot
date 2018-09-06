@@ -18,7 +18,7 @@
 			<key>INIntentCategory</key>
 			<string>generic</string>
 			<key>INIntentDescription</key>
-			<string>What coffee should i drink</string>
+			<string>Ask CoffeeChooser what should you drink.</string>
 			<key>INIntentDescriptionID</key>
 			<string>X3T1le</string>
 			<key>INIntentLastParameterTag</key>
@@ -32,13 +32,13 @@
 					<key>INIntentParameterCombinationIsPrimary</key>
 					<true/>
 					<key>INIntentParameterCombinationSubtitle</key>
-					<string></string>
+					<string> </string>
 					<key>INIntentParameterCombinationSubtitleID</key>
 					<string>F1CY2t</string>
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
 					<key>INIntentParameterCombinationTitle</key>
-					<string></string>
+					<string>Ask CoffeeChooser what kind of coffee you should drink?</string>
 					<key>INIntentParameterCombinationTitleID</key>
 					<string>Zc5HEv</string>
 				</dict>
@@ -104,6 +104,8 @@
 		<dict>
 			<key>INIntentCategory</key>
 			<string>generic</string>
+			<key>INIntentDefaultImageName</key>
+			<string>coffee_hot</string>
 			<key>INIntentDescription</key>
 			<string>Tell Coffee Chooser that you are drinking hot coffee.</string>
 			<key>INIntentDescriptionID</key>
@@ -125,7 +127,7 @@
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
 					<key>INIntentParameterCombinationTitle</key>
-					<string></string>
+					<string>Tell CoffeeChooser you are drinking Hot coffee</string>
 					<key>INIntentParameterCombinationTitleID</key>
 					<string>AMZEP1</string>
 				</dict>
@@ -178,6 +180,8 @@
 		<dict>
 			<key>INIntentCategory</key>
 			<string>generic</string>
+			<key>INIntentDefaultImageName</key>
+			<string>coffee_iced</string>
 			<key>INIntentDescription</key>
 			<string>Tell Coffee Chooser that you are drinking iced coffee.</string>
 			<key>INIntentDescriptionID</key>
@@ -199,7 +203,7 @@
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
 					<key>INIntentParameterCombinationTitle</key>
-					<string></string>
+					<string>Tell CoffeeChooser you are drinking Iced coffee</string>
 					<key>INIntentParameterCombinationTitleID</key>
 					<string>fN6SlA</string>
 				</dict>

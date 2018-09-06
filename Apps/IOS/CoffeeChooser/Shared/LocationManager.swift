@@ -12,7 +12,6 @@ import CoreLocation
 
 extension Notification.Name {
 	static let locationDidChange = Notification.Name("locationDidChange")
-	static let locationStatusChanged = Notification.Name("locationStatusChanged")
 	static let locationDidFail = Notification.Name("locationDidFail")
 }
 
@@ -42,6 +41,10 @@ class LocationManager: NSObject {
         return location
     }
     
+    func hasAccess() ->Bool {
+        return Locator.authorizationStatus == .authorizedAlways || Locator.authorizationStatus == .authorizedWhenInUse
+    }
+    
     func startReceivingSignificantLocationChanges() {
         Locator.subscribeSignificantLocations(onUpdate: { newLocation in
             print("New location \(newLocation)")
@@ -52,10 +55,7 @@ class LocationManager: NSObject {
     }
     
     func getCurrentLocation() {
-        
         Locator.currentPosition(accuracy: .city, timeout: nil, onSuccess: { (location) -> (Void) in
-            self.locationFound(location)
-
         }) { (error, lastLoc) -> (Void) in
             print("Failed to get location: \(error)")
             self.locationError(error,lastLoc)

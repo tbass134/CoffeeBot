@@ -36,6 +36,7 @@ PODS:
     - "GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)"
   - "GoogleToolboxForMac/NSString+URLArguments (2.1.1)"
   - GTMSessionFetcher/Core (1.1.10)
+  - KeychainAccess (3.1.1)
   - SwiftLocation (3.2.3):
     - SwiftyJSON (~> 4.0.0-alpha.1)
   - SwiftSVG (2.1.5)
@@ -47,6 +48,7 @@ DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
+  - KeychainAccess
   - SwiftLocation (~> 3.2.3)
   - SwiftSVG (~> 2.0)
   - SwiftyJSON (~> 4.0.0-alpha.1)
@@ -62,6 +64,7 @@ SPEC REPOS:
     - FirebaseInstanceID
     - GoogleToolboxForMac
     - GTMSessionFetcher
+    - KeychainAccess
     - SwiftLocation
     - SwiftSVG
     - SwiftyJSON
@@ -76,10 +79,11 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: 9fbf536668f4d3f0880e7438456dabd1376e294b
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 30d874b96d0d76028f61fbd122801e3f030d47db
+  KeychainAccess: 7bd430028059754a3debab3cfc0bd1fc7fb85df3
   SwiftLocation: a3c3bc2023118171ef3572188a31def94aa0892c
   SwiftSVG: 9d78f41396a921c210ce9898ada05c85d412acb8
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: 0bdca4570087217ad993f27f852b000857a93487
+PODFILE CHECKSUM: bb26dfd46a56211aac9d2b27fff910a45c93b424
 
 COCOAPODS: 1.5.3
