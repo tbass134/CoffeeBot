@@ -47,6 +47,8 @@ class PredictViewController: SuperViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(locationUpdated(notification:)), name: .locationDidChange, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(locationError(notification:)), name: Notification.Name.locationDidFail, object: nil)
+		
+		
         
 		if (Int((UIApplication.shared.windows.first?.frame.size.height)!) < 600) {
 			iconHeightConstraint.constant = 200
@@ -73,7 +75,7 @@ class PredictViewController: SuperViewController {
         }
     }
     
-	func locationUpdated(notification: NSNotification) {
+	@objc func locationUpdated(notification: NSNotification) {
 		guard let location = notification.userInfo!["location"] as? CLLocation else {
 			return
 		}
@@ -81,7 +83,7 @@ class PredictViewController: SuperViewController {
 		predict(location.coordinate)
  	}
 	
-	func locationError(notification:Notification) {
+	@objc func locationError(notification:Notification) {
 		presentAlert(title: "Unable to aquire location", message: "Please try again.")
 		self.predict_label.text = "Location Not Determined"
         self.weatherView?.view.isHidden = true

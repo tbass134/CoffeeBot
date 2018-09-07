@@ -1006,6 +1006,7 @@
 					3C6DFC491ED864E6002822D0 = {
 						CreatedOnToolsVersion = 8.3.1;
 						DevelopmentTeam = A583HE3WU9;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -1025,6 +1026,7 @@
 					45CCFD4C2132496700C60E7D = {
 						CreatedOnToolsVersion = 10.0;
 						DevelopmentTeam = A583HE3WU9;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -1602,7 +1604,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "41ab5f47-1061-4e43-9920-0378503b9d75";
 				PROVISIONING_PROFILE_SPECIFIER = "CoffeeChooser-Dev";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -1628,7 +1631,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "e92f5cd9-f732-4d78-bfe6-33f9dea8a0df";
 				PROVISIONING_PROFILE_SPECIFIER = "CoffeeChooser-Dist";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -1653,7 +1657,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tonyhung.coffeechooser.SiriKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1678,7 +1683,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tonyhung.coffeechooser.SiriKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

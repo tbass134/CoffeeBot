@@ -58,7 +58,7 @@ class TrainViewController: SuperViewController  {
         super.viewWillDisappear(animated)
     }
 	
-	func locationUpdated(notification: NSNotification) {
+	@objc func locationUpdated(notification: NSNotification) {
 		guard let location = notification.userInfo!["location"] as? CLLocation else {
             weatherDataLoaded(nil)
 
@@ -75,7 +75,7 @@ class TrainViewController: SuperViewController  {
     }
 
 
-	func locationError(notification:Notification) {
+	@objc func locationError(notification:Notification) {
 		presentAlert(title: "Unable to aquire location", message: "Please try again.")
 	}
 
@@ -88,9 +88,7 @@ class TrainViewController: SuperViewController  {
 		
 		print("selected")
 
-		#if (arch(i386) || arch(x86_64))
-        return
-		#endif
+		
 		
         guard let location = self.lastlocation else {
             return
@@ -105,7 +103,7 @@ class TrainViewController: SuperViewController  {
         CoffeeTypeTrain.shared.train(location, coffeeType: coffeeType) { (success) in
             
             let alert = UIAlertController(title: "Coffee Type Saved", message: "Your input was saved! Come back again to enter your enter coffee type when you order more coffee!", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (action) in
+			alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (action) in
                 alert.dismiss(animated: true, completion: nil)
             }));
             self.present(alert, animated: true, completion: nil)
@@ -154,7 +152,7 @@ extension TrainViewController: UICollectionViewDelegate, UICollectionViewDataSou
 	func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
 		
 		switch kind {
-		case UICollectionElementKindSectionHeader:
+		case UICollectionView.elementKindSectionHeader:
 			let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
 																			 withReuseIdentifier: "header",
 																			 for: indexPath) as! HeaderView
@@ -239,7 +237,7 @@ class CollectionViewCell:UICollectionViewCell {
                         addShortcutButton.shortcut = INShortcut(intent: intent)
                     }
                     
-                    addShortcutButton.delegate = self as! INUIAddVoiceShortcutButtonDelegate
+                    addShortcutButton.delegate = self as INUIAddVoiceShortcutButtonDelegate
                     
                     addShortcutButton.translatesAutoresizingMaskIntoConstraints = false
                     self.siriView.addSubview(addShortcutButton)

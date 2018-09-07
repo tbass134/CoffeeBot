@@ -87,7 +87,7 @@ class LocationManager: NSObject {
     }
     
     func locationError(_ error:Error?, _ lastLoc:CLLocation?) {
-        print("Failed with err: \(error)")
+		print("Failed with err: \(String(describing: error))")
         DispatchQueue.main.async() { () -> Void in
             NotificationCenter.default.post(name: .locationDidFail, object: nil, userInfo: nil)
         }

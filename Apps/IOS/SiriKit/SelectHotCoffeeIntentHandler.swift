@@ -17,26 +17,26 @@ public class SelectHotCoffeeIntentHandler:NSObject, SelectHotCoffeeIntentHandlin
             
         }
         
+
+		guard let lastLoc = LocationManager.shared.lastLocation() else {
+			let response = SelectHotCoffeeIntentResponse(code: .failure, userActivity: nil)
+			completion(response)
+			return
+		}
+		
+		
+		CoffeeTypeTrain.shared.train(lastLoc, coffeeType: .Hot) { (success) in
+			if success {
+				let response = SelectHotCoffeeIntentResponse(code: .success, userActivity: nil)
+				completion(response)
+			} else {
+				let response = SelectHotCoffeeIntentResponse(code: .failure, userActivity: nil)
+				completion(response)
+			}
+		}
+	}
         
-        guard let lastLoc = LocationManager.shared.lastLocation() else {
-            let response = SelectHotCoffeeIntentResponse(code: .failure, userActivity: nil)
-            completion(response)
-            return
-        }
-        
-        
-        CoffeeTypeTrain.shared.train(lastLoc, coffeeType: .Hot) { (success) in
-            if success {
-                let response = SelectHotCoffeeIntentResponse(code: .success, userActivity: nil)
-                completion(response)
-            } else {
-                let response = SelectHotCoffeeIntentResponse(code: .failure, userActivity: nil)
-                completion(response)
-            }
-        }
-       
-        
-    }
+	
     
     
 }
