@@ -12,7 +12,6 @@ import SwiftyJSON
 import CoreML
 //import Firebase
 import Intents
-import IntentsUI
 
 
 class CoffeeTypePrediction {
@@ -27,9 +26,7 @@ class CoffeeTypePrediction {
             guard let json = response else {
                 return
             }
-            
 
-            
             if #available(iOS 11.0, *) {
                 let model = coffee_prediction()
                 guard let mlMultiArray = try? MLMultiArray(shape:[13,1], dataType:MLMultiArrayDataType.double) else {

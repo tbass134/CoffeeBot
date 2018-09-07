@@ -95,7 +95,13 @@ class TrainViewController: SuperViewController  {
         guard let location = self.lastlocation else {
             return
         }
-        
+		if #available(iOS 12.0, *) {
+			if coffeeType == Coffee.Hot {
+				SelectHotCoffeeIntent().donate("selected_hot_coffee")
+			} else {
+				SelectIcedCoffeeIntent().donate("selected_iced_coffee")
+			}
+		}
         CoffeeTypeTrain.shared.train(location, coffeeType: coffeeType) { (success) in
             
             let alert = UIAlertController(title: "Coffee Type Saved", message: "Your input was saved! Come back again to enter your enter coffee type when you order more coffee!", preferredStyle: .alert)
@@ -244,6 +250,9 @@ class CollectionViewCell:UICollectionViewCell {
             }
         }
     }
+	
+	
+	
     var delegate:CoffeeCellDelegate?
     
     @IBOutlet weak var imageView: UIImageView!

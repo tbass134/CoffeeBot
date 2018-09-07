@@ -29,43 +29,37 @@ class CoffeeTypeTrain {
             guard let json = response else {
                 return
             }
-            
-            Locator.location(fromCoordinates: location.coordinate, locale: nil, using: .apple, timeout: nil, onSuccess: { (place) -> (Void) in
-                
-                guard let pm = place.first, let postalCode = pm.postalCode else {
-                    return
-                }
-                
-                var item = CoffeeOrder(userId: nil, type: coffeeType.rawValue,
-                                       date: Date.init(),
-                                       temp: json["main"]["temp"].intValue,
-                                       humidity: json["main"]["humidity"].floatValue,
-                                       location: json["name"].stringValue,
-                                       lat:json["coord"]["lat"].floatValue,
-                                       lon:json["coord"]["lon"].floatValue,
-                                       weatherCond: json["weather"][0]["main"].stringValue,
-                                       clouds: json["clouds"]["all"].intValue,
-                                       visibility: json["visibility"].intValue,
-                                       windSpeed: json["wind"]["speed"].intValue,
-                                       windDeg: json["wind"]["deg"].floatValue,
-                                       pressure:  json["main"]["pressure"].floatValue,
-                                       zipcode:postalCode)
-                
-                
-                if let user = Auth.auth().currentUser {
-                    
-                    item.userId = user.uid
-                    var ref = Database.database().reference()
-                    let coffeeSelectionRef = ref.child(UUID().uuidString)
-                    coffeeSelectionRef.setValue(item.toAnyObject())
-                    completion(true)
-                }
-                
-            }, onFail: { (error) -> (Void) in
-                print("Reverse geocoder failed with error",error)
-                completion(false)
-            })
-            
+			
+			LocationManager.shared.geocodeLocation(location.coordinate, completion: { (place) in
+				guard let p = place, let postalCode = p.postalCode else {
+					return
+				}
+				
+				var item = CoffeeOrder(userId: nil,
+									   type: coffeeType.rawValue,
+									   date: Date.init(),
+									   temp: json["main"]["temp"].intValue,
+									   humidity: json["main"]["humidity"].floatValue,
+									   location: json["name"].stringValue,
+									   lat:json["coord"]["lat"].floatValue,
+									   lon:json["coord"]["lon"].floatValue,
+									   weatherCond: json["weather"][0]["main"].stringValue,
+									   clouds: json["clouds"]["all"].intValue,
+									   visibility: json["visibility"].intValue,
+									   windSpeed: json["wind"]["speed"].intValue,
+									   windDeg: json["wind"]["deg"].floatValue,
+									   pressure:  json["main"]["pressure"].floatValue,
+									   zipcode:postalCode)
+				
+				if let user = Auth.auth().currentUser {
+					
+					item.userId = user.uid
+					var ref = Database.database().reference()
+					let coffeeSelectionRef = ref.child(UUID().uuidString)
+					coffeeSelectionRef.setValue(item.toAnyObject())
+					completion(true)
+				}
+			})
         })
     }
 

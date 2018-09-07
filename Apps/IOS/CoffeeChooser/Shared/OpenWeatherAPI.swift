@@ -14,7 +14,7 @@ import SwiftyJSON
 class OpenWeatherAPI {
     
     let baseURL = "http://api.openweathermap.org/data/2.5"
-    let apiKey = ""
+    let apiKey = "dd49bafd4ba158cf3f438897372fa2af"
 
     static let sharedInstance = OpenWeatherAPI()
 

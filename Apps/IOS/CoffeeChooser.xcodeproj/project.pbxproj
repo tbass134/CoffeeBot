@@ -230,6 +230,9 @@
 		3C09B4A220E9488C00733933 /* wi-moon-waxing-gibbous-6.svg in Resources */ = {isa = PBXBuildFile; fileRef = 3C09B3C720E9488C00733933 /* wi-moon-waxing-gibbous-6.svg */; };
 		3C11D7AC1FF4533D0008BBA3 /* PredictViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C11D7AB1FF4533D0008BBA3 /* PredictViewController.swift */; };
 		3C11D7B91FF5D9AE0008BBA3 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C11D7B81FF5D9AE0008BBA3 /* LocationManager.swift */; };
+		3C18C98D2141DB1400908CF7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C18C98C2141DB1400908CF7 /* GoogleService-Info.plist */; };
+		3C18C98E2141DB1400908CF7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C18C98C2141DB1400908CF7 /* GoogleService-Info.plist */; };
+		3C18C9902143283100908CF7 /* INIntent+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C18C98F2143283100908CF7 /* INIntent+extensions.swift */; };
 		3C38979C20EFD5A000E9973E /* Float+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C38979B20EFD5A000E9973E /* Float+extensions.swift */; };
 		3C38979E20EFE3A900E9973E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C38979D20EFE3A900E9973E /* AboutViewController.swift */; };
 		3C3897A220EFE88000E9973E /* privacy_policy.html in Resources */ = {isa = PBXBuildFile; fileRef = 3C3897A120EFE88000E9973E /* privacy_policy.html */; };
@@ -243,7 +246,6 @@
 		3C6DFC621ED86E3B002822D0 /* OpenWeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6DFC611ED86E3B002822D0 /* OpenWeatherAPI.swift */; };
 		3C6DFC681EDA18E8002822D0 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6DFC661EDA18E8002822D0 /* Fabric.framework */; };
 		3C6DFC691EDA18E8002822D0 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6DFC671EDA18E8002822D0 /* Crashlytics.framework */; };
-		3C9115CB202F568700449511 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C9115CA202F568700449511 /* GoogleService-Info.plist */; };
 		3CA4E6CA20DEB49700217292 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA4E6C920DEB49700217292 /* UIViewController+Extensions.swift */; };
 		3CA4E6CE20DEBC6A00217292 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA4E6CD20DEBC6A00217292 /* LoginViewController.swift */; };
 		3CA4E6D020DEC4E000217292 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA4E6CF20DEC4E000217292 /* TabBarController.swift */; };
@@ -264,7 +266,6 @@
 		4549AF842137BDF800B650E9 /* SelectIcedCoffeeIntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4549AF832137BDF800B650E9 /* SelectIcedCoffeeIntentHandler.swift */; };
 		4549AF862137BF1300B650E9 /* CoffeeTypeTrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4549AF852137BF1300B650E9 /* CoffeeTypeTrain.swift */; };
 		4549AF872137C0E700B650E9 /* CoffeeTypeTrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4549AF852137BF1300B650E9 /* CoffeeTypeTrain.swift */; };
-		4554C523214088940078BC66 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C9115CA202F568700449511 /* GoogleService-Info.plist */; };
 		4554C525214090A90078BC66 /* ApplicationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554C524214090A90078BC66 /* ApplicationBuilder.swift */; };
 		4554C526214092A90078BC66 /* ApplicationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554C524214090A90078BC66 /* ApplicationBuilder.swift */; };
 		45CCFD502132496700C60E7D /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CCFD4F2132496700C60E7D /* IntentHandler.swift */; };
@@ -523,6 +524,8 @@
 		3C11D7AE1FF45BCD0008BBA3 /* CoreMLHelpers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CoreMLHelpers; sourceTree = "<group>"; };
 		3C11D7B51FF486E40008BBA3 /* default.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = default.gpx; sourceTree = "<group>"; };
 		3C11D7B81FF5D9AE0008BBA3 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		3C18C98C2141DB1400908CF7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3C18C98F2143283100908CF7 /* INIntent+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "INIntent+extensions.swift"; sourceTree = "<group>"; };
 		3C38979B20EFD5A000E9973E /* Float+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Float+extensions.swift"; sourceTree = "<group>"; };
 		3C38979D20EFE3A900E9973E /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		3C3897A120EFE88000E9973E /* privacy_policy.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = privacy_policy.html; sourceTree = "<group>"; };
@@ -538,7 +541,6 @@
 		3C6DFC611ED86E3B002822D0 /* OpenWeatherAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenWeatherAPI.swift; sourceTree = "<group>"; };
 		3C6DFC661EDA18E8002822D0 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		3C6DFC671EDA18E8002822D0 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
-		3C9115CA202F568700449511 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3CA4E6C920DEB49700217292 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		3CA4E6CD20DEBC6A00217292 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3CA4E6CF20DEC4E000217292 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -886,6 +888,7 @@
 				3CA4E6D320E4699200217292 /* UITabBar+extension.swift */,
 				3C38979B20EFD5A000E9973E /* Float+extensions.swift */,
 				3C3897A320F0022100E9973E /* UIImage+extension.swift */,
+				3C18C98F2143283100908CF7 /* INIntent+extensions.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -901,7 +904,7 @@
 		450B1BD72135FC340056C876 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				3C9115CA202F568700449511 /* GoogleService-Info.plist */,
+				3C18C98C2141DB1400908CF7 /* GoogleService-Info.plist */,
 				450B1BD82135FC580056C876 /* CoffeeBotIntent.intentdefinition */,
 				450B1BDC213643A20056C876 /* CoffeeOrder.swift */,
 				450B1BE4213652A20056C876 /* CoffeeTypePrediction.swift */,
@@ -1107,7 +1110,6 @@
 				3C09B43820E9488C00733933 /* wi-night-alt-storm-showers.svg in Resources */,
 				3C09B3F220E9488C00733933 /* wi-night-storm-showers.svg in Resources */,
 				3C09B3EB20E9488C00733933 /* wi-day-fog.svg in Resources */,
-				3C9115CB202F568700449511 /* GoogleService-Info.plist in Resources */,
 				3C09B49A20E9488C00733933 /* wi-moon-alt-waning-gibbous-4.svg in Resources */,
 				3C09B48320E9488C00733933 /* wi-night-fog.svg in Resources */,
 				3C09B49420E9488C00733933 /* wi-moon-waning-crescent-5.svg in Resources */,
@@ -1235,6 +1237,7 @@
 				3C09B3CC20E9488C00733933 /* wi-horizon-alt.svg in Resources */,
 				3C09B3DD20E9488C00733933 /* wi-night-alt-sprinkle.svg in Resources */,
 				3C09B42B20E9488C00733933 /* wi-moonset.svg in Resources */,
+				3C18C98D2141DB1400908CF7 /* GoogleService-Info.plist in Resources */,
 				3C09B43E20E9488C00733933 /* wi-day-lightning.svg in Resources */,
 				3C09B43B20E9488C00733933 /* wi-wind-beaufort-11.svg in Resources */,
 				3C09B3D520E9488C00733933 /* wi-night-alt-rain.svg in Resources */,
@@ -1290,7 +1293,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4554C523214088940078BC66 /* GoogleService-Info.plist in Resources */,
+				3C18C98E2141DB1400908CF7 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1390,6 +1393,7 @@
 				4549AF862137BF1300B650E9 /* CoffeeTypeTrain.swift in Sources */,
 				3C11D7AC1FF4533D0008BBA3 /* PredictViewController.swift in Sources */,
 				3C6DFC501ED864E6002822D0 /* TrainViewController.swift in Sources */,
+				3C18C9902143283100908CF7 /* INIntent+extensions.swift in Sources */,
 				3CA4E6D020DEC4E000217292 /* TabBarController.swift in Sources */,
 				3CA4E6CA20DEB49700217292 /* UIViewController+Extensions.swift in Sources */,
 				3CA4E6D420E4699200217292 /* UITabBar+extension.swift in Sources */,
@@ -1467,6 +1471,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1526,6 +1531,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1579,6 +1585,7 @@
 			baseConfigurationReference = 7B45A9E55CF9BC391CE9B77B /* Pods-CoffeeChooser.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CoffeeChooser/CoffeeChooser.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1604,6 +1611,7 @@
 			baseConfigurationReference = EF4FE456F7BCFA178EF76B4B /* Pods-CoffeeChooser.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CoffeeChooser/CoffeeChooser.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1628,6 +1636,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 80AAABB81DE56FAC05F89681 /* Pods-SiriKit.debug.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
@@ -1653,6 +1662,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F4D19ADC4F71A2AE55C32509 /* Pods-SiriKit.release.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;

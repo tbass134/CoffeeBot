@@ -46,7 +46,6 @@ class PredictViewController: SuperViewController {
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector: #selector(locationUpdated(notification:)), name: .locationDidChange, object: nil)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(locationError(notification:)), name: Notification.Name.locationDidFail, object: nil)
         
 		if (Int((UIApplication.shared.windows.first?.frame.size.height)!) < 600) {
@@ -70,11 +69,8 @@ class PredictViewController: SuperViewController {
                 self.weatherView?.siriView.addSubview(addShortcutButton)
                 self.weatherView?.siriView.centerXAnchor.constraint(equalTo: addShortcutButton.centerXAnchor).isActive = true
                 self.weatherView?.siriView.centerYAnchor.constraint(equalTo: addShortcutButton.centerYAnchor).isActive = true
-                
             }
-
         }
-
     }
     
 	func locationUpdated(notification: NSNotification) {
@@ -110,20 +106,7 @@ class PredictViewController: SuperViewController {
             if #available(iOS 12.0, *) {
                 let getCoffeeTypeIntent = GetCoffeeTypeIntent()
                 getCoffeeTypeIntent.suggestedInvocationPhrase = "What coffee should I drink?"
-
-                let interaction = INInteraction(intent: getCoffeeTypeIntent, response: nil)
-                // The order identifier is used to match with the donation so the interaction
-                // can be deleted if a soup is removed from the menu.
-                interaction.identifier = "predict"
-                interaction.donate { (error) in
-                    if error != nil {
-                        if let error = error as NSError? {
-                            print("Interaction donation failed: %@", error)
-                        }
-                    } else {
-                        print("Successfully donated interaction")
-                    }
-                }
+				getCoffeeTypeIntent.donate("predict")
             }
 
             self.weatherView?.weatherData = json
@@ -141,16 +124,14 @@ class PredictViewController: SuperViewController {
             
             let percent = Int(round(result.classProbability[result.classLabel]! * 100))
             self.predict_label.text = self.predict_label.text! + "\n(\(percent)% confidence)"
-            
-            Locator.location(fromCoordinates: location, locale: nil, using: .apple, timeout: nil, onSuccess: { (place) -> (Void) in
-                guard let pm = place.first, let locality = pm.city, let administrativeArea = pm.administrativeArea else {
-                    return
-                }
-                self.weatherView?.locationLabel.text = locality + ", " + administrativeArea
+			LocationManager.shared.geocodeLocation(location, completion: { (place) in
+				
+				guard let p = place, let locality = p.city, let administrativeArea = p.administrativeArea else {
+					return
+				}
+				self.weatherView?.locationLabel.text = locality + ", " + administrativeArea
+			})
 
-            }, onFail: { (error) -> (Void) in
-                print("Reverse geocoder failed with error",error)
-            })
         }
     
 	}

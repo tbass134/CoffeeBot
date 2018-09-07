@@ -14,10 +14,20 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>SiriKit.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>11</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>3C6DFC491ED864E6002822D0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>45CCFD4C2132496700C60E7D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

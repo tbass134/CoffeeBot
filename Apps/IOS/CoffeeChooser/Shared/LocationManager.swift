@@ -18,16 +18,9 @@ extension Notification.Name {
 class LocationManager: NSObject {
 
 	static let shared = LocationManager()
-    var textLog = TextLog()
-    var backgrounded = false
 
 	private override init() {
 		super.init()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(willResignActive), name: NSNotification.Name.UIApplicationWillResignActive, object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(didBecomeActive), name:NSNotification.Name.UIApplicationDidBecomeActive,  object: nil)
-
 	}
     
     func lastLocation() ->CLLocation? {
@@ -61,12 +54,26 @@ class LocationManager: NSObject {
             self.locationError(error,lastLoc)
         }
     }
+	
+	func geocodeLocation(_ location:CLLocationCoordinate2D, completion:@escaping (_ place: Place?) -> Void) {
+		Locator.location(fromCoordinates: location, locale: nil, using: .apple, timeout: nil, onSuccess: { (place) -> (Void) in
+			
+			guard let pm = place.first else {
+				completion(nil)
+				return
+			}
+			completion(pm)
+	
+		}, onFail: { (error) -> (Void) in
+			print("Reverse geocoder failed with error",error)
+		})
+	}
     
     func locationFound(_ newLocation:CLLocation) {
         print("Location found: \(newLocation)")
         
-        if self.backgrounded {
-            self.textLog.write("newLocation \(newLocation)\n")
+        if UIApplication.shared.applicationState == .background {
+			print("Saved loc to background")
         }
         
         let defaults = UserDefaults(suiteName: "group.com.tonyhung.coffeechooser")
@@ -85,49 +92,9 @@ class LocationManager: NSObject {
             NotificationCenter.default.post(name: .locationDidFail, object: nil, userInfo: nil)
         }
     }
-    
-    
-    
-    @objc func willResignActive(_ notification: Notification) {
-        // code to execute
-        backgrounded = true
-        print("willResignActive")
-    }
-    @objc func didBecomeActive(_ notification: Notification) {
-        // code to execute
-        backgrounded = false
-        print("didBecomeActive")
-    }
-    
 }
 
 protocol LocationManagerDelegate {
 	func locationUpdated(location:CLLocationCoordinate2D)
 	func didChangeAuthorization(status:CLAuthorizationStatus)
-}
-
-struct TextLog: TextOutputStream {
-    
-    /// Appends the given string to the stream.
-    mutating func write(_ string: String) {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .allDomainsMask)
-        let documentDirectoryPath = paths.first!
-        let log = documentDirectoryPath.appendingPathComponent("log.txt")
-        
-        do {
-            let handle = try FileHandle(forWritingTo: log)
-            handle.seekToEndOfFile()
-            handle.write(string.data(using: .utf8)!)
-            handle.closeFile()
-        } catch {
-            print(error.localizedDescription)
-            do {
-                try string.data(using: .utf8)?.write(to: log)
-            } catch {
-                print(error.localizedDescription)
-            }
-        }
-        
-    }
-    
 }
