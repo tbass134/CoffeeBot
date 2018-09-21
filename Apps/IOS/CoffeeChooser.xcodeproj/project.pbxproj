@@ -1027,7 +1027,7 @@
 						CreatedOnToolsVersion = 10.0;
 						DevelopmentTeam = A583HE3WU9;
 						LastSwiftMigration = 1000;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -1592,6 +1592,7 @@
 				CODE_SIGN_ENTITLEMENTS = CoffeeChooser/CoffeeChooser.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_TEAM = A583HE3WU9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1606,6 +1607,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "CoffeeChooser-Dev";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.2;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -1619,6 +1621,7 @@
 				CODE_SIGN_ENTITLEMENTS = CoffeeChooser/CoffeeChooser.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_TEAM = A583HE3WU9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1633,6 +1636,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "CoffeeChooser-Dist";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.2;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
@@ -1647,19 +1651,22 @@
 				CODE_SIGN_ENTITLEMENTS = SiriKit/SiriKit.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_TEAM = A583HE3WU9;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = SiriKit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tonyhung.coffeechooser.SiriKit;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tonyhung.coffeechooser.sirikit-extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "CoffeeChooser Sirikit Extension Dev";
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -1674,18 +1681,21 @@
 				CODE_SIGN_ENTITLEMENTS = SiriKit/SiriKit.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_TEAM = A583HE3WU9;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = SiriKit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tonyhung.coffeechooser.SiriKit;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tonyhung.coffeechooser.sirikit-extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "CoffeeChooser Sirikit Extension Dist";
 				SKIP_INSTALL = YES;
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};

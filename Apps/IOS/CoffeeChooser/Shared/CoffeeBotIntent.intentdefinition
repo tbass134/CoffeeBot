@@ -9,7 +9,7 @@
 	<key>INIntentDefinitionSystemVersion</key>
 	<string>17G65</string>
 	<key>INIntentDefinitionToolsBuildVersion</key>
-	<string>10L232m</string>
+	<string>10A254a</string>
 	<key>INIntentDefinitionToolsVersion</key>
 	<string>10.0</string>
 	<key>INIntents</key>
@@ -30,17 +30,17 @@
 				<key></key>
 				<dict>
 					<key>INIntentParameterCombinationIsPrimary</key>
-					<true/>
+					<false/>
 					<key>INIntentParameterCombinationSubtitle</key>
-					<string> </string>
+					<string></string>
 					<key>INIntentParameterCombinationSubtitleID</key>
-					<string>F1CY2t</string>
+					<string>1MAld9</string>
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
 					<key>INIntentParameterCombinationTitle</key>
-					<string>Ask CoffeeChooser what kind of coffee you should drink?</string>
+					<string></string>
 					<key>INIntentParameterCombinationTitleID</key>
-					<string>Zc5HEv</string>
+					<string>fTiw0Q</string>
 				</dict>
 			</dict>
 			<key>INIntentParameters</key>

@@ -84,7 +84,15 @@ class PredictViewController: SuperViewController {
  	}
 	
 	@objc func locationError(notification:Notification) {
-		presentAlert(title: "Unable to aquire location", message: "Please try again.")
+		let hasAccess = LocationManager.shared.hasAccess()
+		let title = "Unable to aquire location"
+		var message = "Please try again"
+		var actions:[UIAlertAction]?
+		if !hasAccess {
+			message = " Please enable location services to continue using this app"
+			actions = [self.locationServicesAction()]
+		}
+		presentAlert(title: title, message: message, actions: actions)
 		self.predict_label.text = "Location Not Determined"
         self.weatherView?.view.isHidden = true
         self.class_image.image = UIImage.init(named: "unknown")

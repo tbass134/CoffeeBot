@@ -11,11 +11,34 @@ import UIKit
 
 extension UIViewController {
 	
-	func presentAlert(title:String, message:String? = nil) {
-		let alert = UIAlertController(title:title, message: message, preferredStyle: .alert)
-		alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (action) in
+	func defaultAction(_ alert:UIAlertController) -> UIAlertAction {
+		return UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (action) in
 			alert.dismiss(animated: true, completion: nil)
-		}));
+		})
+	}
+	
+	func locationServicesAction() -> UIAlertAction {
+		let settingsAction = UIAlertAction(title: "Settings", style: .default) { (_) -> Void in
+			guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+				return
+			}
+			
+			if UIApplication.shared.canOpenURL(settingsUrl) {
+				UIApplication.shared.open(settingsUrl, options: [:], completionHandler: nil)
+			}
+		}
+		
+		return settingsAction
+	}
+	
+	func presentAlert(title:String, message:String? = nil, actions:[UIAlertAction]? = nil) {
+		let alert = UIAlertController(title:title, message: message, preferredStyle: .alert)
+		alert.addAction(defaultAction(alert));
+		if actions != nil {
+			for action in actions! {
+				alert.addAction(action)
+			}
+		}
 		self.present(alert, animated: true, completion: nil)
 	}
 }

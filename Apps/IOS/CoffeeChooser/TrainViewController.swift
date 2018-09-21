@@ -22,6 +22,7 @@ class TrainViewController: SuperViewController  {
 
     var jsonData:JSON?
 	var lastlocation:CLLocation?
+	
     
 	var locationLoaded = false
 	let hotCoffeeImage = UIImage.init(named: "coffee_hot")
@@ -106,6 +107,10 @@ class TrainViewController: SuperViewController  {
 			alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (action) in
                 alert.dismiss(animated: true, completion: nil)
             }));
+			alert.addAction(UIAlertAction(title: "Undo", style: UIAlertAction.Style.default, handler: { (action) in
+				CoffeeTypeTrain.shared.undo()
+				self.presentAlert(title: "Your recent input was removed")
+			}))
             self.present(alert, animated: true, completion: nil)
 
         }

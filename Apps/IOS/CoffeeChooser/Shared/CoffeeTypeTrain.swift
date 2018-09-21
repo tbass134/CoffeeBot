@@ -16,7 +16,8 @@ import SwiftLocation
 class CoffeeTypeTrain {
 
     static let shared = CoffeeTypeTrain()
-    
+	var lastRef:DatabaseReference?
+	
     func train(_ location:CLLocation, coffeeType:Coffee, completion: @escaping (_ success:Bool) -> Void) {
         
         if FirebaseApp.app() == nil {
@@ -54,13 +55,18 @@ class CoffeeTypeTrain {
 				if let user = Auth.auth().currentUser {
 					
 					item.userId = user.uid
-					var ref = Database.database().reference()
+					let ref = Database.database().reference()
 					let coffeeSelectionRef = ref.child(UUID().uuidString)
 					coffeeSelectionRef.setValue(item.toAnyObject())
+					self.lastRef = coffeeSelectionRef
 					completion(true)
 				}
 			})
         })
     }
+	
+	func undo() {
+		lastRef?.removeValue()
+	}
 
 }

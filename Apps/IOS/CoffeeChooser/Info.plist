@@ -19,7 +19,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.2</string>
 	<key>CFBundleVersion</key>
-	<string>10</string>
+	<string>13</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -48,7 +48,7 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Access to your current location allows the app to learn and predict your coffee habits</string>
 	<key>NSSiriUsageDescription</key>
-	<string>Need Siri</string>
+	<string>Access to Siri allows the app to ask Siri what type of coffee to drink, and tell Siri what you are having.</string>
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string>GetCoffeeTypeIntent</string>
