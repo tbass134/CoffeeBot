@@ -44,9 +44,10 @@ def updateZipCodes(df):
 				zipcode = geocode(lat, lon)
 				df.loc[index, 'zipcode'] = str(zipcode)
 				print("geocoding {} {}".format(index, zipcode))
-				time.sleep(20)
+				time.sleep(5)
 			except Exception as e:
 				print(e)
+				time.sleep(5)
 		if pd.isnull(df.loc[index, 'weatherCond']):
 			try:
 				zipcode = str(df.loc[index, 'zipcode'])
@@ -55,13 +56,13 @@ def updateZipCodes(df):
 				d = dateutil.parser.parse(date)
 				print(d)
 				city, state = getLocationFromZip(zipcode)
-				time.sleep(1)
+				time.sleep(5)
 				condition = getWeatherConditions(city, state, d)
 				df.loc[index, 'weatherCond'] = str(condition)
 				print("condition {} {}".format(index, condition))
-				# time.sleep(20)
 			except Exception as e:
 				print("error {}".format(e))
+				time.sleep(5)
 
 
 	return df
@@ -81,12 +82,13 @@ def loadData():
 def geocode(lat, lon):
 	try:
 		results = Geocoder.reverse_geocode(lat, lon)
+		time.sleep(5)
 		return results[0].postal_code
 	except Exception as e:
 		print (e.status)
 		if e.status != GeocoderError.G_GEO_ZERO_RESULTS:
-		# Raise except if OVER_USAGE_LIMIT
 			raise
+		time.sleep(5)
 		return None
 
 def getWeatherConditions(city, state, date):

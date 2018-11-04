@@ -24,7 +24,7 @@ def json_to_csv(newFile):
     myObject=myFile.read()
     myFile.close()
     myData=json.loads(myObject)
-    
+
     #print(myData)
     myFrame=pd.DataFrame(myData)
     myFrame.to_csv("raw-data.csv", index=False)
@@ -36,13 +36,13 @@ def json_to_csv(newFile):
     df_file=pd.read_csv("raw-data.csv")
     print("Raw Data summary")
     df_file.describe()
-    df_null_val=df_file.isnull().sum()  
+    df_null_val=df_file.isnull().sum()
     df_file_columns=list(df_file.columns.values)
     df_null_columns=df_null_val[df_null_val!=0]
     df_null_columns.index[0]
 
     """Find the columns that have null values"""
-    mean_null_columns=[] 
+    mean_null_columns=[]
     for obj in df_file_columns:
         for i in range(len(df_null_columns.index)):
             if (obj==df_null_columns.index[i]):
@@ -59,7 +59,7 @@ def json_to_csv(newFile):
 #    df_file_grp=df_file.groupby("continent")
     print("Summary for the cleaned data after filling up the missing values with mean \n")
     df_file.describe()
-    
-    """Write the contents of the updated file to a new CSV file 
+
+    """Write the contents of the updated file to a new CSV file
     in the current Directory"""
     df_file.to_csv("countries-clean.csv", index=False)
