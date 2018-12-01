@@ -51,7 +51,7 @@ struct Transform {
             return nil
         }
         
-        let coordinates = coordinatesArray.flatMap { (thisCoordinate) -> CGFloat? in
+        let coordinates = coordinatesArray.compactMap { (thisCoordinate) -> CGFloat? in
             return CGFloat(thisCoordinate.trimWhitespace())
         }
         
@@ -149,18 +149,33 @@ extension Transformable where Self : SVGShapeElement {
     }
 }
 
+extension Transformable where Self : SVGShapeElement {
+  /**
+   The curried function to be used for the `SVGElement`'s default implementation. This dictionary is meant to be used in the `SVGParserSupportedElements` instance
+   - parameter Key: The SVG string value of the attribute
+   - parameter Value: A curried function to use to implement the SVG attribute
+   */
+  var transformAttributes: [String : (String) -> ()] {
+    return [
+      "transform": self.transform,
+    ]
+  }
+}
+
+extension Transformable where Self : SVGGroup {
+  /**
+   The curried function to be used for the `SVGElement`'s default implementation. This dictionary is meant to be used in the `SVGParserSupportedElements` instance
+   - parameter Key: The SVG string value of the attribute
+   - parameter Value: A curried function to use to implement the SVG attribute
+   */
+  var transformAttributes: [String : (String) -> ()] {
+    return [
+      "transform": unown(self, SVGGroup.transform)
+    ]
+  }
+}
+
 extension Transformable {
-    
-    /**
-     The curried function to be used for the `SVGElement`'s default implementation. This dictionary is meant to be used in the `SVGParserSupportedElements` instance
-     - parameter Key: The SVG string value of the attribute
-     - parameter Value: A curried function to use to implement the SVG attribute
-     */
-    var transformAttributes: [String : (String) -> ()] {
-        return [
-            "transform": self.transform,
-        ]
-    }
     
     /**
      Parses and applies the SVG transform string to this `SVGElement`'s `SVGLayer`. Can parse multiple transforms separated by spaces
@@ -172,9 +187,9 @@ extension Transformable {
             let matches = regex.matches(in: transformString, options: [], range: NSMakeRange(0, transformString.utf8.count))
             
             let combinedTransforms = matches
-            .flatMap({ (thisMatch) -> Transform? in
-				let nameRange = thisMatch.rangeAt(1)
-				let coordinateRange = thisMatch.rangeAt(2)
+            .compactMap({ (thisMatch) -> Transform? in
+                let nameRange = thisMatch.range(at: 1)
+                let coordinateRange = thisMatch.range(at: 2)
                 let transformName = transformString[nameRange.location..<nameRange.location + nameRange.length]
                 let coordinateString = transformString[coordinateRange.location..<coordinateRange.location + coordinateRange.length]
                 return Transform(rawValue: transformName, coordinatesString: coordinateString)

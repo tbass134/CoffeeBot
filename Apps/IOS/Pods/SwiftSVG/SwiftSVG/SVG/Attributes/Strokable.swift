@@ -81,12 +81,7 @@ extension Strokable where Self : SVGShapeElement {
      - SeeAlso: CAShapeLayer's [`lineCap`](https://developer.apple.com/documentation/quartzcore/cashapelayer/1521905-linecap) for supported values.
      */
     internal func strokeLineCap(lineCap: String) {
-        switch lineCap {
-        case kCALineCapButt, kCALineCapRound, kCALineCapSquare:
-            self.svgLayer.lineCap = lineCap
-        default:
-            return
-        }
+        self.svgLayer.lineCap = CAShapeLayerLineCap(rawValue: lineCap)
     }
     
     /**
@@ -105,12 +100,7 @@ extension Strokable where Self : SVGShapeElement {
      - SeeAlso: CAShapeLayer's [`lineJoin`](https://developer.apple.com/documentation/quartzcore/cashapelayer/1522147-linejoin)
      */
     internal func strokeLineJoin(lineJoin: String) {
-        switch lineJoin {
-        case kCALineJoinBevel, kCALineJoinMiter, kCALineJoinRound:
-            self.svgLayer.lineJoin = lineJoin
-        default:
-            return
-        }
+        self.svgLayer.lineJoin = CAShapeLayerLineJoin(rawValue: lineJoin)
     }
     
     /**
@@ -150,11 +140,11 @@ extension Strokable where Self : SVGGroup {
      */
     var strokeAttributes: [String : (String) -> ()] {
         return [
-            "stroke": self.strokeColor,
-            "stroke-linecap": self.strokeLineCap,
-            "stroke-linejoin": self.strokeLineJoin,
-            "stroke-miterlimit": self.strokeMiterLimit,
-            "stroke-width": self.strokeWidth
+            "stroke": unown(self, SVGGroup.strokeColor),
+            "stroke-linecap": unown(self, SVGGroup.strokeLineCap),
+            "stroke-linejoin": unown(self, SVGGroup.strokeLineJoin),
+            "stroke-miterlimit": unown(self, SVGGroup.strokeMiterLimit),
+            "stroke-width": unown(self, SVGGroup.strokeWidth)
         ]
     }
     

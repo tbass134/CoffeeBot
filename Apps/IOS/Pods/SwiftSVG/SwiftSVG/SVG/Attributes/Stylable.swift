@@ -40,21 +40,36 @@ private struct StylableConstants {
  */
 public protocol Stylable { }
 
+extension Stylable where Self : SVGElement {
+  /**
+   The curried function to be used for the `SVGElement`'s default implementation. This dictionary is meant to be used in the `SVGParserSupportedElements` instance
+   - parameter Key: The SVG string value of the attribute
+   - parameter Value: A curried function to use to implement the SVG attribute
+   */
+  var styleAttributes: [String : (String) -> ()] {
+    return [
+      "style": self.style,
+    ]
+  }
+}
+
+extension Stylable where Self : SVGGroup {
+  /**
+   The curried function to be used for the `SVGElement`'s default implementation. This dictionary is meant to be used in the `SVGParserSupportedElements` instance
+   - parameter Key: The SVG string value of the attribute
+   - parameter Value: A curried function to use to implement the SVG attribute
+   */
+  var styleAttributes: [String : (String) -> ()] {
+    return [
+      "style": unown(self, SVGGroup.style),
+    ]
+  }
+}
+
 /**
  Default implementation for the style attribute on `SVGElement`s
  */
 extension Stylable where Self : SVGElement {
-    
-    /**
-     The curried function to be used for the `SVGElement`'s default implementation. This dictionary is meant to be used in the `SVGParserSupportedElements` instance
-     - parameter Key: The SVG string value of the attribute
-     - parameter Value: A curried function to use to implement the SVG attribute
-     */
-    var styleAttributes: [String : (String) -> ()] {
-        return [
-            "style": self.style,
-        ]
-    }
     
     /**
      Parses and applies the css-style `style` string to this `SVGElement`'s `SVGLayer`
@@ -66,8 +81,8 @@ extension Stylable where Self : SVGElement {
             let matches = regex.matches(in: styleString, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, styleString.utf8.count))
             
             matches.forEach({ (thisMatch) in
-				let nameRange = thisMatch.rangeAt(2)
-				let valueRange = thisMatch.rangeAt(5)
+                let nameRange = thisMatch.range(at: 2)
+                let valueRange = thisMatch.range(at: 5)
                 let styleName = styleString[nameRange.location..<nameRange.location + nameRange.length]
                 let valueString = styleString[valueRange.location..<valueRange.location + valueRange.length].trimWhitespace()
                 

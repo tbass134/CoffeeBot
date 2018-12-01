@@ -3,8 +3,8 @@ platform :ios, '11.0'
 
 def sharedPods
 	pod 'Alamofire'
-	#pod 'SwiftyJSON'
-	pod 'SwiftyJSON',  '~> 4.0.0-alpha.1'
+	pod 'SwiftyJSON'
+	#pod 'SwiftyJSON',  '~> 4.0.0-alpha.1'
 	pod 'Firebase'
 	pod 'Firebase/Database'
 	pod 'Firebase/Auth'
