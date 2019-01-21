@@ -17,6 +17,7 @@ load_dotenv(dotenv_path)
 
 GOOGLE_APPLICATION_CREDENTIALS = os.environ.get("PATH_TO_GOOGLE_APPLICATION_CREDENTIALS")
 cred = credentials.Certificate(GOOGLE_APPLICATION_CREDENTIALS)
+GEOCODER_API_KEY = os.environ.get('GEOCODER_API_KEY')
 csv_file = os.environ.get('csv_file')
 
 W_UNDERGROUND_BASE_URL = 'http://api.wunderground.com/api'
@@ -81,7 +82,7 @@ def loadData():
 
 def geocode(lat, lon):
 	try:
-		results = Geocoder.reverse_geocode(lat, lon)
+		results = Geocoder(GEOCODER_API_KEY).reverse_geocode(lat, lon)
 		time.sleep(5)
 		return results[0].postal_code
 	except Exception as e:
