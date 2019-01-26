@@ -270,8 +270,8 @@
 		4554C526214092A90078BC66 /* ApplicationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4554C524214090A90078BC66 /* ApplicationBuilder.swift */; };
 		45CCFD502132496700C60E7D /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CCFD4F2132496700C60E7D /* IntentHandler.swift */; };
 		45CCFD652132496700C60E7D /* SiriKit.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 45CCFD4D2132496700C60E7D /* SiriKit.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		9CE3E125DAB53D6A5094D01C /* Pods_CoffeeChooser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFDB8BE943F036B05EF8500B /* Pods_CoffeeChooser.framework */; };
-		CC13AEC270EC3D7C8816BB87 /* Pods_SiriKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44E1D52B988443FFC03F80C5 /* Pods_SiriKit.framework */; };
+		DE4DDF92A1DB7E9406E4A74E /* Pods_CoffeeChooser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ED18B668DD673ADC2D8453C /* Pods_CoffeeChooser.framework */; };
+		FA6E19B9E75B1CC360D0323E /* Pods_SiriKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 637D86DA4C2FC02C841C0DEE /* Pods_SiriKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -299,6 +299,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		17A62C5DB4C42A075704EA50 /* Pods-CoffeeChooser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeeChooser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoffeeChooser/Pods-CoffeeChooser.debug.xcconfig"; sourceTree = "<group>"; };
 		3C09B2E820E92A7000733933 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		3C09B2EA20E9364000733933 /* icons.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = icons.json; sourceTree = "<group>"; };
 		3C09B2ED20E9488C00733933 /* wi-thermometer-exterior.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "wi-thermometer-exterior.svg"; sourceTree = "<group>"; };
@@ -546,7 +547,6 @@
 		3CA4E6CD20DEBC6A00217292 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3CA4E6CF20DEC4E000217292 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		3CA4E6D320E4699200217292 /* UITabBar+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBar+extension.swift"; sourceTree = "<group>"; };
-		44E1D52B988443FFC03F80C5 /* Pods_SiriKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SiriKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		450B1BD82135FC580056C876 /* CoffeeBotIntent.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = CoffeeBotIntent.intentdefinition; sourceTree = "<group>"; };
 		450B1BDC213643A20056C876 /* CoffeeOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeOrder.swift; sourceTree = "<group>"; };
 		450B1BE021364E300056C876 /* GetCoffeeTypeIntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCoffeeTypeIntentHandler.swift; sourceTree = "<group>"; };
@@ -564,11 +564,11 @@
 		45CCFD5A2132496700C60E7D /* IntentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentViewController.swift; sourceTree = "<group>"; };
 		45CCFD5D2132496700C60E7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		45CCFD5F2132496700C60E7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7B45A9E55CF9BC391CE9B77B /* Pods-CoffeeChooser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeeChooser.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoffeeChooser/Pods-CoffeeChooser.debug.xcconfig"; sourceTree = "<group>"; };
-		80AAABB81DE56FAC05F89681 /* Pods-SiriKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SiriKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SiriKit/Pods-SiriKit.debug.xcconfig"; sourceTree = "<group>"; };
-		EF4FE456F7BCFA178EF76B4B /* Pods-CoffeeChooser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeeChooser.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoffeeChooser/Pods-CoffeeChooser.release.xcconfig"; sourceTree = "<group>"; };
-		EFDB8BE943F036B05EF8500B /* Pods_CoffeeChooser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoffeeChooser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F4D19ADC4F71A2AE55C32509 /* Pods-SiriKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SiriKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-SiriKit/Pods-SiriKit.release.xcconfig"; sourceTree = "<group>"; };
+		637D86DA4C2FC02C841C0DEE /* Pods_SiriKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SiriKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6ED18B668DD673ADC2D8453C /* Pods_CoffeeChooser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoffeeChooser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A73724EC86DDE2CC6929F7E1 /* Pods-SiriKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SiriKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-SiriKit/Pods-SiriKit.release.xcconfig"; sourceTree = "<group>"; };
+		F2F2795862440F03EE3EE414 /* Pods-CoffeeChooser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeeChooser.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoffeeChooser/Pods-CoffeeChooser.release.xcconfig"; sourceTree = "<group>"; };
+		FBD9DFC476F6186BB8E27B09 /* Pods-SiriKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SiriKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SiriKit/Pods-SiriKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -579,7 +579,7 @@
 				3C6DFC601ED86B3A002822D0 /* CoreLocation.framework in Frameworks */,
 				3C6DFC691EDA18E8002822D0 /* Crashlytics.framework in Frameworks */,
 				3C6DFC681EDA18E8002822D0 /* Fabric.framework in Frameworks */,
-				9CE3E125DAB53D6A5094D01C /* Pods_CoffeeChooser.framework in Frameworks */,
+				DE4DDF92A1DB7E9406E4A74E /* Pods_CoffeeChooser.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,24 +587,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC13AEC270EC3D7C8816BB87 /* Pods_SiriKit.framework in Frameworks */,
+				FA6E19B9E75B1CC360D0323E /* Pods_SiriKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		11F3C2AEEB9C1D0E4ABAEB08 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				7B45A9E55CF9BC391CE9B77B /* Pods-CoffeeChooser.debug.xcconfig */,
-				EF4FE456F7BCFA178EF76B4B /* Pods-CoffeeChooser.release.xcconfig */,
-				80AAABB81DE56FAC05F89681 /* Pods-SiriKit.debug.xcconfig */,
-				F4D19ADC4F71A2AE55C32509 /* Pods-SiriKit.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		3C09B2EC20E9488C00733933 /* svg */ = {
 			isa = PBXGroup;
 			children = (
@@ -840,8 +829,8 @@
 				45CCFD4E2132496700C60E7D /* SiriKit */,
 				45CCFD592132496700C60E7D /* SiriKitUI */,
 				3C6DFC4B1ED864E6002822D0 /* Products */,
-				11F3C2AEEB9C1D0E4ABAEB08 /* Pods */,
 				6AB02CEE087C1D6E2EE29AF1 /* Frameworks */,
+				D5E1AFF4017FC3C0CEE727CD /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -943,11 +932,22 @@
 			isa = PBXGroup;
 			children = (
 				3C6DFC5F1ED86B3A002822D0 /* CoreLocation.framework */,
-				EFDB8BE943F036B05EF8500B /* Pods_CoffeeChooser.framework */,
 				45CCFD572132496700C60E7D /* IntentsUI.framework */,
-				44E1D52B988443FFC03F80C5 /* Pods_SiriKit.framework */,
+				6ED18B668DD673ADC2D8453C /* Pods_CoffeeChooser.framework */,
+				637D86DA4C2FC02C841C0DEE /* Pods_SiriKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D5E1AFF4017FC3C0CEE727CD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				17A62C5DB4C42A075704EA50 /* Pods-CoffeeChooser.debug.xcconfig */,
+				F2F2795862440F03EE3EE414 /* Pods-CoffeeChooser.release.xcconfig */,
+				FBD9DFC476F6186BB8E27B09 /* Pods-SiriKit.debug.xcconfig */,
+				A73724EC86DDE2CC6929F7E1 /* Pods-SiriKit.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -957,13 +957,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3C6DFC5C1ED864E6002822D0 /* Build configuration list for PBXNativeTarget "CoffeeChooser" */;
 			buildPhases = (
-				81ED8803F6B792BAE63673FF /* [CP] Check Pods Manifest.lock */,
+				209704BD051920626CBBCC02 /* [CP] Check Pods Manifest.lock */,
 				3C6DFC461ED864E6002822D0 /* Sources */,
 				3C6DFC471ED864E6002822D0 /* Frameworks */,
 				3C6DFC481ED864E6002822D0 /* Resources */,
-				5E66EDBEDF00501F6EBC8FA0 /* [CP] Embed Pods Frameworks */,
 				3C6DFC651EDA18AE002822D0 /* ShellScript */,
 				45CCFD6C2132496700C60E7D /* Embed App Extensions */,
+				09EDBA9592DF56BA6BC1336A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -979,7 +979,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 45CCFD692132496700C60E7D /* Build configuration list for PBXNativeTarget "SiriKit" */;
 			buildPhases = (
-				C3D0E1E79A17C557D0ED3F34 /* [CP] Check Pods Manifest.lock */,
+				8569378EBD838572B2E00C2C /* [CP] Check Pods Manifest.lock */,
 				45CCFD492132496700C60E7D /* Sources */,
 				45CCFD4A2132496700C60E7D /* Frameworks */,
 				45CCFD4B2132496700C60E7D /* Resources */,
@@ -1302,20 +1302,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3C6DFC651EDA18AE002822D0 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "./Fabric.framework/run 8f6f8420d7e3cb5d9c96457762fff0e46714a8d7 fa17bf771dcb800d3b48fdde548266b21bd9829a612acdb49382af2a06f621a2 \n";
-		};
-		5E66EDBEDF00501F6EBC8FA0 /* [CP] Embed Pods Frameworks */ = {
+		09EDBA9592DF56BA6BC1336A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1349,7 +1336,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoffeeChooser/Pods-CoffeeChooser-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		81ED8803F6B792BAE63673FF /* [CP] Check Pods Manifest.lock */ = {
+		209704BD051920626CBBCC02 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1367,7 +1354,20 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C3D0E1E79A17C557D0ED3F34 /* [CP] Check Pods Manifest.lock */ = {
+		3C6DFC651EDA18AE002822D0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 8f6f8420d7e3cb5d9c96457762fff0e46714a8d7 fa17bf771dcb800d3b48fdde548266b21bd9829a612acdb49382af2a06f621a2 \n";
+		};
+		8569378EBD838572B2E00C2C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1588,7 +1588,7 @@
 		};
 		3C6DFC5D1ED864E6002822D0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7B45A9E55CF9BC391CE9B77B /* Pods-CoffeeChooser.debug.xcconfig */;
+			baseConfigurationReference = 17A62C5DB4C42A075704EA50 /* Pods-CoffeeChooser.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				APPLICATION_EXTENSION_API_ONLY = NO;
@@ -1617,7 +1617,7 @@
 		};
 		3C6DFC5E1ED864E6002822D0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EF4FE456F7BCFA178EF76B4B /* Pods-CoffeeChooser.release.xcconfig */;
+			baseConfigurationReference = F2F2795862440F03EE3EE414 /* Pods-CoffeeChooser.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				APPLICATION_EXTENSION_API_ONLY = NO;
@@ -1646,7 +1646,7 @@
 		};
 		45CCFD6A2132496700C60E7D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 80AAABB81DE56FAC05F89681 /* Pods-SiriKit.debug.xcconfig */;
+			baseConfigurationReference = FBD9DFC476F6186BB8E27B09 /* Pods-SiriKit.debug.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1676,7 +1676,7 @@
 		};
 		45CCFD6B2132496700C60E7D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F4D19ADC4F71A2AE55C32509 /* Pods-SiriKit.release.xcconfig */;
+			baseConfigurationReference = A73724EC86DDE2CC6929F7E1 /* Pods-SiriKit.release.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
