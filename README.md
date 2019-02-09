@@ -1,7 +1,5 @@
 # CoffeeBot
 
-Ever wanted to know if you should have hot coffee or iced?, let a machine answer that for you!
-
 The following project is a Machine Learning application that is able to predict if you(a coffee drinking user) should have iced coffee or hot coffee using daily weather data
 
 Over the past year, I have kept track of my coffee habits on a daily basis. 
